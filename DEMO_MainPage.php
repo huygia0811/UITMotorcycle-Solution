@@ -6,27 +6,13 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style_header.css">
+	<link rel="stylesheet" href="CSS/style_header.css">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-	<link rel="stylesheet" href="style_main.css">
-	<link rel="stylesheet" href="style_footer.css">
+	<link rel="stylesheet" href="CSS/style_main.css">
+	<link rel="stylesheet" href="CSS/style_footer.css">
 </head>
 
 <body class="body">
-<?php
-$SERVER = "localhost";
-$USERNAME = "root";
-$PASSWORD = "";
-$DBNAME = "UITMOTORCYCLE";
-$conn= mysqli_connect($SERVER, $USERNAME, $PASSWORD,$DBNAME);
-$strSQL = "SELECT MASP, TENSP from SANPHAM WHERE LOAIXE = '1';";
-$result = mysqli_query($conn, $strSQL);
-while ($row = mysqli_fetch_row($result)){
-	echo $row[0] . " " .$row[1] . "<br>";
-	};
-//đóng kết nối
-mysqli_close($conn);
-?>
 	<header>
 		<div class="fixed_nav">
 			<div class="menu_logo">
@@ -285,7 +271,7 @@ mysqli_close($conn);
 				</div>
 			</div>
 		</div>
-		<script src="javscr.js"></script>
+		<script src="JS/javscr.js"></script>
 	</main>
 	<footer>
 		<div class="footer_container">
