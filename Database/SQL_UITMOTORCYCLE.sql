@@ -1,44 +1,43 @@
-﻿
-CREATE TABLE KHACHHANG(
-	MAKH	char(4) not null,	
-	HOTEN	varchar(100),
-	DCHI	varchar(200),
-	SODT	varchar(12),
-	NGSINH	datetime,
-	NGDK	datetime,
-	SODU	int(10),
-	EMAIL	varchar(50),
-	constraint pk_kh primary key(MAKH)
-);
+﻿	CREATE TABLE KHACHHANG(
+		MAKH	char(4) not null,	
+		HOTEN	varchar(100),
+		DCHI	varchar(200),
+		SODT	varchar(12),
+		NGSINH	datetime,
+		NGDK	datetime,
+		SODU	int(10),
+		EMAIL	varchar(50),
+		constraint pk_kh primary key(MAKH)
+	);
 
-CREATE TABLE NHANVIEN(
-	MANV	char(4) not null,	
-	HOTEN	varchar(40),
-	SODT	varchar(20),	
-	constraint pk_nv primary key(MANV)
-);
+	CREATE TABLE NHANVIEN(
+		MANV	char(4) not null,	
+		HOTEN	varchar(40),
+		SODT	varchar(20),	
+		constraint pk_nv primary key(MANV)
+	);
 
-CREATE TABLE SANPHAM(
-	MASP	char(10) not null,
-	MAHANG char(4),
-	TENSP	varchar(200),
-	PHANPHOI varchar(20),
-	MAU varchar(20),
-	NAMSX	varchar(4),
-	GIA	int(20),
-	LOAIXE int(2),
-	URL_IMAGE varchar(200),
-	constraint pk_sp primary key(MASP)	
-);
+	CREATE TABLE SANPHAM(
+		MASP	char(10) not null,
+		MAHANG char(4),
+		TENSP	varchar(200),
+		PHANPHOI varchar(20),
+		MAU varchar(20),
+		NAMSX	varchar(4),
+		GIA	int(20),
+		LOAIXE int(2),
+		URL_IMAGE varchar(200),
+		constraint pk_sp primary key(MASP)	
+	);
 
-CREATE TABLE HOADON(
-	SOHD	int(10) not null,
-	NGHD 	datetime,
-	MAKH 	char(4),
-	MANV 	char(4),
-	TRIGIA	int(20),
-	constraint pk_hd primary key(SOHD)
-);
+	CREATE TABLE HOADON(
+		SOHD	int(10) not null,
+		NGHD 	datetime,
+		MAKH 	char(4),
+		MANV 	char(4),
+		TRIGIA	int(20),
+		constraint pk_hd primary key(SOHD)
+	);
 
    CREATE TABLE CTHD
    (
@@ -52,9 +51,18 @@ CREATE TABLE HOADON(
    (
 	MAHANG	char(4) not null,
 	TENHANG char(50),
+	URLIMAGE varchar(200),
 	constraint pk_hx primary key(MAHANG)
 	);
 
+	CREATE TABLE TAIKHOAN
+	(
+		MATK char(4) not null,
+		TENTK char(100),
+		MATKHAU char(100),
+		MAKH char(4),
+		constraint pk_tk primary key(MATK)
+	);
 
 ALTER TABLE HOADON ADD CONSTRAINT fk01_HD FOREIGN KEY(MAKH) REFERENCES KHACHHANG(MAKH);
 ALTER TABLE HOADON ADD CONSTRAINT fk02_HD FOREIGN KEY(MANV) REFERENCES NHANVIEN(MANV);
@@ -63,6 +71,7 @@ ALTER TABLE CTHD ADD CONSTRAINT fk01_CTHD FOREIGN KEY(SOHD) REFERENCES HOADON(SO
 ALTER TABLE CTHD ADD CONSTRAINT fk02_CTHD FOREIGN KEY(MASP) REFERENCES SANPHAM(MASP);
 
 ALTER TABLE SANPHAM ADD CONSTRAINT fk01_SANPHAM FOREIGN KEY(MAHANG) REFERENCES HANGXE(MAHANG);
+ALTER TABLE TAIKHOAN ADD CONSTRAINT fk01_TAIKHOAN FOREIGN KEY(MAKH) REFERENCES KHACHHANG(MAKH);
 
 
 insert into khachhang values('1','Nguyễn Gia Huy','6A đường 5 Linh Đông TP.Thủ Đức','0909776624','08/11/2002','02/11/2022',10000000, '20520203@gm.uit.edu.vn');
@@ -75,10 +84,10 @@ insert into nhanvien values('NV03','Nguyen Van B','997047382');
 insert into nhanvien values('NV04','Ngo Thanh Tuan','913758498');
 insert into nhanvien values('NV05','Nguyen Thi Truc Thanh','918590387');
 
-insert into hangxe values('1','Honda');
-insert into hangxe values('2','Suzuki');
-insert into hangxe values('3','Yamaha');
-insert into hangxe values('4','SYM');
+insert into hangxe values('1','Honda', 'Asset/DB-Picture/Honda.png');
+insert into hangxe values('2','Suzuki', 'Asset/DB-Picture/Suzuki.png');
+insert into hangxe values('3','Yamaha', 'Asset/DB-Picture/Yamaha.png');
+insert into hangxe values('4','SYM', 'Asset/DB-Picture/SYM.png');
 
 
 insert into sanpham values ( 'XPKL_1', '1', 'CB150R The Streetster', '150cc', 'Đen', '2022', '105500000', '3', 'Asset/DB-Picture/XPKL_1.png');
