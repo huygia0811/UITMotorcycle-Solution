@@ -82,6 +82,7 @@ include './function/get_ipaddress.php';
             {
               $username=$_POST['username'];
               $pwd=$_POST['pwd'];
+              $hash_pwd=password_hash($pwd,PASSWORD_DEFAULT);
               $phonenum=$_POST['phonenum'];
               $email=$_POST['email'];
               $ip = getIPAddress();  
@@ -102,7 +103,7 @@ include './function/get_ipaddress.php';
                 }
                 else
                 {
-                  $insert_query="insert into `taikhoan` (tendangnhap,matkhau,dienthoai,email,khachhang_ip) values('$username',' $pwd','$phonenum',' $email','$ip')";
+                  $insert_query="insert into `taikhoan` (tendangnhap,matkhau,dienthoai,email,khachhang_ip) values('$username',' $hash_pwd','$phonenum',' $email','$ip')";
                   $result_query=mysqli_query($con,$insert_query);
                   if($result_query)
                   {

@@ -73,6 +73,9 @@ include './includes/connect_database.php';
               {
                 $username=$_POST['username'];
                 $pwd=$_POST['pwd'];
+
+                
+
                 if( $username=='' or $pwd=='')
                 {
                   echo "<script>alert('Vui lòng nhập đầy đủ')</script>";
@@ -80,13 +83,28 @@ include './includes/connect_database.php';
                 }
                 else
                 {
-                  $check_query="select * from `taikhoan` where tendangnhap='$username' and matkhau='$pwd'";
+                  $check_query="select * from `taikhoan` where tendangnhap='$username' ";
                   $result_query=mysqli_query($con, $check_query);
                   $count_row=mysqli_num_rows( $result_query);  
+                 
+                  $row_data=mysqli_fetch_assoc( $result_query);
+                  $result_pasword=$row_data['matkhau'];
                   if($count_row==1)
                   {
-                    echo "<script>alert('Đăng nhập thành công')</script>";
-                    echo "<script>window.open('MainPage.php','_self')</script>";
+                    if(password_verify($pwd,$result_pasword))
+                    {
+                      echo "<script>alert('Đăng nhập thành công')</script>";
+                      echo "<script>window.open('MainPage.php','_self')</script>";
+                    }
+                    else
+                    {
+                      echo "<script>alert('Tên đăng nhập hoặt mật khẩu không chính xác')</script>";
+                      echo "<script>window.open('signin.php','_self')</script>";
+                      
+                    }
+                  
+               
+                   
                   }
                   else
                   {
