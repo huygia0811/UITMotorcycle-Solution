@@ -82,7 +82,12 @@ include './function/get_ipaddress.php';
             {
               $username=$_POST['username'];
               $pwd=$_POST['pwd'];
-              $hash_pwd=password_hash($pwd,PASSWORD_DEFAULT);
+
+              // $options = [
+              //   'cost' => 12,
+              // ];
+              // $hash_pwd= password_hash($pwd, PASSWORD_BCRYPT, $options);
+              $hash_pwd =password_hash($pwd,PASSWORD_DEFAULT );        
               $phonenum=$_POST['phonenum'];
               $email=$_POST['email'];
               $ip = getIPAddress();  
@@ -103,22 +108,17 @@ include './function/get_ipaddress.php';
                 }
                 else
                 {
-                  $insert_query="insert into `taikhoan` (tendangnhap,matkhau,dienthoai,email,khachhang_ip) values('$username',' $hash_pwd','$phonenum',' $email','$ip')";
+                  $insert_query="insert into `taikhoan` (tendangnhap,matkhau,dienthoai,email,khachhang_ip) values('$username','$hash_pwd','$phonenum',' $email','$ip')";
                   $result_query=mysqli_query($con,$insert_query);
                   if($result_query)
                   {
                     echo "<script>alert('Tạo tài khoản thành công')</script>";
                     echo "<script>window.open('signin.php','_self')</script>";
                   }
-                }
-                
+                } 
               }
-
             }
-
             ?>
-             
-      
             <span class="nav_signin"
               >Bạn đã có tài khoản?
               <a class="signin" href="./signin.PHP">Đăng nhập ngay</a></span

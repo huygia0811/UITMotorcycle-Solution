@@ -73,9 +73,6 @@ include './includes/connect_database.php';
               {
                 $username=$_POST['username'];
                 $pwd=$_POST['pwd'];
-
-                
-
                 if( $username=='' or $pwd=='')
                 {
                   echo "<script>alert('Vui lòng nhập đầy đủ')</script>";
@@ -86,12 +83,15 @@ include './includes/connect_database.php';
                   $check_query="select * from `taikhoan` where tendangnhap='$username' ";
                   $result_query=mysqli_query($con, $check_query);
                   $count_row=mysqli_num_rows( $result_query);  
-                 
                   $row_data=mysqli_fetch_assoc( $result_query);
-                  $result_pasword=$row_data['matkhau'];
+                  // $kq=var_dump($row_data['matkhau']);
+                  // echo $kq;
+                  //echo $count_row;
+                  // $kq=password_verify( $pwd,$row_data['matkhau']);
+                  // echo var_dump($kq);
                   if($count_row==1)
                   {
-                    if(password_verify($pwd,$result_pasword))
+                    if(password_verify( $pwd,$row_data['matkhau']))
                     {
                       echo "<script>alert('Đăng nhập thành công')</script>";
                       echo "<script>window.open('MainPage.php','_self')</script>";
@@ -100,19 +100,14 @@ include './includes/connect_database.php';
                     {
                       echo "<script>alert('Tên đăng nhập hoặt mật khẩu không chính xác')</script>";
                       echo "<script>window.open('signin.php','_self')</script>";
-                      
                     }
-                  
-               
-                   
                   }
                   else
                   {
                     echo "<script>alert('Tên đăng nhập hoặt mật khẩu không chính xác')</script>";
                     echo "<script>window.open('signin.php','_self')</script>";
                   }
-                }
-                
+                 }
               }
           ?>
         </div>
