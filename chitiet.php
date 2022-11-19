@@ -27,48 +27,9 @@ include './includes/connect_database.php';
 
 <body>
 
-  <nav class="container navbar navbar-expand-lg bg-info ">
-    <div class="container-fluid ">
-      <img src="./Asset/Picture/logo.jpg" alt="" style="width: 7%; height: 7%; object-fit: contain;">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="">Trang chủ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Sản phẩm</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">Liên hệ</a>
-          </li>
-          <!-- tượng trưng -->
-          <li class="nav-item">
-            <a class="nav-link" href="#">Tài Khoản</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./signin.php">Đăng nhập</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./signup.php">Đăng ký</a>
-          </li>
-          <!--  -->
-          <li class="nav-item">
-            <a class="nav-link" href=""><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
-          </li>
-
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" name="search_data" type="search" placeholder="Search" aria-label="Search">
-          <!-- <button class="btn btn-outline-light" type="submit">Search</button> -->
-          <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
-        </form>
-      </div>
-    </div>
-  </nav>
+  <?php
+  include('header.php');
+  ?>
 
 
   <!-- body -->
@@ -90,7 +51,7 @@ include './includes/connect_database.php';
         
         echo '<h3>'.$row[5].'<h3>';
         echo '<h4>'.$row[9].' VNĐ<h4>';
-        echo '<div class="d-flex flex-row"><img src="'.$row[2].'" alt="" style="width: 100px; height:auto"><h4 class="m-auto">'.$row[1].'</h4></div>';
+        echo '<div class="d-flex flex-row justify-content-star border my-2"><img src="'.$row[2].'" alt="" style="width: 100px; height:100%; object-fit:contain;"><h4  class="d-flex flex-col align-items-center">'.$row[1].'</h4></div>';
 
         $text = array ("Năm sản xuất:", "Phân phối:", "Màu sắc:");
         $text2 = array($row[8], $row[6], $row[7]);
@@ -108,56 +69,9 @@ include './includes/connect_database.php';
     </div>
   </div>
   <!-- footer -->
-  <div class="container bg-light ">
-
-    <div class="row ">
-      <div class="col-4  mx-auto">
-        <h5>Công ty TNHH OKXE Việt Nam</h5>
-        <div>
-
-          <p><span>Hà Nội: </span>Tòa nhà Sao Mai - Tầng 11, số 19 Lê Văn Lương, P. Nhân Chính, Q. Thanh Xuân. </p>
-          <p>Điện thoại: (024) 73 077 889</p>
-        </div>
-        <div class="HCM">
-          <p><span>Hồ Chí Minh: </span>Tòa nhà TTC - Tầng 17, số 253 Hoàng Văn Thụ, P.2, Q. Tân Bình.
-          </p>
-          <p>Điện thoại: (028) 73 057 057</p>
-        </div>
-
-      </div>
-      <div class="col-4 mx-auto">
-        <h6>HỖ TRỢ KHÁCH HÀNG</h6>
-        <div>
-
-          <p> Hổ trợ <br>
-            Hotline: 1900 636 135 (9:00 - 21:00)</p>
-          <p>Email: support@okxe.vn</p>
-        </div>
-        <div class="khieu_nai">
-          <p><a href="#">Chính sách giải quyết khiếu nại</a></p>
-          <p><a href="#">Chính sách bảo mật</a> </p>
-          <p><a href="#">Quy định đăng tin</a> </p>
-        </div>
-
-      </div>
-      <div class="col-4 mx-auto">
-        <div>
-          <h6>VỀ CHÚNG TÔI</h6>
-          <div class="intro">
-            <p><a href="#">Giới thiệu</a></p>
-            <p><a href="#">Điều khoản sử dụng</a></p>
-            <p><a href="#">Quy chế hoạt động</a></p>
-            <p><a href="#">Trung tâm khách hàng</a></p>
-            <p><a href="#">Hỏi đáp (FAQ)</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-footer">
-      <p>Số ĐKKD: 0108473996 - Ngày cấp 16/10/2018, được sửa đổi lần 4 ngày 19/06/2020 - Cấp bởi: Sở Kế hoạch & Đầu tư TP Hà Nội</p>
-    </div>
-  </div>
+  <?php
+  include('footer.php');
+  ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 
