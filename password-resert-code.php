@@ -38,11 +38,12 @@ $mail = new PHPMailer(true);
 
  //Content
  $mail->isHTML(true);                                  //Set email format to HTML
- $mail->Subject = 'Resert password';
+ $mail->Subject = 'Resert pasjknjknsword';
  
 $mail_tempalde="
+<h5>Thông báo</h5>  
 <p>Bạn đã yêu cầu resert password làm ơn click vào link bên dưới để resert password</P>  
-<a href='http://localhost/Main_Do_An_IS207/UITMotorcycle-Solution/password_change.php?token=$token&email=$get_email'>cick hear to resset password</a>";
+<a href='http://localhost/UITMotorcycle-Solution/password_change.php?token=$token&email=$get_email'>cick hear to resset password</a>";
 $mail->Body=$mail_tempalde;
  $mail->send();
 }

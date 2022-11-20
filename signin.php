@@ -56,7 +56,7 @@ include './includes/connect_database.php';
                 name="pwd"
               />
               <div class="forget_pwd">
-                <a href="#">Quên mật khẩu?</a>
+                <a href="./password_resert.php">Quên mật khẩu?</a>
               </div>
             </div>
            

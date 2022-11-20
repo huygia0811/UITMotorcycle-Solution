@@ -18,7 +18,7 @@
                 </li>
                 <!-- tượng trưng -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Tài Khoản</a>
+                    <a class="nav-link" href="./user.php">Tài Khoản</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./signin.php">Đăng nhập</a>
