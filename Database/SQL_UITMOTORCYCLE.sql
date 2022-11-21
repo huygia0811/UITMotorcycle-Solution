@@ -30,7 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `cthd` (
   `SOHD` int(10) NOT NULL,
   `MASP` char(10) NOT NULL,
-  `SL` int(5) DEFAULT NULL
+  `SL` int(5) DEFAULT NULL,
+  `TRANGTHAI` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -82,17 +83,13 @@ CREATE TABLE `khachhang` (
   `SODT` varchar(12) DEFAULT NULL,
   `NGSINH` datetime DEFAULT NULL,
   `NGDK` datetime DEFAULT NULL,
-  `SODU` int(10) DEFAULT NULL,
-  `EMAIL` varchar(50) DEFAULT NULL
+  `SODU` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `khachhang`
 --
 
-INSERT INTO `khachhang` (`MAKH`, `HOTEN`, `DCHI`, `SODT`, `NGSINH`, `NGDK`, `SODU`, `EMAIL`) VALUES
-('1', 'Nguyễn Gia Huy', '6A đường 5 Linh Đông TP.Thủ Đức', '0909776624', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 10000000, '20520203@gm.uit.edu.vn'),
-('2', 'Nguyễn Gia Huy', '6A đường 5 Linh Đông TP.Thủ Đức', '0909776624', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 10000000, '20520203@gm.uit.edu.vn');
 
 -- --------------------------------------------------------
 
@@ -259,7 +256,7 @@ CREATE TABLE `taikhoan` (
   `khachhang_id` int(11) NOT NULL,
   `tendangnhap` varchar(100) NOT NULL,
   `matkhau` varchar(100) NOT NULL,
-  `dienthoai` varchar(100) NOT NULL,
+  `MAKH` char(4) NOT NULL,
   `email` varchar(100) NOT NULL,
   `khachhang_ip` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -268,8 +265,7 @@ CREATE TABLE `taikhoan` (
 -- Dumping data for table `taikhoan`
 --
 
-INSERT INTO `taikhoan` (`khachhang_id`, `tendangnhap`, `matkhau`, `dienthoai`, `email`, `khachhang_ip`) VALUES
-(1, 'vulam', ' 622002', '0328921230', ' 20521521@gm.uit.edu.vn', '::1');
+
 
 --
 -- Indexes for dumped tables
@@ -359,3 +355,5 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+ALTER TABLE `taikhoan` ADD CONSTRAINT `fk01_TK` FOREIGN KEY (`MAKH`) REFERENCES `khachhang` (`MAKH`)
