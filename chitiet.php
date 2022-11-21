@@ -37,18 +37,14 @@ include './includes/connect_database.php';
     <div class="row ">
       <div class="col-12 col-sm-5">
         <?php 
-        $select_query="SELECT * FROM `hangxe`, `sanpham` WHERE hangxe.MAHANG=sanpham.MAHANG AND MASP = 'XPKL_1'";
+        $select_query="SELECT * FROM `hangxe`, `sanpham` WHERE hangxe.MAHANG=sanpham.MAHANG AND MASP = 'XS_1'";
         $select_result=mysqli_query($con, $select_query);
         $row = mysqli_fetch_row($select_result);
         echo '<img src="'.$row[11].'" alt="" style="width: 100%; height: 100%; object-fit: contain;">';
         ?>
       </div>
       <div class="col-12 col-sm-7 bg-secondary">
-        <?php
-        $select_query="SELECT * FROM `hangxe`, `sanpham` WHERE hangxe.MAHANG=sanpham.MAHANG AND MASP = 'XPKL_1'";
-        $select_result=mysqli_query($con, $select_query);
-        $row = mysqli_fetch_row($select_result);
-        
+        <?php        
         echo '<h3>'.$row[5].'<h3>';
         echo '<h4>'.$row[9].' VNĐ<h4>';
         echo '<div class="d-flex flex-row justify-content-star border my-2"><img src="'.$row[2].'" alt="" style="width: 100px; height:100%; object-fit:contain;"><h4  class="d-flex flex-col align-items-center">'.$row[1].'</h4></div>';
