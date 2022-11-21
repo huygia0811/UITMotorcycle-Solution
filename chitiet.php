@@ -37,7 +37,7 @@ include './includes/connect_database.php';
     <div class="row ">
       <div class="col-12 col-sm-5">
         <?php 
-        $select_query="SELECT * FROM `hangxe`, `sanpham` WHERE hangxe.MAHANG=sanpham.MAHANG AND MASP = 'XS_1'";
+        $select_query="SELECT * FROM `hangxe`, `sanpham` WHERE hangxe.MAHANG=sanpham.MAHANG AND MASP = '2'";
         $select_result=mysqli_query($con, $select_query);
         $row = mysqli_fetch_row($select_result);
         echo '<img src="'.$row[11].'" alt="" style="width: 100%; height: 100%; object-fit: contain;">';
