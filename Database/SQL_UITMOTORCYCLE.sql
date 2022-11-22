@@ -120,7 +120,7 @@ CREATE TABLE `sanpham` (
   `MASP` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `MAHANG` int(10) DEFAULT NULL,
   `TENSP` varchar(200) DEFAULT NULL,
-  `PHANPHOI` varchar(20) DEFAULT NULL,
+  `PHANKHOI` varchar(20) DEFAULT NULL,
   `MAU` varchar(20) DEFAULT NULL,
   `NAMSX` varchar(4) DEFAULT NULL,
   `GIA` int(20) DEFAULT NULL,
@@ -132,7 +132,7 @@ CREATE TABLE `sanpham` (
 -- Dumping data for table `sanpham`
 --
 
-INSERT INTO `sanpham` (`MAHANG`, `TENSP`, `PHANPHOI`, `MAU`, `NAMSX`, `GIA`, `LOAIXE`, `URL_IMAGE`) VALUES
+INSERT INTO `sanpham` (`MAHANG`, `TENSP`, `PHANKHOI`, `MAU`, `NAMSX`, `GIA`, `LOAIXE`, `URL_IMAGE`) VALUES
 ('1', 'CB150R The Streetster', '150cc', 'Đen', '2022', 105500000, 3, 'Asset/DB-Picture/XPKL_1.png'),
 ('1', 'Gold Wing', '1833cc', 'Đen', '2022', 123100000, 3, 'Asset/DB-Picture/XPKL_10.png'),
 ('1', 'Gold Wing', '1833cc', 'Trắng', '2022', 123100000, 3, 'Asset/DB-Picture/XPKL_11.png'),
