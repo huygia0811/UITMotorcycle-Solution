@@ -1,6 +1,7 @@
 <?php
 include './includes/connect_database.php';
 include './function/get_ipaddress.php';
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -78,6 +79,17 @@ include './function/get_ipaddress.php';
             </div>
             <input type="submit" value="Đăng Ký" name="insert_user" class="btn btn-primary signup_btn">
             <?php
+              if(isset($_SESSION['status']))
+              {
+                ?>
+                <div class="alert alert-success text-center">
+                  <h5><?= $_SESSION['status']?></h5>
+                </div>
+                <?php
+                unset($_SESSION['status']);
+              }
+            ?>
+            <?php
             if(isset($_POST['insert_user']))
             {
               $username=$_POST['username'];
@@ -91,29 +103,39 @@ include './function/get_ipaddress.php';
               $phonenum=$_POST['phonenum'];
               $email=mysqli_real_escape_string($con,$_POST['email']) ;
               $ip = getIPAddress();  
-              if($username=='' or  $pwd=='' or  $phonenum=='' or $email=='')
+              if($username=='' or  $pwd=='' or $email=='')
               {
-                echo "<script>alert('Vui lòng điền đầy đủ thông tin')</script>";
-                echo "<script>window.open('signup.php','_self')</script>";
+               
+                $_SESSION['status']="Vui lòng điền đầy đủ thông tin";
+                header("Location:signup.php");
+                exit(0);
               }
               else
               {
                 $select_query="select * from `taikhoan` where tendangnhap='$username'";
+               
                 $select_result=mysqli_query($con, $select_query);
                 $count_row=mysqli_num_rows($select_result);
+               
                 if($count_row>0)
                 {
-                  echo "<script>alert('Tài khoản đã có người sử dụng')</script>";
-                  echo "<script>window.open('signup.php','_self')</script>";
+                 
+                  $_SESSION['status']="Tài khoản đã tồn tại";
+                  header("Location:signup.php");
+                  exit(0);
                 }
                 else
                 {
-                  $insert_query="insert into `taikhoan` (tendangnhap,matkhau,dienthoai,email,khachhang_ip) values('$username','$hash_pwd','$phonenum','$email','$ip')";
+                  $insert_query="insert into `taikhoan`(tendangnhap,matkhau,dienthoai,email,khachhang_ip) values('$username','$hash_pwd','$phonenum','$email','$ip')";
                   $result_query=mysqli_query($con,$insert_query);
+                  $test=var_dump($result_query);
+                  echo $test;
                   if($result_query)
                   {
-                    echo "<script>alert('Tạo tài khoản thành công')</script>";
-                    echo "<script>window.open('signin.php','_self')</script>";
+                   
+                    $_SESSION['status']="Tạo tài khoản thành công";
+                    header("Location:signin.php");
+                    exit(0);
                   }
                 } 
               }

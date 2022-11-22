@@ -51,11 +51,8 @@ $mail->Body=$mail_tempalde;
 if(isset($_POST['password_resert_link']))
 {
     $email=mysqli_real_escape_string($con, $_POST['email']);
-    
-    //var_dump($email);
     $token=md5(rand());
     $check_email="select * from `taikhoan` where email='$email' limit 1";
-    //var_dump($check_email);
     $check_email_query=mysqli_query($con,$check_email);
   var_dump( mysqli_num_rows($check_email_query));
     if(mysqli_num_rows($check_email_query)>0)
@@ -69,30 +66,31 @@ if(isset($_POST['password_resert_link']))
         if($update_password_run)
         {
             send_password_reset($get_name,$get_email,$token);
-            // $_SESSION['status']="Chúng tôi đã gửi mật khẩu đến email của bạn";
-            // header("Location:password_resert.php");
-            // exit(0);
-            echo "<a href='https://mail.google.com/'>click to gmail</a>";
+            $_SESSION['status']="Chúng tôi đã gửi mật khẩu đến email của bạn";
+            header("Location:password_resert.php");
+            exit(0);
+            //echo "<a href='https://mail.google.com/'>click to gmail</a>";
         }
         else
         {
-            // $_SESSION['status']="Đã có lỗi xảy ra";
-            // header("Location:password_resert.php");
-            // exit(0);
-            echo "co loi";
+            $_SESSION['status']="Đã có lỗi xảy ra";
+            header("Location:password_resert.php");
+            exit(0);
+           // echo "co loi";
         }
     }
     else
     {
-        // $_SESSION['status']="Không thể tìm thấy email";
-        // header("Location:password_resert.php");
-        // exit(0);
-        echo "k tim thay email";
+        $_SESSION['status']="Không thể tìm thấy email";
+        header("Location:password_resert.php");
+        exit(0);
+       // echo "k tim thay email";
     }
 }
 
 if(isset($_POST['password_update']))
 {
+    
     $email=mysqli_real_escape_string($con, $_POST['email']);
     $new_password=mysqli_real_escape_string($con, $_POST['new_password']);
     $confirm_password=mysqli_real_escape_string($con, $_POST['confirm_password']);
@@ -112,31 +110,46 @@ if(isset($_POST['password_update']))
                     $update_password_run=mysqli_query($con, $updatde_password);
                     if($update_password_run)
                     {
-                        echo "thành công";
+                       // echo "thành công";
+                        $_SESSION['status']="Thành công";
+                        header("Location:signin.php");
+                        exit(0);
                     }
                     else
                     {
-                        echo "có lỗi ???";
+                       // echo "có lỗi ???";
+                        $_SESSION['status']="Đã có lỗi xảy ra";
+                        header("Location:password_change.php");
+                        exit(0);
                     }
                 }
                 else
                 {
-                    echo "mật khẩu không khớp";
+                   // echo "mật khẩu không khớp";
+                    $_SESSION['status']="Mật khẩu không khớp";
+                    header("Location:password_change.php");
+                    exit(0);
                 }
             }
             else
             {
-                echo "không dc";
+                $_SESSION['status']="Đã có lỗi xảy ra";
+                header("Location:password_change.php");
+                exit(0);
             }
         }
         else
         {
-            echo "không tồn tại";
+            $_SESSION['status']="Đã có lỗi xảy ra";
+            header("Location:password_change.php");
+            exit(0);
         }
     }
     else
     {
-        echo "khôn tồn tại";
+        $_SESSION['status']="Đã có lỗi xảy ra";
+        header("Location:password_change.php");
+        exit(0);
     }
 }
 ?>

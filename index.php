@@ -1,3 +1,7 @@
+<?php
+include('./includes/connect_database.php');
+include('./function/common_function.php');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -19,6 +23,11 @@
     .container {
       max-width: 1080px !important;
     }
+    .card-img-top{
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+    }
   </style>
 </head>
 
@@ -29,6 +38,7 @@
   <!-- Header -->
   <?php
   include('./header.php');
+  cart();
   ?>
 
   <div class="container ">
@@ -92,39 +102,20 @@
     </div>
     <!-- sản phẩn -->
     <div class="row ">
-      <div class="col-6 col-md-4  mb-2 ">
+      <!-- <div class="col-6 col-md-4  mb-2 ">
         <div class="card">
           <img src="./Asset/DB-Picture/XPKL_2.png" class="card-img-top" alt="$product_image3">
           <div class="card-body">
             <h5 class="card-title">name1</h5>
             <p class="card-text">giá</p>
-            <a href="#" class="btn btn-info">Add to cart</a>
+            <a href="index.php?add_to_card= class="btn btn-info">Add to cart</a>
             <a href="#" class="btn btn-secondary">View more</a>
           </div>
         </div>
-      </div>
-      <div class="col-6 col-md-4  mb-2">
-        <div class="card">
-          <img src="./Asset/DB-Picture/XPKL_2.png" class="card-img-top" alt="$product_image3">
-          <div class="card-body">
-            <h5 class="card-title">name1</h5>
-            <p class="card-text">giá</p>
-            <a href="#" class="btn btn-info">Add to cart</a>
-            <a href="#" class="btn btn-secondary">View more</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4  mb-2">
-        <div class="card">
-          <img src="./Asset/DB-Picture/XPKL_2.png" class="card-img-top" alt="$product_image3">
-          <div class="card-body">
-            <h5 class="card-title">name1</h5>
-            <p class="card-text">giá</p>
-            <a href="#" class="btn btn-info">Add to cart</a>
-            <a href="#" class="btn btn-secondary">View more</a>
-          </div>
-        </div>
-      </div>
+      </div> -->
+      <?php 
+      showproduct();
+      ?>
     </div>
   </div>
 <!-- footer -->
