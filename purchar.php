@@ -4,7 +4,7 @@
             <a href="user.php?purchar?type=<?php echo" note: id=??"  ?>">Tất cả</a>
         </div>
         <div >
-            <a href="user.php?purchar?type=<?php  ?>">Chờ xác nhận</a>
+            <a href="user.php?purchar?type=<?php echo "1"  ?>">Chờ xác nhận</a>
         </div>
         <div >
             <a href="user.php?purchar?type=<?php  ?>">Đang giao</a>
