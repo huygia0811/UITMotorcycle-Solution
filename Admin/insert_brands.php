@@ -3,7 +3,7 @@ include('../includes/connect_database.php');
 if(isset($_POST['insert_brand']))
 {
     $brand_name=$_POST['brand_name'];
-    $select_query="select * from `hangxe` where TENHANG= '".$brand_name."'";
+    $select_query="select * from `hangxe` where LOWER(TENHANG)= LOWER('".$brand_name."')";
     $result_query=mysqli_query($con,$select_query);
     $number=mysqli_num_rows($result_query);
     if($number>0)
@@ -12,7 +12,7 @@ if(isset($_POST['insert_brand']))
     }
     else
     {
-        $inser_query="insert into `hangxe` (TENHANG) value(' $brand_name')";
+        $inser_query="insert into `hangxe` (TENHANG) values('".$brand_name."')";
         $result_insert=mysqli_query($con, $inser_query);
         if($result_insert)
         {

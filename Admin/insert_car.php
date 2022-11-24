@@ -24,29 +24,23 @@ if(isset($_POST['insert_product']))
 
 
     // insert image
-    $product_image1=$_FILES['product_image1']['name'];
-    $product_image2=$_FILES['product_image2']['name'];
-    $product_image3=$_FILES['product_image3']['name'];
+    $product_image1=$_FILES['product_image']['name'];
 
     //link image
-    $temp_image1=$_FILES['product_image1']['tmp_name'];
-    $temp_image2=$_FILES['product_image2']['tmp_name'];
-    $temp_image3=$_FILES['product_image3']['tmp_name'];
+    $temp_image1=$_FILES['product_image']['tmp_name'];
 
-    if($product_name=='' or  $product_meter=='' or $product_color=='' or $product_year=='' or  $product_price=='' or  $product_image1=='' or  $product_image2=='' or  $product_image3=='' or $product_brand_id=='' or $product_category_id=='' or $product_type=='')
+    if($product_name=='' or  $product_meter=='' or $product_color=='' or $product_year=='' or  $product_price=='' or  $product_image1=='' or $product_brand_id=='' or $product_type=='')
     {
         echo "<script>alert('Vui lòng nhập đầy đủ ') </'script>";
         exit();
     }
     else
     {
-        move_uploaded_file( $temp_image1,'Asset/DB-PicturePicture/'.$product_image1);
-        move_uploaded_file( $temp_image2,'Asset/DB-PicturePicture/'.$product_image2);
-        move_uploaded_file( $temp_image3,'Asset/DB-PicturePicture/'.$product_image3);
+        move_uploaded_file( $temp_image,'Asset/DB-Picture/Picture/'.$product_image1);
 
         //insert
         $insert_product="insert into `sanpham`(TENSP,MAU,NAMSX,PHANKHOI,MAHANG,LOAIXE,GIA,product_img1,product_img2,product_img3)
-        values('$product_name','$product_color',' $product_year', ' $product_meter', '$product_brand_id','$product_type', $product_price',' $product_image1',' $product_image2','$product_image3')";
+        values('$product_name','$product_color',' $product_year', ' $product_meter', '$product_brand_id','$product_type', $product_price',' $product_image1')";
         $result_query=mysqli_query($con, $insert_product);
         if($result_query)
         {
@@ -79,47 +73,55 @@ if(isset($_POST['insert_product']))
     </head>
 
     <body>
-        <div class="bg-light">
-            <div class="container mt-3">
-                <h1 class="text-center">Thêm sản phẩm</h1>
-                <form action="" method="post" enctype="multipart/form-data">
+        <div class="container mt-3">
+            <h1 class="text-center">Thêm sản phẩm</h1>
+            <form action="" method="post" enctype="multipart/form-data">
 
-                    <div class="form-outline mb-4 w-50 m-auto">
-                        <label for="product_name" class="form-label">Tên sản phẩm</label>
-                        <input type="text" name="product_name" class="form-control" placeholder="Nhập tên sản phẩm"
-                            autocomplete="off" required="required">
-                    </div>
-                    <div class="form-outline mb-4 w-50 m-auto">
-                        <label for="product_color" class="form-label">Màu</label>
-                        <input type="text" name="product_color" class="form-control" placeholder="Nhập màu sản phẩm"
-                            autocomplete="off" required="required">
-                    </div>
-                    <div class="form-outline mb-4 w-50 m-auto">
-                        <label for="product_year" class="form-label">Năm sản xuất</label>
-                        <input type="text" name="product_year" class="form-control" placeholder="Nhập năm sản xuất"
-                            autocomplete="off" required="required">
-                    </div>
-                    <div class="form-outline mb-4 w-50 m-auto">
-                        <label for="product_meter" class="form-label">Phân khối</label>
-                        <input type="text" name="product_meter" class="form-control" placeholder="Nhập phân khối xe"
-                            autocomplete="off" required="required">
-                    </div>
-                    <div class="form-outline mb-4 w-50 m-auto">
-                        <label for="product_price" class="form-label">Giá sản phẩm</label>
-                        <input type="text" name="product_price" class="form-control" placeholder="Nhập giá sản phẩm"
-                            autocomplete="off" required="required">
-                    </div>
-                    <div class="form-outline mb-4 w-50 m-auto">
-                        <select name="product_type" id="" class="form-select">
-                            <option value="2">Xe tay ga</option>
-                            <option value="1">Xe số</option>
-                            <option value="3">Xe phân khối lớn</option>
-                        </select>
-                    </div>
-                    <div class="form-outline mb-4 w-50 m-auto">
-                        <select name="product_brand" id="" class="form-select">
-                            <option value="">Hãng xe</option>
-                            <?php
+                <div class="form-outline mb-4 w-50 m-auto">
+                    <label for="product_name" class="form-label">Tên sản phẩm</label>
+                    <input type="text" name="product_name" class="form-control" placeholder="Nhập tên sản phẩm"
+                        autocomplete="off" required="required">
+                </div>
+                <div class="form-outline mb-4 w-50 m-auto">
+                    <label for="product_color" class="form-label">Màu</label>
+                    <input type="text" name="product_color" class="form-control" placeholder="Nhập màu sản phẩm"
+                        autocomplete="off" required="required">
+                </div>
+                <div class="form-outline mb-4 w-50 m-auto">
+                    <label for="product_year" class="form-label">Năm sản xuất</label>
+                    <input type="text" name="product_year" class="form-control" placeholder="Nhập năm sản xuất"
+                        autocomplete="off" required="required">
+                </div>
+                <div class="form-outline mb-4 w-50 m-auto">
+                    <label for="product_meter" class="form-label">Phân khối</label>
+                    <input type="text" name="product_meter" class="form-control" placeholder="Nhập phân khối xe"
+                        autocomplete="off" required="required">
+                </div>
+                <div class="form-outline mb-4 w-50 m-auto">
+                    <label for="product_price" class="form-label">Giá sản phẩm</label>
+                    <input type="text" name="product_price" class="form-control" placeholder="Nhập giá sản phẩm"
+                        autocomplete="off" required="required">
+                </div>
+                <div class="form-outline mb-4 w-50 m-auto">
+                    <select name="product_type" id="" class="form-select">
+                        <option value="">Loại xe</option>
+                        <?php
+                            $select_type="select * FROM `loaixe`";
+                            $type_query=mysqli_query($con, $select_type);
+                            while($row=mysqli_fetch_assoc($type_query))
+                            {
+                                $type_name=$row['TENLOAI'];
+                                $type_id=$row['LOAIXE'];
+
+                                echo"<option value='$type_id'>$type_name</option>";
+                            }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-outline mb-4 w-50 m-auto">
+                    <select name="product_brand" id="" class="form-select">
+                        <option value="">Hãng xe</option>
+                        <?php
                             $select_brand="select * from `hangxe`";
                             $brand_query=mysqli_query($con, $select_brand);
                             while($row=mysqli_fetch_assoc($brand_query))
@@ -130,26 +132,25 @@ if(isset($_POST['insert_product']))
                                 echo"<option value='$brand_id'>$brand_name</option>";
                             }
                         ?>
-                        </select>
-                    </div>
-                    <div class="form-outline mb-4 w-50 m-auto">
-                        <input type="file" name="product_image1" id="product_image1" class="form-control"
-                            required="required">
-                    </div>
-                    <div class="form-outline mb-4 w-50 m-auto">
-                        <input type="file" name="product_image2" id="product_image2" class="form-control"
-                            required="required">
-                    </div>
-                    <div class="form-outline mb-4 w-50 m-auto">
-                        <input type="file" name="product_image3" id="product_image3" class="form-control"
-                            required="required">
-                    </div>
-                    <div class="form-outline mb-4 w-50 m-auto">
-                        <input type="submit" name="insert_product" value="Thêm sản phẩm" class="btn btn-info mb-3 px-3"
-                            required="required">
-                    </div>
-                </form>
-            </div>
+                    </select>
+                </div>
+                <div class="form-outline mb-4 w-50 m-auto">
+                    <input type="file" name="product_image1" id="product_image1" class="form-control"
+                        required="required">
+                </div>
+                <div class="form-outline mb-4 w-50 m-auto">
+                    <input type="file" name="product_image2" id="product_image2" class="form-control"
+                        required="required">
+                </div>
+                <div class="form-outline mb-4 w-50 m-auto">
+                    <input type="file" name="product_image3" id="product_image3" class="form-control"
+                        required="required">
+                </div>
+                <div class="form-outline mb-4 w-50 m-auto">
+                    <input type="submit" name="insert_product" value="Thêm sản phẩm" class="btn btn-info mb-3 px-3"
+                        required="required">
+                </div>
+            </form>
         </div>
 
         <!-- JavaScript Bundle with Popper -->

@@ -108,7 +108,25 @@ CREATE TABLE `nhanvien` (
 -- Dumping data for table `nhanvien`
 --
 
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `loaixe`
+--
+
+CREATE TABLE `loaixe`(
+  `LOAIXE` int(2) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `TENLOAI` varchar(20) DEFAULT NULL,
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `loaixe`
+--
+
+INSERT INTO `loaixe` (`TENLOAI`) VALUES 
+('Xe số');
+('Xe tay ga');
+('Xe phân khối lớn');
 
 -- --------------------------------------------------------
 
@@ -283,6 +301,10 @@ ALTER TABLE `hoadon`
 ALTER TABLE `sanpham`
   ADD CONSTRAINT `fk01_SANPHAM` FOREIGN KEY (`MAHANG`) REFERENCES `hangxe` (`MAHANG`);
 COMMIT;
+
+ALTER TABLE `sanpham`
+  ADD CONSTRAINT `fk02_LOAIXE` FOREIGN KEY (`LOAIXE`) REFERENCES `loaixe` (`LOAIXE`);
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

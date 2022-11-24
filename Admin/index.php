@@ -15,33 +15,56 @@
             integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- css -->
+        <link rel="stylesheet" href="../CSS/admin.css" />
     </head>
 
     <body>
         <div class="row">
-            <div class="col-md-12 bg-secondary p-3 d-flex align-items-center">
-                <div class="px-5">
-                    <a href="#"><img src="../image/logo.png" alt="" class="admin_image"></a>
-                    <p class="text-light text-center">Tên admin</p>
+            <div class="col-md-12 bg-secondary p-3 d-flex align-content-center">
+                <div class="px-5 admin_name">
+                    <label class="text-light text-center">Tên admin</label>
                 </div>
-                <div class="button text-center">
-                    <button><a href="insert_car.php" class="nav-link text-light bg-info my-1">Thêm sản phẩm</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">Xem sản phẩm</a></button>
-                    <button><a href="index.php?insert_brands" class="nav-link text-light bg-info my-1">Thêm
-                            hãng</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">Xem hãng</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">All order</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">All payment</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">List users</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">Đăng xuất</a></button>
-                </div>
+                <ul class="nav nav-tabs list">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?insert_car">Thêm sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?view_products">Xem sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?insert_brands">Thêm hãng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Xem hãng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">All order</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">All payment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">List users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Đăng xuất</a>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="container my-5 mb-2">
             <?php
+            if(isset($_GET['insert_car']))
+            {
+                include('insert_car.php');
+            }
             if(isset($_GET['insert_brands']))
             {
                 include('insert_brands.php');
+            }
+            if(isset($_GET['view_products']))
+            {
+                include('view_products.php');
             }
              ?>
         </div>

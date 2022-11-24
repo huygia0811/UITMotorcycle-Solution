@@ -1,0 +1,15 @@
+.list .nav-link {
+  color: white;
+}
+.list .nav-link:hover {
+  color: cornflowerblue;
+  border-bottom: none;
+}
+.list {
+  border: none !important;
+}
+.admin_name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
