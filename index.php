@@ -1,3 +1,7 @@
+<?php
+include('./includes/connect_database.php');
+include('./function/common_function.php');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -55,6 +59,11 @@
     .submenu .btn:hover {
       background-color: #f0f0f0 !important;
     }
+    .card-img-top{
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+    }
   </style>
 </head>
 
@@ -65,6 +74,7 @@
   <!-- Header -->
   <?php
   include('./header.php');
+  cart();
   ?>
 
   <div class="container ">
@@ -127,65 +137,15 @@
       </button>
     </div>
     <!-- sản phẩn -->
+<<<<<<< HEAD
     <div class="row " id="card-row">
       <?php
         include "./includes/connect_database.php";
         include "./function/currency_format.php";
-        // $sql = "SELECT * FROM sanpham LIMIT 20";
-        // $result = $con->query($sql);
-        // while($xe = $result->fetch_assoc())
-        // {
-        //   echo '
-        //     <div class="col-6 col-md-4  mb-2 ">
-        //       <div class="card">
-        //         <img src="'.$xe['URL_IMAGE'].'" class="card-img-top" alt="$product_image3">
-        //         <div class="card-body">
-        //           <h5 class="card-title">'.$xe['TENSP'].'</h5>
-        //           <p class="card-text">'.currency_format($xe['GIA']).' đ</p>
-        //           <a href="#" class="btn btn-info">Add to cart</a>
-        //           <a href="#" class="btn btn-secondary">View more</a>
-        //         </div>
-        //       </div>
-        //     </div>
-        //   ';
-        // }
         include "ShowListProducts.php";
         LaySanPham();
         LaySPTheoTab();
       ?>
-      <!-- <div class="col-6 col-md-4  mb-2 ">
-        <div class="card">
-          <img src="./Asset/DB-Picture/XPKL_2.png" class="card-img-top" alt="$product_image3">
-          <div class="card-body">
-            <h5 class="card-title">name1</h5>
-            <p class="card-text">giá</p>
-            <a href="#" class="btn btn-info">Add to cart</a>
-            <a href="#" class="btn btn-secondary">View more</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4  mb-2">
-        <div class="card">
-          <img src="./Asset/DB-Picture/XPKL_2.png" class="card-img-top" alt="$product_image3">
-          <div class="card-body">
-            <h5 class="card-title">name1</h5>
-            <p class="card-text">giá</p>
-            <a href="#" class="btn btn-info">Add to cart</a>
-            <a href="#" class="btn btn-secondary">View more</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4  mb-2">
-        <div class="card">
-          <img src="./Asset/DB-Picture/XPKL_2.png" class="card-img-top" alt="$product_image3">
-          <div class="card-body">
-            <h5 class="card-title">name1</h5>
-            <p class="card-text">giá</p>
-            <a href="#" class="btn btn-info">Add to cart</a>
-            <a href="#" class="btn btn-secondary">View more</a>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 <!-- footer -->

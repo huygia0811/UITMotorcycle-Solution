@@ -1,7 +1,7 @@
 <div class="p-2">
     <div class="d-flex flex-row justify-content-around">
         <div class="w-full btn btn-info">
-            <a href="user.php?purchar?type=<?php echo" note: id=??"  ?>">Tất cã</a>
+            <a href="user.php?purchar?type=<?php echo" note: id=??"  ?>">Tất cả</a>
         </div>
         <div >
             <a href="user.php?purchar?type=<?php  ?>">Chờ xác nhận</a>

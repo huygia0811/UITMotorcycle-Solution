@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="">Trang chủ</a>
+                    <a class="nav-link active" aria-current="page" href="index.php">Trang chủ</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">Sản phẩm</a>
@@ -36,7 +36,7 @@
                 </li>
                 <!--  -->
                 <li class="nav-item">
-                    <a class="nav-link" href=""><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
+                    <a class="nav-link" href="shopping_cart.php"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
                 </li>
 
             </ul>
