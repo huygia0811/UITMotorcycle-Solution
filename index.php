@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./asset/DB-Picture/logo.ico" type="image/x-icon">
   <link rel="stylesheet" href="CSS/style_header.css">
   <!-- bootstrap cdn -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -17,12 +18,47 @@
     <link rel="stylesheet" href="CSS/header_cart.css" /> -->
   <style>
     .container {
-      max-width: 1080px !important;
+      margin: 15px auto 0 auto !important;
+      border: none !important;
+      padding: 0 !important;
+    }
+    #card-row {
+      margin: 20px 10px;
+      row-gap: 15px;
+    }
+    .card {
+      display: grid;
+      grid-template-rows: 200px 1fr;
+      height: 100%;
+      border-radius: 10px;
+    }
+    .card img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+    .card-body {
+      background-color: #cbf6f8;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+    .btn-info {
+      background-color: #05c5cc !important;
+      color: white !important;
+    }
+    .submenu {
+      margin: auto !important;
+    }
+    .submenu .btn {
+      padding-top: 20px !important;
+    }
+    .submenu .btn:hover {
+      background-color: #f0f0f0 !important;
     }
   </style>
 </head>
 
-<body>
+<body style="background: #efefef">
 
 
 
@@ -32,29 +68,29 @@
   ?>
 
   <div class="container ">
-    <div class="row">
-      <div class="col-3 btn btn-outline-light">
-        <a href="" class="text-decoration-none text-dark">
+    <div class="row bg-light submenu">
+      <div class="col-3 btn btn-light">
+        <a href="index.php" class="text-decoration-none text-dark">
           <img src="asset/Picture/icon-grid.svg" height="25px" />
-          <p>Tất cả</p>
+          <p style="margin-top: 10px">Tất cả</p>
         </a>
       </div>
-      <div class="col-3 btn btn-outline-light">
-        <a href="" class="text-decoration-none text-dark">
+      <div class="col-3 btn btn-light">
+        <a href="index.php?loaixe=1" class="text-decoration-none text-dark">
           <img src="asset/Picture/icon-gear.svg" height="25px" />
-          <p>Xe số</p>
+          <p style="margin-top: 10px">Xe số</p>
         </a>
       </div>
-      <div class="col-3 btn btn-outline-light">
-        <a href="" class="text-decoration-none text-dark">
+      <div class="col-3 btn btn-light">
+        <a href="index.php?loaixe=2" class="text-decoration-none text-dark">
           <img src="asset/Picture/icon-scooter.svg" height="25px" />
-          <p>Xe tay ga</p>
+          <p style="margin-top: 10px">Xe tay ga</p>
         </a>
       </div>
-      <div class="col-3 btn btn-outline-light">
-        <a href="" class="text-decoration-none text-dark">
+      <div class="col-3 btn btn-light">
+        <a href="index.php?loaixe=3" class="text-decoration-none text-dark">
           <img src="asset/Picture/icon-pkl.svg" height="25px" />
-          <p>Xe phân khối lớn</p>
+          <p style="margin-top: 10px">Xe phân khối lớn</p>
         </a>
       </div>
     </div>
@@ -91,8 +127,33 @@
       </button>
     </div>
     <!-- sản phẩn -->
-    <div class="row ">
-      <div class="col-6 col-md-4  mb-2 ">
+    <div class="row " id="card-row">
+      <?php
+        include "./includes/connect_database.php";
+        include "./function/currency_format.php";
+        // $sql = "SELECT * FROM sanpham LIMIT 20";
+        // $result = $con->query($sql);
+        // while($xe = $result->fetch_assoc())
+        // {
+        //   echo '
+        //     <div class="col-6 col-md-4  mb-2 ">
+        //       <div class="card">
+        //         <img src="'.$xe['URL_IMAGE'].'" class="card-img-top" alt="$product_image3">
+        //         <div class="card-body">
+        //           <h5 class="card-title">'.$xe['TENSP'].'</h5>
+        //           <p class="card-text">'.currency_format($xe['GIA']).' đ</p>
+        //           <a href="#" class="btn btn-info">Add to cart</a>
+        //           <a href="#" class="btn btn-secondary">View more</a>
+        //         </div>
+        //       </div>
+        //     </div>
+        //   ';
+        // }
+        include "ShowListProducts.php";
+        LaySanPham();
+        LaySPTheoTab();
+      ?>
+      <!-- <div class="col-6 col-md-4  mb-2 ">
         <div class="card">
           <img src="./Asset/DB-Picture/XPKL_2.png" class="card-img-top" alt="$product_image3">
           <div class="card-body">
@@ -124,12 +185,12 @@
             <a href="#" class="btn btn-secondary">View more</a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 <!-- footer -->
   <?php
-  include('./footer.php');
+  include('./footer_copy.php');
   ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>

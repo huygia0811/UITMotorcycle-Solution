@@ -1,3 +1,11 @@
+<style>
+    .navbar {
+        background-color: #06c7ce !important;
+    }
+    .nav-item a {
+        color: white !important;
+    }
+</style>
 <nav class="container navbar navbar-expand-lg bg-info ">
     <div class="container-fluid ">
         <img src="./Asset/Picture/logo.jpg" alt="" style="width: 7%; height: 7%; object-fit: contain;">
