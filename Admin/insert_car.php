@@ -29,7 +29,7 @@ if(isset($_POST['insert_product']))
     //link image
     $temp_image1=$_FILES['product_image']['tmp_name'];
 
-    if($product_name=='' or  $product_meter=='' or $product_color=='' or $product_year=='' or  $product_price=='' or  $product_image1=='' or $product_brand_id=='' or $product_type=='')
+    if($product_name=='' or  $product_meter=='' or $product_color=='' or $product_year=='' or  $product_price=='' or  $product_image=='' or $product_brand_id=='' or $product_type=='')
     {
         echo "<script>alert('Vui lòng nhập đầy đủ ') </'script>";
         exit();
@@ -135,16 +135,7 @@ if(isset($_POST['insert_product']))
                     </select>
                 </div>
                 <div class="form-outline mb-4 w-50 m-auto">
-                    <input type="file" name="product_image1" id="product_image1" class="form-control"
-                        required="required">
-                </div>
-                <div class="form-outline mb-4 w-50 m-auto">
-                    <input type="file" name="product_image2" id="product_image2" class="form-control"
-                        required="required">
-                </div>
-                <div class="form-outline mb-4 w-50 m-auto">
-                    <input type="file" name="product_image3" id="product_image3" class="form-control"
-                        required="required">
+                    <input type="file" name="product_image" id="product_image" class="form-control" required="required">
                 </div>
                 <div class="form-outline mb-4 w-50 m-auto">
                     <input type="submit" name="insert_product" value="Thêm sản phẩm" class="btn btn-info mb-3 px-3"

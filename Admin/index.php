@@ -19,37 +19,44 @@
     </head>
 
     <body>
-        <div class="row">
-            <div class="col-md-12 bg-secondary p-3 d-flex align-content-center">
-                <div class="px-5 admin_name">
+        <div class="container p-3 navbar navbar-expand-xxl bg-secondary index_container">
+            <div class="container-fluid">
+                <div class="px-sm-5 admin_name">
                     <label class="text-light text-center">Tên admin</label>
                 </div>
-                <ul class="nav nav-tabs list">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?insert_car">Thêm sản phẩm</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?view_products">Xem sản phẩm</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?insert_brands">Thêm hãng</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Xem hãng</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">All order</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">All payment</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">List users</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Đăng xuất</a>
-                    </li>
-                </ul>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav nav-tabs list">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?insert_car">Thêm sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?view_products">Xem sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?insert_brands">Thêm hãng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Xem hãng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">All order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">All payment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">List users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Đăng xuất</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="container my-5 mb-2">
