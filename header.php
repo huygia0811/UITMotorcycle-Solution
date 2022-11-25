@@ -2,7 +2,8 @@
     .navbar {
         background-color: #06c7ce !important;
     }
-    .nav-item a {
+
+    nav a{
         color: white !important;
     }
 </style>
@@ -26,7 +27,7 @@
                 </li>
                 <!-- tượng trưng -->
                 <li class="nav-item">
-                    <a class="nav-link" href="./user.php">Tài Khoản</a>
+                    <a class="nav-link" href="./user.php?profile">Tài Khoản</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./signin.php">Đăng nhập</a>

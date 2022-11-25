@@ -61,7 +61,7 @@ include('./header.php');
                     </div>
                 </div>
             </div>
-            <div class="col-10 " style="height:400px ;">
+            <div class="col-10 " style="min-height:400px ;">
             <?php
             if(isset($_GET['profile']))
             {
