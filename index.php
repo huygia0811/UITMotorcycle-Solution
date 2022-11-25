@@ -137,7 +137,6 @@ include('./function/common_function.php');
       </button>
     </div>
     <!-- sản phẩn -->
-<<<<<<< HEAD
     <div class="row " id="card-row">
       <?php
         include "./includes/connect_database.php";
