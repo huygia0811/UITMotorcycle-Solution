@@ -1,7 +1,7 @@
 footer .row {
     background-color: #05c5cc !important;
     line-height: 1.5 !important;
-    padding: 30px 20px 20px 20px !important;
+    padding: 30px 15px 20px 15px !important;
     margin: 0px;
     display: grid !important;
     grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
@@ -10,7 +10,6 @@ footer .row {
 .col-4 {
     width: 100% !important;
 }
-
 .col-4 a, .col-4 p {
     color: #fff !important;
     text-decoration: none !important;
@@ -27,8 +26,13 @@ footer .row {
 }
 .col-4 h6#ft_cl1_header {
     font-size: 25px !important;
-
 }
 .col-4 h6 {
     font-weight: bold !important;
+}
+
+@media screen and (max-width: 350px) {
+    footer .row {
+        padding: 10px 0 0 0 !important;
+    }
 }

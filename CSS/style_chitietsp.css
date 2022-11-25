@@ -1,8 +1,5 @@
-main{
-    margin-bottom: 20px;
-}
 .prod_detail {
-    margin-top: 20px;
+    margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
     box-shadow: rgb(179, 183, 185) 0 0 10px 5px;
@@ -10,6 +7,7 @@ main{
 .prod_row_0 {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); */
     width: 100%;
 }
 .url_img {
@@ -68,46 +66,47 @@ main{
 }
 .mauxe {
     /* display: flex; */
-    display: grid;
-    margin: 20px 0;
+    /* display: grid;
+    
     grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
     column-gap: 20px;
-    row-gap: 10px;
+    row-gap: 10px; */
+    margin: 20px 0;
 }
 #txtMauxe {
     /* margin: 20px 0; */
     padding: 10px 0 0 0;
     /* width: 30%; */
 }
-/* .lstmau {
+.lstmau {
     display: grid;
-    margin: 20px 10px;
-    grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
+    margin: 20px 0;
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
     column-gap: 20px;
     row-gap: 10px;
-    width: 70%;
-} */
+    width: 100%;
+}
 #btnMau{
     padding: 8px;
-    width: fit-content;
     background-color: rgb(214, 214, 214);
     border-radius: 3px;
     cursor: pointer;
-    width: max-content;
+    width: fit-content;
 }
 .addToCart_Buynow {
     display: flex;
     column-gap: 20px;
     margin: 20px auto 0 auto;
-    width: 80%;
+    width: 90%;
     text-align: center;
 }
 #addtocart, #Buynow {
     border-radius: 5px;
     padding: 10px;
     font-weight: bold;
-    width: 45%;
+    width: 50%;
     cursor: pointer;
+    
 }
 #addtocart {
     background-color: #92e6e9;
@@ -140,7 +139,7 @@ tr:nth-child(even) {
     background: rgb(231, 230, 230);
 }
 
-@media screen and (max-width: 699px) {
+@media screen and (max-width: 759px) {
     .prod_row_0 {
         display: block;
     }
@@ -157,7 +156,11 @@ tr:nth-child(even) {
     .detail h3, table h3 {
         font-size:medium;
     }
+    .lstmau {
+        max-width: 100%;
+    }
     #addtocart, #Buynow {
         padding: 10px;
     }
+
   }

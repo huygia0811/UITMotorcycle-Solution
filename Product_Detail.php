@@ -11,12 +11,20 @@
     <!-- fontawwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./CSS/style_chitietsp.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </head>
 <?php
     include "./includes/connect_database.php";
     include('./header.php');
+    
 ?> 
 <body>
+    <?php
+        if (!isset($_GET['tenxe']))
+        {
+            return null;
+        }
+    ?>
     <main>
         <div class = "container">
             <div class="prod_detail">
@@ -51,7 +59,7 @@
                         </div>
                         <div class="mauxe">
                             <div id="txtMauxe">Màu sắc:</div>
-                            <!-- <div class="lstmau"> -->
+                            <div class="lstmau">
                                 <?php  
                                     $kq2 = $con->query($sql);
                                     while ($xe2 = $kq2->fetch_assoc())
@@ -69,7 +77,7 @@
                                         ';
                                     }
                                 ?>
-                            <!-- </div> -->
+                            </div>
                             <!-- <div id="btnMau">Đen</div> -->
                         </div>
                         <div class="addToCart_Buynow">
@@ -143,6 +151,6 @@
     <?php
         include "footer_copy.php";
     ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    
 </body>
 </html>
