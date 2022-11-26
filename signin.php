@@ -43,7 +43,7 @@ include './includes/connect_database.php';
                             <input type="password" class="form-control" id="pwd" placeholder="Nhập mật khẩu"
                                 name="pwd" />
                             <div class="forget_pwd">
-                                <a href="./password_resert.php">Quên mật khẩu?</a>
+                                <a href="./password_reset.php">Quên mật khẩu?</a>
                             </div>
                         </div>
                         <input type="submit" name="login_user" value="Đăng nhập" class="btn btn-primary signin_btn">
