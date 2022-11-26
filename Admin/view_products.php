@@ -43,9 +43,9 @@
                                                 <tr role="row" style='text-align:center'>
                                                     <th width="10" class="sorting_asc" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-sort="ascending" style="font-size: 1.5vw;">#</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="example1"
-                                                        rowspan="1" colspan="1">Ảnh</th>
+                                                        aria-sort="ascending">#</th>
+                                                    <th width="160" class="sorting" tabindex="0"
+                                                        aria-controls="example1" rowspan="1" colspan="1">Ảnh</th>
                                                     <th width="160" class="sorting" tabindex="0"
                                                         aria-controls="example1" rowspan="1" colspan="1">Tên sản phẩm
                                                     </th>
@@ -70,27 +70,27 @@
                                                 <?php
                                                 $select_query="SELECT
                                                                             
-                                                t1.`MASP`,
-                                                t1.`URL_IMAGE`,
-                                                t1.`TENSP`,
-                                                t1.`MAU`,
-                                                t1.`PHANKHOI`,
+                                                            t1.`MASP`,
+                                                            t1.`URL_IMAGE`,
+                                                            t1.`TENSP`,
+                                                            t1.`MAU`,
+                                                            t1.`PHANKHOI`,
 
-                                                t2.`TENHANG`,
-                                                
-                                                t3.`TENLOAI`,
+                                                            t2.`TENHANG`,
+                                                            
+                                                            t3.`TENLOAI`,
 
-                                                t1.`NAMSX`,
+                                                            t1.`NAMSX`,
 
-                                                t1.`GIA`
-                                                
-                                                FROM `sanpham` t1
-                                                JOIN `hangxe` t2
-                                                ON t1.`MAHANG`=t2.`MAHANG`
-                                                JOIN `loaixe` t3
-                                                ON t3.`LOAIXE`=t1.`LOAIXE`
-                                                ORDER BY t1.`MASP` ASC
-                                                ";
+                                                            t1.`GIA`
+                                                            
+                                                            FROM `sanpham` t1
+                                                            JOIN `hangxe` t2
+                                                            ON t1.`MAHANG`=t2.`MAHANG`
+                                                            JOIN `loaixe` t3
+                                                            ON t3.`LOAIXE`=t1.`LOAIXE`
+                                                            ORDER BY t1.`MASP` ASC
+                                                            ";
                                                 $product_query=mysqli_query($con, $select_query);
                                                 
                                                 while($row=mysqli_fetch_assoc($product_query))
@@ -101,7 +101,7 @@
                                                     echo "<td>";
                                                     echo $masp;
                                                     echo "</td>";
-                                                    echo "<td style='width:90px;'><img src='../$url_img' style='width: 100%; height: 100%; object-fit: contain;'>";
+                                                    echo "<td style='width:100px;'><img src='../$url_img' style='width: 100%; height: 100%; object-fit: contain;'>";
                                                     echo "<td style='text-align:left'>";
                                                     echo $row['TENSP'];
                                                     echo "</td>";
