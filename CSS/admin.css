@@ -13,13 +13,35 @@
   align-items: center;
   justify-content: center;
 }
-@media screen and (max-width: 1000px) {
-  #example1 td,
-  th {
-    font-size: small;
-  }
-}
 .insert_brand_btn {
   margin-left: auto;
   margin-right: auto;
+}
+.index_container {
+  max-width: 1500px;
+}
+.dataTables_length,
+.dataTables_filter,
+.dataTables_info,
+.dataTables_paginate {
+  margin: 10px 0 !important;
+}
+#products table,
+#brands table {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#products .btn-sm,
+#brands .btn-sm {
+  margin: 5px !important;
+}
+#products table,
+#products th,
+#products td,
+#brands table,
+#brands th,
+#brands td {
+  border: 0.5px solid rgb(237, 235, 235);
+  border-collapse: collapse;
 }

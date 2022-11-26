@@ -19,7 +19,7 @@
     </head>
 
     <body>
-        <div class="container p-3 navbar navbar-expand-xxl bg-secondary index_container">
+        <div class="container p-3 navbar navbar-expand-xl bg-secondary index_container">
             <div class="container-fluid">
                 <div class="px-sm-5 admin_name">
                     <label class="text-light text-center">Tên admin</label>
@@ -41,7 +41,7 @@
                             <a class="nav-link" href="index.php?insert_brands">Thêm hãng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Xem hãng</a>
+                            <a class="nav-link" href="index.php?view_brands">Xem hãng</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">All order</a>
@@ -72,6 +72,10 @@
             if(isset($_GET['view_products']))
             {
                 include('view_products.php');
+            }
+            if(isset($_GET['view_brands']))
+            {
+                include('view_brands.php');
             }
              ?>
         </div>

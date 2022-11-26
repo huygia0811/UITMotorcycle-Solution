@@ -6,11 +6,14 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>View product</title>
+        <title>View products</title>
         <!--bootstrap  css link-->
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
         <!--font asswsome link  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
             integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
@@ -25,45 +28,34 @@
                 <div class="col-md-12">
                     <div class="box box-info">
                         <div class="box-body table-responsive">
-                            <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="dataTables_length" id="example1_length"></div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="dataTables_filter" id="example1_filter"></div>
-                                    </div>
-                                </div>
+                            <div id="products_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <table id="example1"
-                                            class="table table-bordered table-hover table-striped dataTable no-footer"
-                                            role="grid" aria-describedby="example1_info">
+                                        <table id="products" class="table table-striped table-hover" role="grid"
+                                            aria-describedby="products_info">
                                             <thead class="thead-dark">
                                                 <tr role="row" style='text-align:center'>
-                                                    <th width="10" class="sorting_asc" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1"
-                                                        aria-sort="ascending">#</th>
-                                                    <th width="160" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1">Ảnh</th>
-                                                    <th width="160" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1">Tên sản phẩm
+                                                    <th width="10" scope="col">#</th>
+                                                    <th width="160" scope="col">
+                                                        Ảnh</th>
+                                                    <th width="160" scope="col">
+                                                        Tên sản phẩm
                                                     </th>
-                                                    <th width="100" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1">Màu</th>
-                                                    <th width="100" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1">Phân khối</th>
-                                                    <th width="130" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1">Hãng</th>
-                                                    <th width="130" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1">Loại</th>
-                                                    <th width="120" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1">Năm sản xuất
+                                                    <th width="100" scope="col">
+                                                        Màu</th>
+                                                    <th width="100" rscope="col">
+                                                        Phân khối</th>
+                                                    <th width="110" scope="col">
+                                                        Hãng</th>
+                                                    <th width="150" scope="col">
+                                                        Loại</th>
+                                                    <th width="140" scope="col">
+                                                        Năm sản xuất
                                                     </th>
-                                                    <th width="130" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1">Giá</th>
-                                                    <th width="160" class="sorting" tabindex="0"
-                                                        aria-controls="example1" rowspan="1" colspan="1">Thao tác</th>
+                                                    <th width="110" scope="col">
+                                                        Giá</th>
+                                                    <th width="160" scope="col">
+                                                        Thao tác</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -98,7 +90,7 @@
                                                     $url_img=$row['URL_IMAGE'];
                                                     $masp=$row['MASP'];
                                                     echo "<tr style='text-align:center'>";
-                                                    echo "<td>";
+                                                    echo "<td scope='row'>";
                                                     echo $masp;
                                                     echo "</td>";
                                                     echo "<td style='width:100px;'><img src='../$url_img' style='width: 100%; height: 100%; object-fit: contain;'>";
@@ -124,42 +116,14 @@
                                                     echo $row['GIA'];
                                                     echo " đ</td>";
                                                     echo "<td>";
-                                                    echo "<div class='Action'><a href='product_edit.php?id=$masp' class='btn btn-primary btn-sm'>Edit</a>";
-                                                    echo "<a href='#' class='btn btn-danger btn-sm' data-href='product_delete.php?id=$masp' data-toggle='modal' data-target='#confirm-delete'>Delete</a>";
+                                                    echo "<div class='Action'><a href='product_edit.php?id=$masp' class='btn btn-sm btn-primary'>Edit</a>";
+                                                    echo "<a href='#' class='btn btn-sm btn-danger btn-xl' data-href='product_delete.php?id=$masp' data-toggle='modal' data-target='#confirm-delete'>Delete</a>";
                                                     echo "</div></td>";
                                                     echo "</tr>";
                                                 }
                                                     ?>
                                             </tbody>
                                         </table>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="dataTables_info" id="example1_info" role="status"
-                                            aria-live="polite">Showing 1 to 10 of 20 entries</div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
-                                            <ul class="pagination">
-                                                <li class="paginate_button previous disabled" id="example1_previous">
-                                                    <a href="#" aria-controls="example1" data-dt-indx="0"
-                                                        tabindex="0">Previous</a>
-                                                </li>
-                                                <li class="paginate_button active">
-                                                    <a href="#" aria-controls="example1" data-dt-indx="1"
-                                                        tabindex="0">1</a>
-                                                </li>
-                                                <li class="paginate_button">
-                                                    <a href="#" aria-controls="example1" data-dt-indx="2"
-                                                        tabindex="0">2</a>
-                                                </li>
-                                                <li class="paginate_button next" id="example1_next">
-                                                    <a href="#" aria-controls="example1" data-dt-indx="3"
-                                                        tabindex="0">Next</a>
-                                                </li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -191,6 +155,15 @@
                 </div>
             </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
+        <script>
+        $(document).ready(function() {
+            $('#products').DataTable();
+        })
+        </script>
+
     </body>
 
 </html>

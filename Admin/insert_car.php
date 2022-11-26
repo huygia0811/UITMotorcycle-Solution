@@ -24,10 +24,10 @@ if(isset($_POST['insert_product']))
 
 
     // insert image
-    $product_image1=$_FILES['product_image']['name'];
+    $product_image=$_FILES['product_image']['name'];
 
     //link image
-    $temp_image1=$_FILES['product_image']['tmp_name'];
+    $temp_image=$_FILES['product_image']['tmp_name'];
 
     if($product_name=='' or  $product_meter=='' or $product_color=='' or $product_year=='' or  $product_price=='' or  $product_image=='' or $product_brand_id=='' or $product_type=='')
     {
@@ -36,11 +36,11 @@ if(isset($_POST['insert_product']))
     }
     else
     {
-        move_uploaded_file( $temp_image,'Asset/DB-Picture/Picture/'.$product_image1);
+        move_uploaded_file( $temp_image,'../Asset/DB-Picture/Picture/'.$product_image);
 
         //insert
         $insert_product="insert into `sanpham`(TENSP,MAU,NAMSX,PHANKHOI,MAHANG,LOAIXE,GIA,product_img1,product_img2,product_img3)
-        values('$product_name','$product_color',' $product_year', ' $product_meter', '$product_brand_id','$product_type', $product_price',' $product_image1')";
+        values('$product_name','$product_color',' $product_year', ' $product_meter', '$product_brand_id','$product_type', $product_price',' $product_image')";
         $result_query=mysqli_query($con, $insert_product);
         if($result_query)
         {
