@@ -36,11 +36,12 @@ if(isset($_POST['insert_product']))
     }
     else
     {
-        move_uploaded_file( $temp_image,'../Asset/DB-Picture/Picture/'.$product_image);
+        $product_urlimg="Asset/DB-Picture/".$product_image;
+        move_uploaded_file( $temp_image,'../'.$product_urlimg);
 
         //insert
-        $insert_product="insert into `sanpham`(TENSP,MAU,NAMSX,PHANKHOI,MAHANG,LOAIXE,GIA,product_img1,product_img2,product_img3)
-        values('$product_name','$product_color',' $product_year', ' $product_meter', '$product_brand_id','$product_type', $product_price',' $product_image')";
+        $insert_product="insert into `sanpham`(TENSP,MAU,NAMSX,PHANKHOI,MAHANG,LOAIXE,GIA,URL_IMAGE)
+        values('".$product_name."','".$product_color."','".$product_year."', '".$product_meter."', '".$product_brand_id."','".$product_type."', '".$product_price."','".$product_urlimg."')";
         $result_query=mysqli_query($con, $insert_product);
         if($result_query)
         {

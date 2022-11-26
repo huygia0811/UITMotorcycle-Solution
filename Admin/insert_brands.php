@@ -26,8 +26,9 @@ if(isset($_POST['insert_brand']) && $_POST['insert_brand'] == "Thêm hãng")
         }
         else
         {
-            move_uploaded_file( $temp_image,'../Asset/DB-Picture/Picture/'.$brand_image);
-            $insert_brand="insert into `hangxe` (TENHANG, URLIMAGE) values('".$brand_name."', '".$brand_image."')";
+            $brand_urlimg="Asset/DB-Picture/".$brand_image;
+            move_uploaded_file( $temp_image,'../'.$brand_urlimg);
+            $insert_brand="insert into `hangxe` (TENHANG, URLIMAGE) values('".$brand_name."', '".$brand_urlimg."')";
             $result_query=mysqli_query($con, $insert_brand);
             if($result_query)
             {
@@ -75,6 +76,7 @@ if(isset($_POST['insert_brand']) && $_POST['insert_brand'] == "Thêm hãng")
 
             </div>
         </form>
+
     </body>
 
 </html>
