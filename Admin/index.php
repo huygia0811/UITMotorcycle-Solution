@@ -32,16 +32,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav nav-tabs list">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?insert_car">Thêm sản phẩm</a>
+                            <a class="nav-link" href="insert_car.php">Thêm sản phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?view_products">Xem sản phẩm</a>
+                            <a class="nav-link" href="view_products.php">Xem sản phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?insert_brands">Thêm hãng</a>
+                            <a class="nav-link" href="insert_brands.php">Thêm hãng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?view_brands">Xem hãng</a>
+                            <a class="nav-link" href="view_brands.php">Xem hãng</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">All order</a>
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <div class="container my-5 mb-2">
+        <!-- <div class="container my-5 mb-2">
             <?php
             if(isset($_GET['insert_car']))
             {
@@ -73,12 +73,12 @@
             {
                 include('view_products.php');
             }
-            if(isset($_GET['view_brands']))
-            {
-                include('view_brands.php');
-            }
+            // if(isset($_GET['view_brands']))
+            // {
+            //     include('view_brands.php');
+            // }
              ?>
-        </div>
+        </div> -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
         </script>

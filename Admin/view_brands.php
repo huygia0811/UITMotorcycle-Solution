@@ -1,4 +1,5 @@
-<?php include('../includes/connect_database.php');?>
+<?php include('../includes/connect_database.php');
+include "index.php";?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +24,7 @@
     </head>
 
     <body>
-        <section class="content viewbrand_content">
+        <section class="container viewbrand_content">
             <div class="row">
                 <div class="col-md-12">
                     <div class="box box-info">
@@ -71,7 +72,7 @@
                                                     echo $row['TENHANG'];
                                                     echo "</td>";
                                                     echo "<td>";
-                                                    echo "<div class='Action'><a href='product_edit.php?id=$mahang' class='btn btn-sm btn-primary'>Edit</a>";
+                                                    echo "<div class='Action'>";
                                                     echo "<a href='#' class='btn btn-danger btn-sm' data-href='brand_delete.php?id=$mahang' data-toggle='modal' data-target='#confirm-delete'>Delete</a>";
                                                     echo "</div></td>";
                                                     echo "</tr>";

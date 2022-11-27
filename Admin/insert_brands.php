@@ -1,5 +1,6 @@
 <?php
 include('../includes/connect_database.php');
+include "index.php";
 if(isset($_POST['insert_brand']) && $_POST['insert_brand'] == "Thêm hãng")
 {
     $brand_name=$_POST['brand_name'];

@@ -1,4 +1,4 @@
-<?php include('../includes/connect_database.php');?>
+<?php include('../includes/connect_database.php');include "index.php";?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +23,7 @@
     </head>
 
     <body>
-        <section class="content viewproduct_content">
+        <section class="container viewproduct_content">
             <div class="row">
                 <div class="col-md-12">
                     <div class="box box-info">
