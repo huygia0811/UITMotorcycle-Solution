@@ -47,7 +47,7 @@
                             <a class="nav-link" href="#">All order</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">All payment</a>
+                            <a class="nav-link" href="CheckPayment.php">All payment</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">List users</a>
