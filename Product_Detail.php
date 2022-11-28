@@ -1,3 +1,7 @@
+<?php
+include ('./function/common_function.php');
+cart();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +24,7 @@
 ?> 
 <body>
     <?php
-        if (!isset($_GET['tenxe']))
+        if (!isset($_GET['typeid']))
         {
             return null;
         }
@@ -31,9 +35,9 @@
                 <div class="prod_row_0">
                     <?php 
                         include "./function/currency_format.php";
-                        global $conn;
-                        $tenxe = $_GET['tenxe'];
-                        $sql = "SELECT * from sanpham where TENSP = '$tenxe'";
+                        
+                        $typeid = $_GET['typeid'];
+                        $sql = "SELECT * from sanpham where MASP = '$typeid'";
                         $kq = $con->query($sql);
                         $xe = $kq->fetch_assoc();
                         echo '
@@ -81,8 +85,11 @@
                             <!-- <div id="btnMau">Đen</div> -->
                         </div>
                         <div class="addToCart_Buynow">
-                            <div id="addtocart">Thêm vào giỏ</div>
+                          
+                            <a id="addtocart" href="Product_Detail.php?add_to_card=<?php echo $typeid ?>">Thêm vào giỏ hàng</a>
                             <div id="Buynow">Mua ngay</div>
+                            <?php
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -93,7 +100,7 @@
                             <th colspan = "2"><h3>Thông tin chi tiết</h3></th>
                         </tr>
                         <?php
-                            $sql2 = "select TENHANG, LOAIXE, PHANKHOI, NAMSX from sanpham, hangxe where sanpham.MAHANG = hangxe.MAHANG and TENSP = '$tenxe'";
+                            $sql2 = "select TENHANG, LOAIXE, PHANKHOI, NAMSX from sanpham, hangxe where sanpham.MAHANG = hangxe.MAHANG and MASP = '$typeid'";
                             $kq = $con->query($sql2);
                             $xe = $kq->fetch_assoc();
                             if ($xe['LOAIXE'] == 1) {

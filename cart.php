@@ -50,14 +50,18 @@ cart();
                                 <td><input type="checkbox" name="removeitem[]" value="<?php echo $product_id ?>"></td>
 
                                 <td>
-                                    <input type="submit" value="Update" name="update_cart" class="bg-info p-2 border-0 my-2 px-2">
-                                    <input type="submit" value="Remove" name="remove_cart" class="bg-info p-2 border-0">
+                                    <input type="submit" value="Thanh toán" name="Thanh_toan" class="bg-info p-2 border-0 my-2 px-2">
+                                    <input type="submit" value="Xóa" name="xoa" class="bg-info p-2 border-0">
 
                                 </td>
                             </tr>
                 <?php
                         }
                     }
+                }
+                else
+                {
+                    echo "k có";
                 }
                 ?>
 
@@ -66,8 +70,8 @@ cart();
         <div class="d-flex">
             <h4 class="px-3">Tổng: <strong class="text-info"><?php echo "giá????" ?>/-</strong></h4>
 
-            <a href="#"><button class="bg-info p-2 border-0 mx-4">Continue Shopping</button></a>
-            <a href="#"><button class="bg-info p-2 border-0">Checkout</button></a>
+            <a href="#"><button class="bg-info p-2 border-0 mx-4">Thanh toán tất cã</button></a>
+            <a href="#"><button class="bg-info p-2 border-0">Thoát</button></a>
 
         </div>
     </div>

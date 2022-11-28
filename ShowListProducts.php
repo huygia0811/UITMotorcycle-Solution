@@ -5,7 +5,7 @@
         global $con;
         if (!isset($_GET['loaixe']))
         {
-            $truyvan = "select TENSP, GIA, URL_IMAGE from sanpham limit 20";
+            $truyvan = "select MASP, TENSP, GIA, URL_IMAGE from sanpham limit 20";
             $ketqua = $con->query($truyvan);
             while ($xe = $ketqua->fetch_assoc())
             {
@@ -16,8 +16,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">'.$xe['TENSP'].'</h5>
                                 <p class="card-text">'.currency_format($xe['GIA']).' đ</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="Product_Detail.php?tenxe='.$xe['TENSP'].'" class="btn btn-secondary">View more</a>
+                                <a href="index.php?add_to_card='.$xe['MASP'].'" class="btn btn-info">Add to cart</a>
+                                <a href="Product_Detail.php?typeid='.$xe['MASP'].'" class="btn btn-secondary">View more</a>
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
         if (isset($_GET['loaixe']))
         {
             $loaixe = $_GET['loaixe'];
-            $truyvan = "select TENSP, GIA, URL_IMAGE from sanpham where LOAIXE = $loaixe limit 20";
+            $truyvan = "select MASP, TENSP, GIA, URL_IMAGE from sanpham where LOAIXE = $loaixe limit 20";
             $ketqua = $con->query($truyvan);
             while ($xe = $ketqua->fetch_assoc())
             {
@@ -43,8 +43,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">'.$xe['TENSP'].'</h5>
                                 <p class="card-text">'.currency_format($xe['GIA']).' đ</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="Product_Detail.php?tenxe='.$xe['TENSP'].'" class="btn btn-secondary">View more</a>
+                                <a href="index.php?add_to_card='.$xe['MASP'].'" class="btn btn-info">Add to cart</a>
+                                <a href="Product_Detail.php?tenxe='.$xe['MASP'].'" class="btn btn-secondary">View more</a>
                             </div>
                         </div>
                     </div>
