@@ -24,7 +24,7 @@ cart();
 ?> 
 <body>
     <?php
-        if (!isset($_GET['typeid']))
+        if (!isset($_GET['tenxe']))
         {
             return null;
         }
@@ -36,8 +36,8 @@ cart();
                     <?php 
                         include "./function/currency_format.php";
                         
-                        $typeid = $_GET['typeid'];
-                        $sql = "SELECT * from sanpham where MASP = '$typeid'";
+                        $tenxe = $_GET['tenxe'];
+                        $sql = "SELECT * from sanpham where TENSP = '$tenxe'";
                         $kq = $con->query($sql);
                         $xe = $kq->fetch_assoc();
                         echo '
@@ -86,7 +86,7 @@ cart();
                         </div>
                         <div class="addToCart_Buynow">
                           
-                            <a id="addtocart" href="Product_Detail.php?add_to_card=<?php echo $typeid ?>">Thêm vào giỏ hàng</a>
+                            <a id="addtocart" href="Product_Detail.php?add_to_card=<?php  ?>">Thêm vào giỏ hàng</a>
                             <div id="Buynow">Mua ngay</div>
                             <?php
                             ?>
@@ -100,7 +100,7 @@ cart();
                             <th colspan = "2"><h3>Thông tin chi tiết</h3></th>
                         </tr>
                         <?php
-                            $sql2 = "select TENHANG, LOAIXE, PHANKHOI, NAMSX from sanpham, hangxe where sanpham.MAHANG = hangxe.MAHANG and MASP = '$typeid'";
+                            $sql2 = "select TENHANG, LOAIXE, PHANKHOI, NAMSX from sanpham, hangxe where sanpham.MAHANG = hangxe.MAHANG and TENSP = '$tenxe'";
                             $kq = $con->query($sql2);
                             $xe = $kq->fetch_assoc();
                             if ($xe['LOAIXE'] == 1) {
