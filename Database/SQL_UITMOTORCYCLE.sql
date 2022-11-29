@@ -94,7 +94,10 @@ CREATE TABLE `khachhang` (
   `SODT` varchar(12) DEFAULT NULL,
   `NGSINH` datetime DEFAULT NULL,
   `NGDK` datetime DEFAULT NULL,
-  `SODU` int(50) DEFAULT NULL
+  `SODU` int(50) DEFAULT NULL,
+  `khachhang_ip` varchar(100) DEFAULT NULL,
+  `GIOITINH` varchar(40) DEFAULT NULL,
+  `SOCCCD` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
