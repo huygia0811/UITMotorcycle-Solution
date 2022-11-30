@@ -287,8 +287,8 @@ INSERT INTO `sanpham` (`MASP`, `MAHANG`, `TENSP`, `PHANKHOI`, `MAU`, `NAMSX`, `G
 --
 
 CREATE TABLE `taikhoan` (
-  `khachhang_id` int(10) NOT NULL,
   `tendangnhap` varchar(100) NOT NULL,
+  `MAKH` int(10) NOT NULL,
   `matkhau` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `khachhang_ip` varchar(100) NOT NULL
@@ -361,7 +361,7 @@ ALTER TABLE `sanpham`
 -- Chỉ mục cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  ADD PRIMARY KEY (`khachhang_id`);
+  ADD PRIMARY KEY (`tendangnhap`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -390,8 +390,6 @@ ALTER TABLE `loaixe`
 --
 -- AUTO_INCREMENT cho bảng `nhanvien`
 --
-ALTER TABLE `nhanvien`
-  MODIFY `MANV` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `sanpham`
@@ -402,8 +400,8 @@ ALTER TABLE `sanpham`
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
-ALTER TABLE `taikhoan`
-  MODIFY `khachhang_id` int(10) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `khachhang`
+  MODIFY `MAKH` int(10) NOT NULL AUTO_INCREMENT;
 
 
 --
@@ -446,7 +444,7 @@ ALTER TABLE `sanpham`
 -- Các ràng buộc cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  ADD CONSTRAINT `fk01_TK` FOREIGN KEY (`khachhang_id`) REFERENCES `khachhang` (`MAKH`);
+  ADD CONSTRAINT `fk01_TK` FOREIGN KEY (`MAKH`) REFERENCES `khachhang` (`MAKH`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
