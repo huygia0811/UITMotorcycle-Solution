@@ -405,8 +405,6 @@ ALTER TABLE `sanpham`
 ALTER TABLE `taikhoan`
   MODIFY `khachhang_id` int(10) NOT NULL AUTO_INCREMENT;
 
-ALTER TABLE `khachhang`
-  MODIFY `MAKH` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
