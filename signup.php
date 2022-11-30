@@ -57,7 +57,7 @@ session_start();
                 name="pwd"
               />
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="phonenum">Số điện thoại:</label>
               <input
                 type="tel"
@@ -66,7 +66,7 @@ session_start();
                 placeholder="Nhập số điện thoại"
                 name="phonenum"
               />
-            </div>
+            </div> -->
             <div class="form-group">
               <label for="email">Email:</label>
               <input
@@ -100,7 +100,7 @@ session_start();
               // ];
               // $hash_pwd= password_hash($pwd, PASSWORD_BCRYPT, $options);
               $hash_pwd =password_hash($pwd,PASSWORD_DEFAULT );        
-              $phonenum=$_POST['phonenum'];
+              //$phonenum=$_POST['phonenum'];
               $email=mysqli_real_escape_string($con,$_POST['email']) ;
               $ip = getIPAddress();  
               if($username=='' or  $pwd=='' or $email=='')
@@ -126,13 +126,30 @@ session_start();
                 }
                 else
                 {
-                  $insert_query="insert into `taikhoan`(tendangnhap,matkhau,dienthoai,email,khachhang_ip) values('$username','$hash_pwd','$phonenum','$email','$ip')";
+                  $getip=getIPAddress();
+                  $insert_khachhang="INSERT into `khachhang` (HOTEN,DCHI,SODT,NGSINH,NGDK,SODU,khachhang_ip,GIOITINH,SOCCCD) VALUES ('','','','','NOW()','','$getip','','')";
+                  $insert_khachhang_run=mysqli_query($con,$insert_khachhang);
+
+                  $select_khachhang="SELECT MAX(MAKH) from `khachhang`";
+                  $select_khachhang_run=mysqli_query($con,$select_khachhang);
+                  $select_khachhang_row=mysqli_fetch_assoc($select_khachhang_run);
+                  $row=$select_khachhang_row['MAX(MAKH)'];
+                  
+                  $insert_query="insert into `taikhoan`(tendangnhap,MAKH,matkhau,email,khachhang_ip) values('$username','$row','$hash_pwd','$email','$ip')";
                   $result_query=mysqli_query($con,$insert_query);
-                  $test=var_dump($result_query);
-                  echo $test;
+                 //echo var_dump($result_query);
+                  
                   if($result_query)
                   {
-                   
+                    $select="select * from `taikhoan` where tendangnhap='$username'";
+                    $select_run=mysqli_query($con,$select);
+                    if($select_run)
+                    {
+                      $row=mysqli_fetch_assoc($select_run);
+                      $khachhang_id=$row['khachhang_id'];
+                      $insert_khachhang="insert into `khachhang`(MAKH) values ('$khachhang_id')";
+                      $insert_khachhang_run=mysqli_query($con,$insert_khachhang);
+                    }
                     $_SESSION['status']="Tạo tài khoản thành công";
                     header("Location:signin.php");
                     exit(0);

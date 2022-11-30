@@ -40,7 +40,7 @@ function cart()
     $masp=$_GET['add_to_card'];
     $ip_address=getIPAddress();
     $select_query="select * from `giohang` where MASP='$masp' and khachhang_ip='$ip_address'";
-   
+    $soluong=$_GET['soluong'];
     $select_query_run=mysqli_query($con, $select_query);
     $count=mysqli_num_rows($select_query_run);
     if($count >0)
@@ -50,7 +50,7 @@ function cart()
     }
     else
     {
-      $insert_query="insert into `giohang` (MASP, khachhang_ip,soluong) values ('$masp','$ip_address',0)";
+      $insert_query="insert into `giohang` (MASP, khachhang_ip,soluong) values ('$masp','$ip_address','$soluong')";
       $result_query=mysqli_query($con, $insert_query);
       if($result_query)
       {

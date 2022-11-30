@@ -55,12 +55,10 @@ cart();
                     <div class="detail">
                         <h2>CB150R The Streetster</h2>
                         <h3>105.500.000 d</h3> -->
-                        <div class="cart_quantity">
-                            <div id="txtQuantity">Số lượng</div>
-                            <div id="btn_Giam">−</div>
-                            <div id="amount">01</div>
-                            <div id="btn_Tang">+</div>
-                        </div>
+                       
+                    
+                       
+                        
                         <div class="mauxe">
                             <div id="txtMauxe">Màu sắc:</div>
                             <div class="lstmau">
@@ -85,12 +83,22 @@ cart();
                             <!-- <div id="btnMau">Đen</div> -->
                         </div>
                         <div class="addToCart_Buynow">
-                          
-                            <a id="addtocart" href="Product_Detail.php?add_to_card=<?php  ?>">Thêm vào giỏ hàng</a>
-                            <div id="Buynow">Mua ngay</div>
+                        <?php
+                        $select_run=mysqli_query($con,$sql);
+                        $row=mysqli_fetch_assoc($select_run);
+                        $typeid=$row['MASP']
+                        ?>
+                            <a id="addtocart" href="Product_Detail.php?add_to_card=<?php echo $typeid; ?>">Thêm vào giỏ hàng</a>
+                            
+                            <script>
+                                
+                                
+                            </script>
                             <?php
+                             
                             ?>
                         </div>
+                        
                     </div>
                 </div>
                 

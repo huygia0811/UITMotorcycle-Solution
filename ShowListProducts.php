@@ -16,7 +16,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">'.$xe['TENSP'].'</h5>
                                 <p class="card-text">'.currency_format($xe['GIA']).' đ</p>
-                                <a href="index.php?add_to_card='.$xe['MASP'].'" class="btn btn-info">Add to cart</a>
+                                <a href="index.php?add_to_card='.$xe['MASP'].'&soluong=1" class="btn btn-info">Add to cart</a>
                                 <a href="Product_Detail.php?tenxe='.$xe['TENSP'].'" class="btn btn-secondary">View more</a>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">'.$xe['TENSP'].'</h5>
                                 <p class="card-text">'.currency_format($xe['GIA']).' đ</p>
-                                <a href="index.php?add_to_card='.$xe['MASP'].'" class="btn btn-info">Add to cart</a>
+                                <a href="index.php?add_to_card='.$xe['MASP'].'&soluong=1" class="btn btn-info">Add to cart</a>
                                 <a href="Product_Detail.php?tenxe='.$xe['TENSP'].'" class="btn btn-secondary">View more</a>
                             </div>
                         </div>

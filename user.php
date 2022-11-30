@@ -1,9 +1,9 @@
 <?php
+session_start();
 include('./header.php');
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>UIT MotorCycle</title>
     <meta charset="UTF-8">
@@ -41,9 +41,7 @@ include('./header.php');
                                 <li class="nav-item">
                                     <a class="nav-link" href="user.php?profile">Hồ sơ</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="user.php?address">Địa chỉ</a>
-                                </li>
+                               
                                 <li class="nav-item">
                                     <a class="nav-link" href="user.php?password">Đổi Mật khẩu</a>
                                 </li>
@@ -52,9 +50,14 @@ include('./header.php');
                         </div>
                     </div>
                     <div class="d-flex flex-row">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                     <a href="user.php?payment">Nạp tiền</a>
+                    </div>
+                    <div class="d-flex flex-row">
                      <i class="fa-solid fa-cart-shopping"></i>
                      <a href="user.php?cart">Giỏ hàng</a>
                     </div>
+
                     <div class="d-flex flex-row">
                     <i class="fa-solid fa-receipt"></i>
                      <a href="user.php?purchar">Đơn mua</a>
@@ -67,10 +70,11 @@ include('./header.php');
             {
                 include('profile.php');
             }
-            if(isset($_GET['address']))
+            if(isset($_GET['payment']))
             {
-                include('address.php');
+                include('payment.php');
             }
+           
             if(isset($_GET['password']))
             {
                 include('password.php');

@@ -48,6 +48,7 @@ include './includes/connect_database.php';
                         </div>
                         <input type="submit" name="login_user" value="Đăng nhập" class="btn btn-primary signin_btn">
                         <?php
+                    
           if(isset($_SESSION['status']))
           {
             //$x=var_dump($_SESSION['status']);
@@ -60,17 +61,14 @@ include './includes/connect_database.php';
             unset($_SESSION['status']);
           }
           ?>
-
-
                         <span class="nav_signup">Chưa có tài khoản?
                             <a class="signup" href="./signup.php">Đăng ký ngay</a></span>
                     </form>
                     <?php
-              
-            
               if(isset($_POST['login_user']))
               {
                 $username=$_POST['username'];
+                $_SESSION['username']=$username; 
                 $pwd=$_POST['pwd'];
                 if( $username=='' or $pwd=='')
                 {
@@ -81,7 +79,7 @@ include './includes/connect_database.php';
                 }
                 else
                 {
-                  $check_query="select * from `taikhoan` where tendangnhap='$username' ";
+                  $check_query="select * from `taikhoan` where tendangnhap='$username'";
                   $result_query=mysqli_query($con, $check_query);
                   $count_row=mysqli_num_rows( $result_query);  
                   $row_data=mysqli_fetch_assoc( $result_query);
@@ -92,6 +90,7 @@ include './includes/connect_database.php';
                     {
                      
                       $_SESSION['status']="Đăng nhập thành công";
+                      
                       header("Location:index.php");
                       exit(0);
                     }
@@ -100,22 +99,17 @@ include './includes/connect_database.php';
                       $_SESSION['status']="Tên đăng nhập hoặc mật khẩu không chính xác";
                       header("Location:signin.php");
                       exit(0);
-
-                     
                     }
                   }
                   else
                   {
-
                     $_SESSION['status']="Tên đăng nhập hoặc mật khẩu không chính xác";
                     header("Location:signin.php");
                     exit(0);
-                   
                   }
                  }
               }
           ?>
-
                 </div>
             </div>
         </div>
