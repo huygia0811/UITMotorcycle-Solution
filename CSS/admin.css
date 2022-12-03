@@ -43,3 +43,7 @@
   border: 0.5px solid rgb(237, 235, 235);
   border-collapse: collapse;
 }
+.edit_content {
+  margin-left: auto;
+  margin-right: auto;
+}

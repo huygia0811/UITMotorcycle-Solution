@@ -3,7 +3,11 @@ include('../includes/connect_database.php');
 include "index.php";
 if(isset($_POST['insert_product']))
 {
-   
+    $valid = 1;
+    $select_query="select * from `sanpham`";
+    $result_query=mysqli_query($con,$select_query);
+    $number=mysqli_num_rows($result_query);
+    $product_id=$number+1;
     
     // $product_name=$_POST['product_name'];
     // $product_meter=$_POST['product_meter'];
@@ -26,31 +30,40 @@ if(isset($_POST['insert_product']))
 
     // insert image
     $product_image=$_FILES['product_image']['name'];
+    $path = $_FILES['product_image']['name'];
 
     //link image
     $temp_image=$_FILES['product_image']['tmp_name'];
 
     if($product_name=='' or  $product_meter=='' or $product_color=='' or $product_year=='' or  $product_price=='' or  $product_image=='' or $product_brand_id=='' or $product_type=='')
     {
-        echo "<script>alert('Vui lòng nhập đầy đủ ') </'script>";
-        exit();
+        $valid = 0;
+        $error_message = 'Vui lòng nhập đầy đủ.';
     }
-    else
+    if($path!='') {
+        $ext = pathinfo( $path, PATHINFO_EXTENSION );
+        $file_name = basename( $path, '.' . $ext );
+        if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
+            $valid = 0;
+            $error_message = 'Bạn phải tải lên file jpg, png, jpeg hoặc gif.';
+        }
+    }
+    if ($valid == 1)
     {
         $product_urlimg="Asset/DB-Picture/".$product_image;
         move_uploaded_file( $temp_image,'../'.$product_urlimg);
 
         //insert
-        $insert_product="insert into `sanpham`(TENSP,MAU,NAMSX,PHANKHOI,MAHANG,LOAIXE,GIA,URL_IMAGE)
-        values('".$product_name."','".$product_color."','".$product_year."', '".$product_meter."', '".$product_brand_id."','".$product_type."', '".$product_price."','".$product_urlimg."')";
+        $insert_product="insert into `sanpham`(MASP,TENSP,MAU,NAMSX,PHANKHOI,MAHANG,LOAIXE,GIA,URL_IMAGE)
+        values('".$product_id."','".$product_name."','".$product_color."','".$product_year."', '".$product_meter."', '".$product_brand_id."','".$product_type."', '".$product_price."','".$product_urlimg."')";
         $result_query=mysqli_query($con, $insert_product);
         if($result_query)
         {
-            echo "<script>alert('Thêm sản phẩm thành công')</script>";
+            $success_message = 'Thêm sản phẩm thành công.';
         }
         else
         {
-            echo "<script>alert('Không thể thêm sản phẩm')</script>";
+            $error_message = 'Không thể thêm sản phẩm.';
         }
     }
 }
@@ -63,20 +76,24 @@ if(isset($_POST['insert_product']))
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Insert cart</title>
-        <!--bootstrap  css link-->
-        <!-- CSS only -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <!--font asswsome link  -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!-- css -->
     </head>
 
     <body>
         <div class="container mt-3">
             <h1 class="text-center">Thêm sản phẩm</h1>
+            <?php if(isset($error_message)): ?>
+            <div class="alert alert-danger">
+
+                <label><?php echo $error_message; ?></label>
+            </div>
+            <?php endif; ?>
+
+            <?php if(isset($success_message)): ?>
+            <div class="alert alert-success">
+
+                <label><?php echo $success_message; ?></label>
+            </div>
+            <?php endif; ?>
             <form action="" method="post" enctype="multipart/form-data">
 
                 <div class="form-outline mb-4 w-50 m-auto">
