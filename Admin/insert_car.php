@@ -24,7 +24,7 @@ if(isset($_POST['insert_product']))
 
     $product_brand_id=$_POST['product_brand'];
     $product_type=$_POST['product_type'];
-    
+    $product_is_active = $_POST['p_is_active'];
 
 
 
@@ -35,7 +35,7 @@ if(isset($_POST['insert_product']))
     //link image
     $temp_image=$_FILES['product_image']['tmp_name'];
 
-    if($product_name=='' or  $product_meter=='' or $product_color=='' or $product_year=='' or  $product_price=='' or  $product_image=='' or $product_brand_id=='' or $product_type=='')
+    if($product_name=='' or  $product_meter=='' or $product_color=='' or $product_year=='' or  $product_price=='' or  $product_image=='' or $product_brand_id=='' or $product_type=='' or $product_is_active=='')
     {
         $valid = 0;
         $error_message = 'Vui lòng nhập đầy đủ.';
@@ -54,8 +54,8 @@ if(isset($_POST['insert_product']))
         move_uploaded_file( $temp_image,'../'.$product_urlimg);
 
         //insert
-        $insert_product="insert into `sanpham`(MASP,TENSP,MAU,NAMSX,PHANKHOI,MAHANG,LOAIXE,GIA,URL_IMAGE)
-        values('".$product_id."','".$product_name."','".$product_color."','".$product_year."', '".$product_meter."', '".$product_brand_id."','".$product_type."', '".$product_price."','".$product_urlimg."')";
+        $insert_product="insert into `sanpham`(MASP,TENSP,MAU,NAMSX,PHANKHOI,MAHANG,LOAIXE,GIA,URL_IMAGE, IS_ACTIVE)
+        values('".$product_id."','".$product_name."','".$product_color."','".$product_year."', '".$product_meter."', '".$product_brand_id."','".$product_type."', '".$product_price."','".$product_urlimg."','".$product_is_active."')";
         $result_query=mysqli_query($con, $insert_product);
         if($result_query)
         {
@@ -155,6 +155,13 @@ if(isset($_POST['insert_product']))
                 </div>
                 <div class="form-outline mb-4 w-50 m-auto">
                     <input type="file" name="product_image" id="product_image" class="form-control" required="required">
+                </div>
+                <div class="form-outline mb-4 w-50 m-auto">
+                    <select name="p_is_active" class="form-select">
+                        <option value="">Hiển thị?</option>
+                        <option value="0">Không</option>
+                        <option value="1">Có</option>
+                    </select>
                 </div>
                 <div class="form-outline mb-4 w-50 m-auto">
                     <input type="submit" name="insert_product" value="Thêm sản phẩm" class="btn btn-info mb-3 px-3"

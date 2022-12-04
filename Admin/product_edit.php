@@ -27,7 +27,8 @@ if(isset($_POST['update_btn']) &&$_POST['update_btn']=="Update") {
             GIA=?,
             MAHANG=?,
             LOAIXE=?,
-            URL_IMAGE=?
+            URL_IMAGE=?,
+            IS_ACTIVE=?
             
             WHERE MASP=?");
             
@@ -40,6 +41,7 @@ if(isset($_POST['update_btn']) &&$_POST['update_btn']=="Update") {
             $_POST['product_brand'],
             $_POST['product_type'],
             $_POST['current_photo'],
+            $_POST['p_is_active'],
             $_REQUEST['id']
             ));
             }
@@ -56,7 +58,8 @@ if(isset($_POST['update_btn']) &&$_POST['update_btn']=="Update") {
             GIA=?,
             MAHANG=?,
             LOAIXE=?,
-            URL_IMAGE=?
+            URL_IMAGE=?,
+            IS_ACTIVE=?
             
             WHERE MASP=?");
             
@@ -69,6 +72,7 @@ if(isset($_POST['update_btn']) &&$_POST['update_btn']=="Update") {
             $_POST['product_brand'],
             $_POST['product_type'],
             $final_name,
+            $_POST['p_is_active'],
             $_REQUEST['id']));
         }
         $success_message = 'Sản phẩm đã được cập nhật thành công.';
@@ -133,6 +137,7 @@ while($row=mysqli_fetch_assoc($result_query))
         $product_brand_id=$row['MAHANG'];
         $product_type=$row['LOAIXE'];
         $product_image=$row['URL_IMAGE'];
+        $p_is_active = $row['IS_ACTIVE'];
     }
 ?>
 
@@ -246,6 +251,15 @@ while($row=mysqli_fetch_assoc($result_query))
                                         <div style="padding-top:4px;">
                                             <input type="file" name="new_image">
                                         </div>
+                                    </div>
+                                    <div class="form-outline mb-4 w-50 m-auto">
+                                        <label for="" class="control-label">Hiển thị?</label>
+                                        <select name="p_is_active" class="form-select" style="width: auto;">
+                                            <option value="0" <?php if($p_is_active == '0'){echo 'selected';}?>>Không
+                                            </option>
+                                            <option value="1" <?php if($p_is_active == '1'){echo 'selected';}?>>Có
+                                            </option>
+                                        </select>
                                     </div>
                                     <div class="form-group mb-4 w-50 m-auto">
                                         <label for="" class="control-label"></label>

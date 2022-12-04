@@ -62,26 +62,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="container my-5 mb-2">
-            <?php
-            if(isset($_GET['insert_car']))
-            {
-                include('insert_car.php');
-            }
-            if(isset($_GET['insert_brands']))
-            {
-                include('insert_brands.php');
-            }
-            if(isset($_GET['view_products']))
-            {
-                include('view_products.php');
-            }
-            // if(isset($_GET['view_brands']))
-            // {
-            //     include('view_brands.php');
-            // }
-             ?>
-        </div> -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
         </script>

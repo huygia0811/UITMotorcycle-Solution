@@ -15,6 +15,7 @@ include('../includes/connect_database.php');
  include "index.php";?>
         <?php 
 if(!isset($_REQUEST['id'])) {
+    header('location:view_products.php');
 	exit;
 } else {
 
@@ -31,6 +32,7 @@ if(!isset($_REQUEST['id'])) {
         $id++;
     }
     mysqli_close($con);
+    header('location:view_products.php');
 }
 ?>
     </body>

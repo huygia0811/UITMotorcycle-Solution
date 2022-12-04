@@ -39,6 +39,9 @@
                                                     <th width="140" scope="col">
                                                         Năm sản xuất
                                                     </th>
+                                                    <th width="100" scope="col">
+                                                        Hiển thị
+                                                    </th>
                                                     <th width="110" scope="col">
                                                         Giá</th>
                                                     <th width="160" scope="col">
@@ -62,6 +65,7 @@
                                                             t3.`TENLOAI`,
 
                                                             t1.`NAMSX`,
+                                                            t1.`IS_ACTIVE`,
 
                                                             t1.`GIA`
                                                             
@@ -89,6 +93,10 @@
                                                     <td><?php echo $row['TENHANG']; ?></td>
                                                     <td><?php echo $row['TENLOAI']; ?></td>
                                                     <td><?php echo $row['NAMSX']; ?></td>
+                                                    <td>
+                                                        <?php if ($row['IS_ACTIVE'] == 1) {
+                                                        echo '<span class="badge badge-success" style="background-color:green;">Có</span>';}else{echo '<span class="badge badge-danger" style="background-color:red;">Không</span>';} ?>
+                                                    </td>
                                                     <td><?php echo $row['GIA']; ?> đ</td>
                                                     <td>
                                                         <div class="Action">
@@ -96,9 +104,8 @@
                                                                 class='btn btn-sm btn-primary'>Edit</a>
                                                             <a href='product_delete.php?id=<?php echo $row['MASP']; ?>'
                                                                 class='btn btn-sm btn-danger'
-                                                                onclick="return confirm('Ban co muon xoa');">Delete</a>
+                                                                onclick="return confirm('Bạn có muốn xóa sản phẩm này?');">Delete</a>
                                                         </div>
-
                                                     </td>
                                                 </tr>
                                                 <?php
@@ -119,31 +126,7 @@
             </div>
         </section>
 
-        <!-- <div class='modal fade' id='confirm-delete' tabindex='-1'
-                                                            role='dialog' aria-labelledby='myModalLabel'
-                                                            aria-hidden='true'>
-                                                            <div class='modal-dialog'>
-                                                                <div class='modal-content'>
-                                                                    <div class='modal-header'>
-                                                                        <h4 class='modal-title' id='myModalLabel'>Xác
-                                                                            nhận xóa</h4>
-                                                                        <button type='button' class='close'
-                                                                            data-bs-dismiss='modal'
-                                                                            aria-hidden='true'>&times;</button>
 
-                                                                    </div>
-                                                                    <div class='modal-body'>
-                                                                        <p>Bạn có muốn xóa sản phẩm này?</p>
-                                                                    </div>
-                                                                    <div class='modal-footer'>
-                                                                        <button type='button' class='btn btn-default'
-                                                                            data-bs-dismiss='modal'>Cancel</button>
-                                                                        <a class='btn btn-danger btn-ok'
-                                                                            href="product_delete.php?id=<?php echo $masp ?>">Delete</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div> -->
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
