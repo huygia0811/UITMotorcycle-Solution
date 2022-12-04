@@ -117,6 +117,11 @@ if(isset($_POST['insert_product']))
                         autocomplete="off" required="required">
                 </div>
                 <div class="form-outline mb-4 w-50 m-auto">
+                    <label for="product_meter" class="form-label">Số lượng</label>
+                    <input type="text" name="product_meter" class="form-control" placeholder="Nhập số lượng sản phẩm"
+                        autocomplete="off" required="required">
+                </div>
+                <div class="form-outline mb-4 w-50 m-auto">
                     <label for="product_price" class="form-label">Giá sản phẩm</label>
                     <input type="text" name="product_price" class="form-control" placeholder="Nhập giá sản phẩm"
                         autocomplete="off" required="required">

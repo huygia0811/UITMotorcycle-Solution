@@ -24,6 +24,7 @@ if(isset($_POST['update_btn']) &&$_POST['update_btn']=="Update") {
             MAU=?,
             NAMSX=?,
             PHANKHOI=?,
+            SOLUONG=?,
             GIA=?,
             MAHANG=?,
             LOAIXE=?,
@@ -37,6 +38,7 @@ if(isset($_POST['update_btn']) &&$_POST['update_btn']=="Update") {
             $_POST['product_color'],
             $_POST['product_year'],
             $_POST['product_meter'],
+            $_POST['product_qty'],
             $_POST['product_price'],
             $_POST['product_brand'],
             $_POST['product_type'],
@@ -55,6 +57,7 @@ if(isset($_POST['update_btn']) &&$_POST['update_btn']=="Update") {
             MAU=?,
             NAMSX=?,
             PHANKHOI=?,
+            SOLUONG=?,
             GIA=?,
             MAHANG=?,
             LOAIXE=?,
@@ -68,6 +71,7 @@ if(isset($_POST['update_btn']) &&$_POST['update_btn']=="Update") {
             $_POST['product_color'],
             $_POST['product_year'],
             $_POST['product_meter'],
+            $_POST['product_qty'],
             $_POST['product_price'],
             $_POST['product_brand'],
             $_POST['product_type'],
@@ -132,6 +136,7 @@ while($row=mysqli_fetch_assoc($result_query))
         $product_color=$row['MAU'];
         $product_year=$row['NAMSX'];
         $product_meter=$row['PHANKHOI'];
+        $product_qty = $row['SOLUONG'];
         $product_price=$row['GIA'];
     
         $product_brand_id=$row['MAHANG'];
@@ -185,6 +190,11 @@ while($row=mysqli_fetch_assoc($result_query))
                                         <label for="" class="control-label">Phân khối </label>
                                         <input type="text" name="product_meter" class="form-control"
                                             value="<?php echo $product_meter; ?>">
+                                    </div>
+                                    <div class="form-group mb-4 w-50 m-auto">
+                                        <label for="" class="control-label">Số lượng sản phẩm </label>
+                                        <input type="text" name="product_qty" class="form-control"
+                                            value="<?php echo $product_qty; ?>">
                                     </div>
                                     <div class="form-group mb-4 w-50 m-auto">
                                         <label for="" class="control-label">Giá </label>

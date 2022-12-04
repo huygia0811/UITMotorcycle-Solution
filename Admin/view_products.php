@@ -30,13 +30,15 @@
                                                     </th>
                                                     <th width="100" scope="col">
                                                         Màu</th>
-                                                    <th width="100" rscope="col">
+                                                    <th width="70" rscope="col">
                                                         Phân khối</th>
-                                                    <th width="110" scope="col">
+                                                    <th width="70" rscope="col">
+                                                        Số lượng</th>
+                                                    <th width="100" scope="col">
                                                         Hãng</th>
                                                     <th width="150" scope="col">
                                                         Loại</th>
-                                                    <th width="140" scope="col">
+                                                    <th width="120" scope="col">
                                                         Năm sản xuất
                                                     </th>
                                                     <th width="100" scope="col">
@@ -44,7 +46,7 @@
                                                     </th>
                                                     <th width="110" scope="col">
                                                         Giá</th>
-                                                    <th width="160" scope="col">
+                                                    <th width="180" scope="col">
                                                         Thao tác</th>
                                                 </tr>
                                             </thead>
@@ -59,6 +61,7 @@
                                                             t1.`TENSP`,
                                                             t1.`MAU`,
                                                             t1.`PHANKHOI`,
+                                                            t1.`SOLUONG`,
 
                                                             t2.`TENHANG`,
                                                             
@@ -90,6 +93,7 @@
                                                     <td style='text-align:left'><?php echo $row['TENSP']; ?></td>
                                                     <td><?php echo $row['MAU']; ?></td>
                                                     <td><?php echo $row['PHANKHOI']; ?></td>
+                                                    <td><?php echo $row['SOLUONG']; ?></td>
                                                     <td><?php echo $row['TENHANG']; ?></td>
                                                     <td><?php echo $row['TENLOAI']; ?></td>
                                                     <td><?php echo $row['NAMSX']; ?></td>
