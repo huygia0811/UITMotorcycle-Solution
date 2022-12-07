@@ -7,23 +7,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>View products</title>
-        <!--bootstrap  css link-->
-        <!-- CSS only -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"
-            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
-        <!--font asswsome link  -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!-- css -->
-        <link rel="stylesheet" href="../CSS/admin.css" />
     </head>
 
     <body>
-        <section class="container viewproduct_content">
+        <section class="container pt-3 viewproduct_content">
             <div class="row">
                 <div class="col-md-12">
                     <div class="box box-info">
@@ -43,23 +30,30 @@
                                                     </th>
                                                     <th width="100" scope="col">
                                                         Màu</th>
-                                                    <th width="100" rscope="col">
+                                                    <th width="70" rscope="col">
                                                         Phân khối</th>
-                                                    <th width="110" scope="col">
+                                                    <th width="70" rscope="col">
+                                                        Số lượng</th>
+                                                    <th width="100" scope="col">
                                                         Hãng</th>
                                                     <th width="150" scope="col">
                                                         Loại</th>
-                                                    <th width="140" scope="col">
+                                                    <th width="120" scope="col">
                                                         Năm sản xuất
+                                                    </th>
+                                                    <th width="100" scope="col">
+                                                        Hiển thị
                                                     </th>
                                                     <th width="110" scope="col">
                                                         Giá</th>
-                                                    <th width="160" scope="col">
+                                                    <th width="180" scope="col">
                                                         Thao tác</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+
                                                 <?php
+                                                
                                                 $select_query="SELECT
                                                                             
                                                             t1.`MASP`,
@@ -67,12 +61,14 @@
                                                             t1.`TENSP`,
                                                             t1.`MAU`,
                                                             t1.`PHANKHOI`,
+                                                            t1.`SOLUONG`,
 
                                                             t2.`TENHANG`,
                                                             
                                                             t3.`TENLOAI`,
 
                                                             t1.`NAMSX`,
+                                                            t1.`IS_ACTIVE`,
 
                                                             t1.`GIA`
                                                             
@@ -84,46 +80,46 @@
                                                             ORDER BY t1.`MASP` ASC
                                                             ";
                                                 $product_query=mysqli_query($con, $select_query);
-                                                
-                                                while($row=mysqli_fetch_assoc($product_query))
+                                                while ($row = mysqli_fetch_assoc($product_query))
                                                 {
-                                                    $url_img=$row['URL_IMAGE'];
-                                                    $masp=$row['MASP'];
-                                                    echo "<tr style='text-align:center'>";
-                                                    echo "<td scope='row'>";
-                                                    echo $masp;
-                                                    echo "</td>";
-                                                    echo "<td style='width:100px;'><img src='../$url_img' style='width: 100%; height: 100%; object-fit: contain;'>";
-                                                    echo "<td style='text-align:left'>";
-                                                    echo $row['TENSP'];
-                                                    echo "</td>";
-                                                    echo "<td>";
-                                                    echo $row['MAU'];
-                                                    echo "</td>";
-                                                    echo "<td>";
-                                                    echo $row['PHANKHOI'];
-                                                    echo "</td>";
-                                                    echo "<td>";
-                                                    echo $row['TENHANG'];
-                                                    echo "</td>";
-                                                    echo "<td>";
-                                                    echo $row['TENLOAI'];
-                                                    echo "</td>";
-                                                    echo "<td>";
-                                                    echo $row['NAMSX'];
-                                                    echo "</td>";
-                                                    echo "<td>";
-                                                    echo $row['GIA'];
-                                                    echo " đ</td>";
-                                                    echo "<td>";
-                                                    echo "<div class='Action'><a href='product_edit.php?id=$masp' class='btn btn-sm btn-primary'>Edit</a>";
-                                                    echo "<a href='#' class='btn btn-sm btn-danger btn-xl' data-href='product_delete.php?id=$masp' data-toggle='modal' data-target='#confirm-delete'>Delete</a>";
-                                                    echo "</div></td>";
-                                                    echo "</tr>";
-                                                }
+                                                    $masp = $row['MASP'];
+                                                    $url_img = $row['URL_IMAGE'];
+                                                ?>
+
+                                                <tr style='text-align:center'>
+                                                    <td scope='row'><?php echo $masp; ?></td>
+                                                    <td style='width:100px;'><img src='../<?php echo $url_img ?>'
+                                                            style='width: 100%; height: 100%; object-fit: contain;'>
+                                                    <td style='text-align:left'><?php echo $row['TENSP']; ?></td>
+                                                    <td><?php echo $row['MAU']; ?></td>
+                                                    <td><?php echo $row['PHANKHOI']; ?></td>
+                                                    <td><?php echo $row['SOLUONG']; ?></td>
+                                                    <td><?php echo $row['TENHANG']; ?></td>
+                                                    <td><?php echo $row['TENLOAI']; ?></td>
+                                                    <td><?php echo $row['NAMSX']; ?></td>
+                                                    <td>
+                                                        <?php if ($row['IS_ACTIVE'] == 1) {
+                                                        echo '<span class="badge badge-success" style="background-color:green;">Có</span>';}else{echo '<span class="badge badge-danger" style="background-color:red;">Không</span>';} ?>
+                                                    </td>
+                                                    <td><?php echo $row['GIA']; ?> đ</td>
+                                                    <td>
+                                                        <div class="Action">
+                                                            <a href='product_edit.php?id=<?php echo $masp ?>'
+                                                                class='btn btn-sm btn-primary'>Edit</a>
+                                                            <a href='product_delete.php?id=<?php echo $row['MASP']; ?>'
+                                                                class='btn btn-sm btn-danger'
+                                                                onclick="return confirm('Bạn có muốn xóa sản phẩm này?');">Delete</a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                                    }
+                                                
                                                     ?>
+
                                             </tbody>
                                         </table>
+                                        <?php mysqli_close($con); ?>
                                     </div>
                                 </div>
                             </div>
@@ -134,34 +130,15 @@
             </div>
         </section>
 
-        <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Are you sure want to delete this item?</p>
-                        <p style="color:red;">Be careful! This product will be deleted from the order table, payment
-                            table, size
-                            table, color table and rating table also.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-danger btn-ok">Delete</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
         <script>
         $(document).ready(function() {
             $('#products').DataTable();
-        })
+
+        });
         </script>
 
     </body>

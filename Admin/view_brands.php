@@ -8,23 +8,10 @@ include "index.php";?>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>View brands</title>
-        <!--bootstrap  css link-->
-        <!-- CSS only -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"
-            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
-        <!--font asswsome link  -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!-- css -->
-        <link rel="stylesheet" href="../CSS/admin.css" />
     </head>
 
     <body>
-        <section class="container viewbrand_content">
+        <section class="container pt-3 viewbrand_content">
             <div class="row">
                 <div class="col-md-12">
                     <div class="box box-info">
@@ -42,8 +29,6 @@ include "index.php";?>
                                                     <th width="100" scope="col">
                                                         Tên hãng
                                                     </th>
-                                                    <th width="100" scope="col">
-                                                        Thao tác</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -71,10 +56,6 @@ include "index.php";?>
                                                     echo "<td style='text-align:left'>";
                                                     echo $row['TENHANG'];
                                                     echo "</td>";
-                                                    echo "<td>";
-                                                    echo "<div class='Action'>";
-                                                    echo "<a href='#' class='btn btn-danger btn-sm' data-href='brand_delete.php?id=$mahang' data-toggle='modal' data-target='#confirm-delete'>Delete</a>";
-                                                    echo "</div></td>";
                                                     echo "</tr>";
                                                 }
                                                     ?>

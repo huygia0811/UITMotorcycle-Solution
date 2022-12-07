@@ -10,6 +10,9 @@
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
         <!--font asswsome link  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
             integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
@@ -19,7 +22,7 @@
     </head>
 
     <body>
-        <div class="container p-3 navbar navbar-expand-xl bg-secondary index_container">
+        <div class="container p-3 navbar navbar-expand-xxl bg-secondary index_container">
             <div class="container-fluid">
                 <div class="px-sm-5 admin_name">
                     <label class="text-light text-center">Tên admin</label>
@@ -59,26 +62,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="container my-5 mb-2">
-            <?php
-            if(isset($_GET['insert_car']))
-            {
-                include('insert_car.php');
-            }
-            if(isset($_GET['insert_brands']))
-            {
-                include('insert_brands.php');
-            }
-            if(isset($_GET['view_products']))
-            {
-                include('view_products.php');
-            }
-            // if(isset($_GET['view_brands']))
-            // {
-            //     include('view_brands.php');
-            // }
-             ?>
-        </div> -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
         </script>
