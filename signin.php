@@ -21,7 +21,7 @@ include './includes/connect_database.php';
 
     <body>
         <header>
-            <a href="#">UIT MotorCycle</a>
+            <a href="index.php">UIT MotorCycle</a>
             <span>Đăng nhập</span>
         </header>
         <div class="container">
