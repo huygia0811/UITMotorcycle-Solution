@@ -1,4 +1,4 @@
-<?php include('../includes/connect_database.php');include "index.php";?>
+<?php include('../includes/connect_database.php');include "index.php";include "../function/currency_format.php";?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,17 +34,17 @@
                                                         Phân khối</th>
                                                     <th width="70" rscope="col">
                                                         Số lượng</th>
-                                                    <th width="100" scope="col">
+                                                    <th width="80" scope="col">
                                                         Hãng</th>
                                                     <th width="150" scope="col">
                                                         Loại</th>
                                                     <th width="120" scope="col">
                                                         Năm sản xuất
                                                     </th>
-                                                    <th width="100" scope="col">
+                                                    <th width="80" scope="col">
                                                         Hiển thị
                                                     </th>
-                                                    <th width="110" scope="col">
+                                                    <th width="140" scope="col">
                                                         Giá</th>
                                                     <th width="180" scope="col">
                                                         Thao tác</th>
@@ -101,7 +101,7 @@
                                                         <?php if ($row['IS_ACTIVE'] == 1) {
                                                         echo '<span class="badge badge-success" style="background-color:green;">Có</span>';}else{echo '<span class="badge badge-danger" style="background-color:red;">Không</span>';} ?>
                                                     </td>
-                                                    <td><?php echo $row['GIA']; ?> đ</td>
+                                                    <td><?php echo currency_format($row['GIA']); ?> đ</td>
                                                     <td>
                                                         <div class="Action">
                                                             <a href='product_edit.php?id=<?php echo $masp ?>'

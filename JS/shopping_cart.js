@@ -1,4 +1,4 @@
-let amountElement = document.getElementById("amount");
+let amountElement = document.getElementById("qty");
 let amount = amountElement.value;
 
 let priceElement = document.getElementById("cart_price");
@@ -34,10 +34,4 @@ amountElement.addEventListener("input", () => {
   amount = isNaN(amount) || amount == 0 ? 1 : amount;
   render(amount);
   console.log(amount);
-});
-
-let deleteElement = document.getElementById("cart_delete");
-let cart_list_info = document.getElementById("cart_list-info");
-deleteElement.addEventListener("click", () => {
-  cart_list_info.remove();
 });

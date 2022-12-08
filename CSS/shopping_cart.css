@@ -7,6 +7,10 @@ body {
   border-color: #05c5cc;
   margin: 20px;
 }
+.cart_content {
+  margin: 20px 0;
+}
+
 .my_navbar a {
   color: white !important;
 }
@@ -33,6 +37,7 @@ body {
   background-color: cadetblue !important;
   border: none !important;
 }
+.cart_list--no-cart a,
 .home-link:hover {
   text-decoration: none;
 }
@@ -91,7 +96,7 @@ body {
 .cart_quantity button:hover {
   background-color: #e6e1e1;
 }
-.cart_quantity #amount {
+.cart_quantity #qty {
   text-align: center;
   width: 45px;
   border: 1px solid #e6e1e1;
@@ -110,7 +115,7 @@ body {
   }
 }
 @media screen and (max-width: 950px) {
-  .cart_quantity #amount {
+  .cart_quantity #qty {
     width: 25px;
   }
 }
