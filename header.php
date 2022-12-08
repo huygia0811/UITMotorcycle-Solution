@@ -1,5 +1,9 @@
+<?php
+ob_start();
+session_start();
+?>
 <style>
-.navbar {
+.set_Color_nav {
     background-color: #06c7ce !important;
 }
 
@@ -7,7 +11,7 @@ nav a {
     color: white !important;
 }
 </style>
-<nav class="container navbar navbar-expand-lg bg-info ">
+<nav class="container navbar navbar-expand-lg bg-info set_Color_nav">
     <div class="container-fluid ">
         <img src="./Asset/Picture/logo.jpg" alt="" style="width: 7%; height: 7%; object-fit: contain;">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -19,23 +23,31 @@ nav a {
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.php">Trang chủ</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Sản phẩm</a>
-                </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Liên hệ</a>
-                </li>
                 <!-- tượng trưng -->
+
+                <?php
+                if(isset($_SESSION['username']))
+                {
+                ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="./user.php?profile">Tài Khoản</a>
+                    <a class="nav-link" href="./user.php?profile"><i class="fa-solid fa-user"></i> Tài Khoản</a>
                 </li>
+                <?php
+                }
+                else
+                {
+                ?>
                 <li class="nav-item">
                     <a class="nav-link" href="./signin.php">Đăng nhập</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./signup.php">Đăng ký</a>
                 </li>
+                <?php
+                }
+                ?>
+
                 <!--  -->
                 <li class="nav-item">
                     <a class="nav-link" href="page_shopping_cart.php"><i
