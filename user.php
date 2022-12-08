@@ -1,6 +1,3 @@
-<?php
-include('./header.php');
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +26,10 @@ include('./header.php');
 </head>
 
 <body style="background: #efefef">
+    <?php
+    include('./header.php');
+    ?>
+
     <div class="container">
         <div class="row row-top">
             <div class="col-2 user_left">
