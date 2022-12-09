@@ -86,9 +86,9 @@ cart();
                         <?php
                         $select_run=mysqli_query($con,$sql);
                         $row=mysqli_fetch_assoc($select_run);
-                        $typeid=$row['MASP']
+                        $typeid=$row['MASP'];
                         ?>
-                            <a id="addtocart" href="Product_Detail.php?add_to_card=<?php echo $typeid; ?>">Thêm vào giỏ hàng</a>
+                            <a id="addtocart" href="Product_Detail.php?add_to_card=<?php echo $typeid; ?>&soluong=1">Thêm vào giỏ hàng</a>
                             
                             <script>
                                 
