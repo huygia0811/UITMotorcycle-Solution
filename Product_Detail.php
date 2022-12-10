@@ -50,16 +50,6 @@ include('./header.php');
                                 <h3>' . currency_format($xe['GIA']) . '</h3>
                         '
                     ?>
-                    <!-- <div class="url_img">
-                        <img src="asset/DB-Picture/xs01.png"/>
-                    </div>
-                    <div class="detail">
-                        <h2>CB150R The Streetster</h2>
-                        <h3>105.500.000 d</h3> -->
-
-
-
-
                     <div class="mauxe">
                         <div id="txtMauxe">Màu sắc:</div>
                         <div class="lstmau">
@@ -78,38 +68,25 @@ include('./header.php');
                                 echo '
                                             ">' . $mausac . '</div>
                                         ';
-                            }
-                            ?>
-                            <script>
+                                    }
+                                ?>
+                                <script>
                                 function get_color(color) {
                                     var x = document.getElementById('get_color_name').value = color;
                                     console.log(x);
 
                                 }
                             </script>"
-
-
+                            </div>
                         </div>
-                        <!-- <div id="btnMau">Đen</div> -->
-                    </div>
 
 
                     <div class="addToCart_Buynow">
-
-                        <?php
-                        // echo "<script>
-                        //  let url= document.getElementById('prod_img_url').src;
-                        //  </script>";
-                        // $get_url="<script>document.writeln(url)</script>";
-                        // $get_url=str_replace("http://localhost/UITMotorcycle-Solution/","",$get_url);
-                        // echo $get_url;
-                        
-                        ?>
                         <form action="" method="post">
-                            <input type="text" id="get_color_name" name="get_color" value="">
+                            <input type="hidden" id="get_color_name" name="get_color" value="">
 
-                            <button type="submit" name="mua" value="Thêm vào giỏ hàng">
-                                
+                            <button type="submit" name="mua" value="">
+                                    tHÊM
                             </button>
                         </form>
                         <?php
@@ -124,7 +101,6 @@ include('./header.php');
                             }
                         ?>
                     </div>
-
                 </div>
             </div>
 
@@ -172,7 +148,7 @@ include('./header.php');
         </div>
         </div>
 
-        <!-- <script src="./JS/javscr.js"></script> -->
+        <script src="./JS/javscr.js"></script> 
     </main>
     <?php
     include "footer_copy.php";

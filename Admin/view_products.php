@@ -98,8 +98,15 @@
                                                     <td><?php echo $row['TENLOAI']; ?></td>
                                                     <td><?php echo $row['NAMSX']; ?></td>
                                                     <td>
-                                                        <?php if ($row['IS_ACTIVE'] == 1) {
-                                                        echo '<span class="badge badge-success" style="background-color:green;">Có</span>';}else{echo '<span class="badge badge-danger" style="background-color:red;">Không</span>';} ?>
+                                                        <?php
+                                                        if ($row['IS_ACTIVE'] == 1) {
+                                                            echo '<span class="badge badge-success" style="background-color:green;">Có</span>';}
+                                                        else{
+                                                            echo '<span class="badge badge-danger" style="background-color:red;">Không</span>';
+                                                            }
+                                                        ?>
+                                                        <br>
+                                                        <a href="changeactive.php?id=<?php echo $row['MASP']?>">Đổi</a>
                                                     </td>
                                                     <td><?php echo currency_format($row['GIA']); ?> đ</td>
                                                     <td>
