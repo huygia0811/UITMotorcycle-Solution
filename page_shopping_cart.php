@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php ?>
 <!DOCTYPE html>
 <html>
 
@@ -48,6 +48,7 @@ include('./page_cart.php');
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="./JS/shopping_cart.js"></script>
 
     </body>
 

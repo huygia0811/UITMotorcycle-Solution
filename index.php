@@ -65,15 +65,11 @@ include('./function/common_function.php');
 </head>
 
 <body style="background: #efefef">
-
-
-
   <!-- Header -->
   <?php
   include('./header.php');
   cart();
   ?>
-
   <div class="container ">
     <div class="row bg-light submenu">
       <div class="col-3 btn btn-light">

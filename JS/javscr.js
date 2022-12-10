@@ -27,25 +27,25 @@
 //   }
 // }
 //------------------------------Tăng giảm số lượng trong trang chi tiết sản phẩm------------------------------------------
-const soluong = document.getElementById("amount");
-const Tang = document.getElementById("btn_Tang");
-const Giam = document.getElementById("btn_Giam");
-let i = 1;
+// const soluong = document.getElementById("amount");
+// const Tang = document.getElementById("btn_Tang");
+// const Giam = document.getElementById("btn_Giam");
+// let i = 1;
 
 // Add click event to buttons
-Tang.addEventListener("click", () => {
-  i++;
-  i = (i < 10) ? "0" + i : i;
-  amount.innerText = i;
-  console.log("i");
-});
-Giam.addEventListener("click", () => {
-  if (i >= 1) {
-    i--;
-    i = (i < 10) ? "0" + i : i;
-  }
-  if (i < 1) {
-    i = "01";
-  }
-  amount.innerText = i;
-});
+// Tang.addEventListener("click", () => {
+//   i++;
+//   i = (i < 10) ? "0" + i : i;
+//   amount.innerText = i;
+//   console.log("i");
+// });
+// Giam.addEventListener("click", () => {
+//   if (i >= 1) {
+//     i--;
+//     i = (i < 10) ? "0" + i : i;
+//   }
+//   if (i < 1) {
+//     i = "01";
+//   }
+//   amount.innerText = i;
+// });
