@@ -85,6 +85,12 @@
     width: 100%;
     text-align: center;
 }
+#btnMau:hover {
+    background-color: rgb(235, 235, 235);
+}
+#btnMau:active {
+    background-color: rgb(235, 235, 235);
+}
 .addToCart_Buynow {
     column-gap: 20px;
     width: 100%;

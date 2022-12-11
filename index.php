@@ -171,14 +171,14 @@ include('./function/common_function.php');
             <!-- sản phẩn -->
             <div class="row " id="card-row">
                 <?php
-        include "./includes/connect_database.php";
-        include "./function/currency_format.php";
-        include "ShowListProducts.php";
-        include "search.php";
-        LaySanPham();
-        Search();
-        Search_Filter();
-      ?>
+                    include "./includes/connect_database.php";
+                    include "./function/currency_format.php";
+                    include "ShowListProducts.php";
+                    include "search.php";
+                    LaySanPham();
+                    Search();
+                    Search_Filter();
+                ?>
             </div>
         </div>
         <!-- footer -->
