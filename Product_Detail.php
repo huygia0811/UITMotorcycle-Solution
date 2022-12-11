@@ -76,7 +76,7 @@ cart();
                                     console.log(x);
 
                                 }
-                            </script>"
+                            </script>
                             </div>
                         </div>
 
@@ -85,7 +85,7 @@ cart();
                         <form action="" method="post">
                             <input type="hidden" id="get_color_name" name="get_color" value="">
 
-                            <button type="submit" name="mua" value="">
+                            <button id="addtocart" type="submit" name="mua" value="">
                                     Thêm vào giỏ hàng
                             </button>      
                         </form>

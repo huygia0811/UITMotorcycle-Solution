@@ -10,6 +10,17 @@ session_start();
 nav a {
     color: white !important;
 }
+#nav_btnBoloc {
+        margin: 10px;
+    }
+    @media screen and (max-width: 991px) {
+        #nav_btnBoloc {
+            margin-left: 0;
+        }
+        #myBtn {
+            width: 100%;
+        }
+    }
 </style>
 <nav class="container navbar navbar-expand-lg bg-info set_Color_nav">
     <div class="container-fluid ">
@@ -57,12 +68,17 @@ nav a {
                 }
                 ?>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" name="search_data" type="search" placeholder="Search"
-                    aria-label="Search">
+            <form class="d-flex" role="search" action="index.php" method="GET">
+                <input class="form-control me-2" name="search_data" type="search" placeholder="Search" aria-label="Search">
                 <!-- <button class="btn btn-outline-light" type="submit">Search</button> -->
-                <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
+                <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product"  >
             </form>
+            <form id="nav_btnBoloc" class="d-flex">
+                <input id="myBtn" type="button" value="Bộ lọc" class="btn btn-outline-light">
+            </form>
+            <?php
+                include "./search_popup.php";
+            ?>
         </div>
     </div>
 </nav>

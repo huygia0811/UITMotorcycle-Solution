@@ -54,7 +54,6 @@ include('./function/common_function.php');
         .btn-info {
             background-color: #05c5cc !important;
             color: white !important;
-            margin: 7px 0;
         }
 
         .submenu {
@@ -73,6 +72,24 @@ include('./function/common_function.php');
             width: 100%;
             height: 200px;
             object-fit: contain;
+        }
+        
+        .btn_cart_view {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+        }
+        @media screen and (max-width: 430px) {
+            .btn_cart_view {
+                display: block;
+            }
+            .btn_cart_view a {
+                width: 100%;
+            }
+            .btn_cart_view a:not(:last-child) {
+                width: 100%;
+                margin-bottom: 10px;
+            }
         }
         </style>
     </head>
@@ -157,8 +174,10 @@ include('./function/common_function.php');
         include "./includes/connect_database.php";
         include "./function/currency_format.php";
         include "ShowListProducts.php";
+        include "search.php";
         LaySanPham();
-        LaySPTheoTab();
+        Search();
+        Search_Filter();
       ?>
             </div>
         </div>
