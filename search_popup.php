@@ -60,23 +60,32 @@
                 </div>
                 
                 <div class="range">
+                    <?php
+                        include_once "./includes/connect_database.php";
+                        include_once "./function/currency_format.php";
+                        $query = "SELECT min(GIA) minGia, max(GIA) maxGia, min(NAMSX) minNam, max(NAMSX) maxNam, 
+                                    min(CAST(left(PHANKHOI, (length(PHANKHOI)-2)) AS UNSIGNED)) minPK, 
+                                    max(CAST(left(PHANKHOI, (length(PHANKHOI)-2)) AS UNSIGNED)) maxPK FROM sanpham";
+                        $kq = $con->query($query);
+                        $range = $kq->fetch_assoc();
+                    ?>
                     <p>Khoảng giá</p>
                     <div class="price_slider">
-                        <output id="out_price">10.000.000 đ</output><br>
-                        <input type="range" min="10000000" max="250000000" value="10000000" step="1000000" id="in_price" name="giaban"
-                            oninput="out_price.value=(value == 10000000) ? '10.000.000 đ' : '10.000.000 đ - ' + parseInt(in_price.value, 10).toLocaleString() + ' đ'"><br>
+                        <output id="out_price"><?php echo currency_format($range['minGia']) . ' đ' ?></output><br>
+                        <input type="range" min="<?php echo $range['minGia'] ?>" max="<?php echo $range['maxGia'] ?>" value="<?php echo $range['minGia'] ?>" step="1000000" id="in_price" name="giaban"
+                            oninput="out_price.value=(value == <?php echo $range['minGia'] ?>) ? '<?php echo currency_format($range['minGia']) . ' đ' ?>' : '<?php echo currency_format($range['minGia']) . ' đ' ?> - ' + parseInt(in_price.value, 10).toLocaleString() + ' đ'"><br>
                     </div>
 
                     <p>Năm sản xuất</p>
                     <div class="year_slider">
-                        <output id="out_year">2018</output>
-                        <input type="range" min="2018" max="2022" value="2018" name="namsx" oninput="out_year.value=(value == 2018) ? value : '2018 - ' + value">
+                        <output id="out_year"><?php echo $range['minNam'] ?></output>
+                        <input type="range" min="<?php echo $range['minNam'] ?>" max="<?php echo $range['maxNam'] ?>" value="<?php echo $range['minNam'] ?>" name="namsx" oninput="out_year.value=(value == <?php echo $range['minNam'] ?>) ? value : '<?php echo $range['minNam'] ?> - ' + value">
                     </div>
 
                     <p>Phân khối</p>
                     <div class="cc_slider">
-                        <output id="out_cc">50cc</output>
-                        <input type="range" min="50" max="2000" step="25" value="50" name="phankhoi" oninput="out_cc.value = (value == 50) ? '50cc' : '50cc - ' + value + 'cc'">
+                        <output id="out_cc"><?php echo $range['minPK'] . 'cc' ?></output>
+                        <input type="range" min="<?php echo $range['minPK'] ?>" max="<?php echo $range['maxPK'] ?>" step="1" value="<?php echo $range['minPK'] ?>" name="phankhoi" oninput="out_cc.value = (value == <?php echo $range['minPK'] ?>) ? '<?php echo $range['minPK'] . 'cc' ?>' : '<?php echo $range['minPK'] . 'cc' ?> - ' + value + 'cc'">
                     </div>
                 </div>
                 <div class="MauXe">
