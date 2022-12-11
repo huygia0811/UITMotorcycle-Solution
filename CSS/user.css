@@ -150,6 +150,7 @@ ul ul a {
   }
   .profile .form-control {
     height: 1.2rem !important;
+    width: 60% !important;
   }
   #sidebar.active ul ul a {
     padding: 10px !important;
