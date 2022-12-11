@@ -10,7 +10,7 @@ if(isset($_POST['form1'])) {
         $error_message = 'Vui lòng điền đầy đủ<br>';
     } else {
 		
-        $check_query="select * from `taikhoan` where tendangnhap='$username'";
+        $check_query="select * from `taikhoan` where tendangnhap='$username' and is_admin=1";
         $result_query=mysqli_query($con, $check_query);
         $count_row=mysqli_num_rows( $result_query);  
         $row_data=mysqli_fetch_assoc( $result_query);
