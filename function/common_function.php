@@ -150,24 +150,25 @@ function show_don_mua($masp_id, $get_sl, $id, $so_hd)
         $gia = $row_product['GIA'];
         $total += $gia;
 ?>
-        <tr>
-          <td><input type="checkbox" name="select[]" value="<?php echo $so_hd ?>"></td>
-          <td><?php echo $so_hd; ?></td>
-          <td>
-            <img style="width: 60%; height: 60%; object-fit: contain;" src="./<?php echo $url_image; ?>" alt="<?php echo $tensp ?>">
-          </td>
-          <td><?php echo $tensp; ?></td>
-          <td><?php echo $mau; ?></td>
+<tr>
+    <td><input type="checkbox" name="select[]" value="<?php echo $so_hd ?>"></td>
+    <td><?php echo $so_hd; ?></td>
+    <td>
+        <img style="width: 60%; height: 60%; object-fit: contain;" src="./<?php echo $url_image; ?>"
+            alt="<?php echo $tensp ?>">
+    </td>
+    <td><?php echo $tensp; ?></td>
+    <td><?php echo $mau; ?></td>
 
-          <td>
-            <div class="cart_quantity">
+    <td>
+        <div class="cart_quantity">
 
-              <input type="text" name="qty" id="qty" value="<?php echo $get_sl ?>" disabled />
+            <input type="text" name="qty" id="qty" value="<?php echo $get_sl ?>" disabled />
 
-            </div>
-          <td><?php echo $gia; ?> đ</td>
+        </div>
+    <td><?php echo $gia; ?> đ</td>
 
-          <td><?php
+    <td><?php
               if ($id == 0) {
                 echo "Đang giao";
               }
@@ -181,25 +182,25 @@ function show_don_mua($masp_id, $get_sl, $id, $so_hd)
                 echo "Đã hủy";
               }
               ?></td>
-          <td>
-            <?php
+    <td>
+        <?php
             if ($id == -2) {
             ?>
-              <input type="submit" value="Hủy" name="Huy" class="bg-info p-2 border-0 my-2 px-2">
-            <?php
+        <input type="submit" value="Hủy" name="Huy" class="bg-info p-2 border-0 my-2 px-2">
+        <?php
             }
             ?>
-          </td>
-        </tr>
-    <?php
+    </td>
+</tr>
+<?php
       }
     }
     ?>
-    </tbody>
-    </table>
+</tbody>
+</table>
 
-    </form>
-    <?php
+</form>
+<?php
       if(isset($_POST['Huy']))
       {
         if (isset($_POST['select'])) {
@@ -248,4 +249,3 @@ function don_mua_tatca()
     }
   }
 }
-

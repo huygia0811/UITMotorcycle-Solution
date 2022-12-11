@@ -2,44 +2,55 @@
 include('./includes/connect_database.php');
 include('./function/common_function.php');
 ?>
-<div class="mt-2">
+
+<head>
+    <!-- custom css -->
+    <link rel="stylesheet" href="./CSS/user.css">
+
+</head>
+
+<div class="mt-2 profile_title">
     <h1>Hồ sơ của tôi</h1>
     <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
 </div>
-<div class="row">
-    <div class="col-10 border-botton">
+<div class="row profile">
+    <div class="col-lg-10 border-botton">
         <form action="" method="post">
-            <div class="form-group d-flex flex-row justify-content-between mb-5">
+            <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">Tên đăng nhập</label>
-                <input class="from-control" style="width: 80%;" type="text" name="tendangnhap" placeholder=""
-                    value="<?php echo $_SESSION['username'] ?>">
+                <input class="form-control" style="width: 70%;" type="text" name="diachi"
+                    placeholder="Nhập tên đăng nhập" value="<?php echo $_SESSION['username'] ?>" />
             </div>
-            <div class="form-group d-flex flex-row justify-content-between mb-5">
+            <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">Tên</label>
-                <input class="from-control" style="width: 80%;" type="text" name="hoten" placeholder="Nhập họ tên">
+                <input class="form-control" style="width: 70%;" type="text" name="diachi"
+                    placeholder="Nhập họ và tên" />
             </div>
-            <div class="form-group mb-5">
-                Giới tính
-                Nam <input class="form-check-input mt-0" type="radio" value="Nam" name="gioitinh">
-                Nữ <input class="form-check-input mt-0" type="radio" value="Nữ" name="gioitinh">
-                Khác <input class="form-check-input mt-0" type="radio" value="Khác" name="gioitinh">
+            <div class="form-group d-flex flex-row justify-content-start align-items-center mb-5">
+                <label>Giới tính</label>
+                <label class="form-check-label px-4">Nam <input class="form-check-input" type="radio" value="Nam"
+                        name="gioitinh"></label>
+                <label class="form-check-label">Nữ <input class="form-check-input" type="radio" value="Nữ"
+                        name="gioitinh"></label>
+                <label class="form-check-label px-4">Khác <input class="form-check-input" type="radio" value="Khác"
+                        name="gioitinh"></label>
             </div>
-            <div class="form-group d-flex flex-row justify-content-between mb-5">
+            <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">Địa chỉ</label>
-                <input class="form-control" style="width: 80%;" type="text" name="diachi" placeholder="Nhập địa chỉ" />
+                <input class="form-control" style="width: 70%;" type="text" name="diachi" placeholder="Nhập địa chỉ" />
             </div>
-            <div class="form-group d-flex flex-row justify-content-between mb-5">
+            <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">Số điện thoại</label>
-                <input class="form-control" style="width: 80%;" type="text" name="sodt"
+                <input class="form-control" style="width: 70%;" type="text" name="sodt"
                     placeholder="Nhập số điện thoại" />
             </div>
-            <div class="form-group d-flex flex-row justify-content-between mb-5">
+            <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">CCCD</label>
-                <input class="form-control" style="width: 80%;" type="text" name="cccd" placeholder="Nhập CCCD" />
+                <input class="form-control" style="width: 70%;" type="text" name="cccd" placeholder="Nhập CCCD" />
             </div>
-            <div class="form-group d-flex flex-row justify-content-between mb-5">
+            <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">Ngày sinh</label>
-                <input class="form-control" style="width: 80%;" type="date" name="ngaysinh" placeholder="dd-mm-yyyy"
+                <input class="form-control" style="width: 70%;" type="date" name="ngaysinh" placeholder="dd-mm-yyyy"
                     value="" min="1950-01-01" max="2030-12-31" />
             </div>
             <?php
@@ -53,7 +64,8 @@ include('./function/common_function.php');
     unset($_SESSION['status_profile']);   
     }
 ?>
-            <button class="btn btn-danger" type="submit" name="thaydoi">Thay đổi</button>
+            <button class="btn btn-danger button" type="submit" name="thaydoi">Thay đổi</button>
+            <button class="btn btn-sm btn-danger button_sm" type="submit" name="thaydoi">Thay đổi</button>
         </form>
 
     </div>

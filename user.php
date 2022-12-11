@@ -57,6 +57,12 @@
                                 <span> Đơn mua</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-sign-out"></i>
+                                <span>Đăng xuất</span>
+                            </a>
+                        </li>
                     </ul>
 
                 </nav>
