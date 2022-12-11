@@ -122,15 +122,7 @@ session_start();
                   
                   if($result_query)
                   {
-                    $select="select * from `taikhoan` where tendangnhap='$username'";
-                    $select_run=mysqli_query($con,$select);
-                    if($select_run)
-                    {
-                      $row=mysqli_fetch_assoc($select_run);
-                      $khachhang_id=$row['khachhang_id'];
-                      $insert_khachhang="insert into `khachhang`(MAKH) values ('$khachhang_id')";
-                      $insert_khachhang_run=mysqli_query($con,$insert_khachhang);
-                    }
+                    
                     $_SESSION['status']="Tạo tài khoản thành công";
                     header("Location:signin.php");
                     exit(0);

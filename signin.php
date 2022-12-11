@@ -90,7 +90,7 @@ include './includes/connect_database.php';
                     {
                      
                       $_SESSION['status']="Đăng nhập thành công";
-                      
+                      $_SESSION['username']=$username; 
                       header("Location:index.php");
                       exit(0);
                     }

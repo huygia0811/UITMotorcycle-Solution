@@ -16,15 +16,31 @@ include('./function/common_function.php');
 <div class="row profile">
     <div class="col-lg-10 border-botton">
         <form action="" method="post">
+            <?php
+                $username=$_SESSION['username'];
+                $select_makh="select * from `taikhoan` where tendangnhap='$username'";
+                $select_makh_run=mysqli_query($con,$select_makh);
+                $row_taikhoan=mysqli_fetch_assoc($select_makh_run);
+                $get_makh=$row_taikhoan['MAKH'];
+                $select_khachhang="select * from `khachhang` where MAKH='$get_makh'";
+                $select_khachhang_run=mysqli_query($con,$select_khachhang);
+                $row_khachhang=mysqli_fetch_assoc($select_khachhang_run);
+                $get_hoten=$row_khachhang['HOTEN'];
+                $get_dchi=$row_khachhang['DCHI'];
+                $get_sodt=$row_khachhang['SODT'];
+                $get_gioitinh=$row_khachhang['GIOITINH'];
+                $get_socccd=$row_khachhang['SOCCCD'];
+                $get_ngsinh=$row_khachhang['NGSINH'];
+            ?>
             <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">Tên đăng nhập</label>
-                <input class="form-control" style="width: 70%;" type="text" name="diachi"
+                <input class="form-control" style="width: 70%;" type="text" name="tendangnhap"
                     placeholder="Nhập tên đăng nhập" value="<?php echo $_SESSION['username'] ?>" />
             </div>
             <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">Tên</label>
-                <input class="form-control" style="width: 70%;" type="text" name="diachi"
-                    placeholder="Nhập họ và tên" />
+                <input class="form-control" style="width: 70%;" type="text" name="hoten" placeholder="Nhập họ tên"
+                    value="<?php echo $get_hoten?>" />
             </div>
             <div class="form-group d-flex flex-row justify-content-start align-items-center mb-5">
                 <label>Giới tính</label>
@@ -37,22 +53,25 @@ include('./function/common_function.php');
             </div>
             <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">Địa chỉ</label>
-                <input class="form-control" style="width: 70%;" type="text" name="diachi" placeholder="Nhập địa chỉ" />
+                <input class="form-control" style="width: 70%;" type="text" name="diachi" placeholder="Nhập địa chỉ"
+                    value="<?php echo $get_dchi ?>" />
             </div>
             <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">Số điện thoại</label>
-                <input class="form-control" style="width: 70%;" type="text" name="sodt"
-                    placeholder="Nhập số điện thoại" />
+                <input class="form-control" style="width: 70%;" type="text" name="sodt" placeholder="Nhập số điện thoại"
+                    value="<?php echo $get_sodt?>" />
             </div>
             <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">CCCD</label>
-                <input class="form-control" style="width: 70%;" type="text" name="cccd" placeholder="Nhập CCCD" />
+                <input class="form-control" style="width: 70%;" type="text" name="cccd" placeholder="Nhập CCCD"
+                    value="<?php echo $get_socccd?>" />
             </div>
             <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">Ngày sinh</label>
-                <input class="form-control" style="width: 70%;" type="date" name="ngaysinh" placeholder="dd-mm-yyyy"
-                    value="" min="1950-01-01" max="2030-12-31" />
+                <input class="form-control" style="width: 70%;" type="text" name="ngaysinh" placeholder="dd-mm-yyyy"
+                    value="<?php echo $get_ngsinh ?>" min="1950-01-01" max="2030-12-31" />
             </div>
+
             <?php
     if(isset($_SESSION['status_profile']))
     {
@@ -64,8 +83,8 @@ include('./function/common_function.php');
     unset($_SESSION['status_profile']);   
     }
 ?>
-            <button class="btn btn-danger button" type="submit" name="thaydoi">Thay đổi</button>
-            <button class="btn btn-sm btn-danger button_sm" type="submit" name="thaydoi">Thay đổi</button>
+            <button class="btn btn-danger button" type="submit" name="thaydoi">Lưu thay đổi</button>
+            <button class="btn btn-sm btn-danger button_sm" type="submit" name="thaydoi">Lưu thay đổi</button>
         </form>
 
     </div>
