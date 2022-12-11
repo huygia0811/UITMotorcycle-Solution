@@ -35,7 +35,7 @@ if(!isset($_SESSION['user'])) {
         <div class="container p-3 navbar navbar-expand-xxl bg-secondary index_container">
             <div class="container-fluid">
                 <div class="px-sm-5 admin_name">
-                    <label class="text-light text-center">Tên admin</label>
+                    <label class="text-light text-center"><?php echo "Xin chào " .$_SESSION['user'] ?></label>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

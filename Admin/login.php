@@ -21,7 +21,7 @@ if(isset($_POST['form1'])) {
           {
            
             $error_message="Đăng nhập thành công";
-            $_SESSION['user']='$username';
+            $_SESSION['user']=$username;
             header("Location:index.php");
             exit(0);
           }

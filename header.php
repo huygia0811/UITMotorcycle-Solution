@@ -33,6 +33,14 @@ nav a {
                 <li class="nav-item">
                     <a class="nav-link" href="./user.php?profile"><i class="fa-solid fa-user"></i> Tài Khoản</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./logout.php">Đăng xuất</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="page_shopping_cart.php"><i
+                            class="fa-solid fa-cart-shopping"></i><sup>1</sup> Giỏ hàng</a>
+                </li>
+                <p><?php echo $_SESSION['username'] ?></p>
                 <?php
                 }
                 else
@@ -44,16 +52,10 @@ nav a {
                 <li class="nav-item">
                     <a class="nav-link" href="./signup.php">Đăng ký</a>
                 </li>
+                
                 <?php
                 }
                 ?>
-
-                <!--  -->
-                <li class="nav-item">
-                    <a class="nav-link" href="page_shopping_cart.php"><i
-                            class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
-                </li>
-
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" name="search_data" type="search" placeholder="Search"

@@ -1,6 +1,6 @@
 <?php
 include('./function/common_function.php');
-cart();
+$message_eror='';
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,7 @@ cart();
 <?php
 include "./includes/connect_database.php";
 include('./header.php');
-
+cart();
 ?>
 
 <body>
@@ -86,18 +86,29 @@ include('./header.php');
                             <input type="hidden" id="get_color_name" name="get_color" value="">
 
                             <button type="submit" name="mua" value="">
-                                    tHÊM
-                            </button>
+                                    Thêm vào giỏ hàng
+                            </button>      
                         </form>
                         <?php
                             if(isset($_POST['mua']))
                             {
                                 $get_Color=$_POST['get_color'];
+                                
+                                if($get_Color=='')
+                                {
+                                    $message_eror="Vui lòng chọn màu";
+                                    ?>
+                                    <div class="alert alert-danger"><?php echo $message_eror ?></div>
+                                    <?php
+                                }
+                                else
+                                {
                                 $select_sp = "select * from `sanpham` where TENSP = '$tenxe' and MAU='$get_Color'";
                                 $select_run = mysqli_query($con, $select_sp);
                                 $row = mysqli_fetch_assoc($select_run);
                                 $typeid = $row['MASP'];
                                 echo "<script>window.open('Product_Detail.php?add_to_card=$typeid&soluong=1','_self')</script>";
+                                }
                             }
                         ?>
                     </div>

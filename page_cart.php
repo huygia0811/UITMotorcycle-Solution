@@ -122,6 +122,33 @@ cart();
             }
         }
         echo $deleterow = deleterow();
+        function check_thongtin()
+        {
+            global $con;
+            if(isset($_POST['Thanh_toan']) or isset($_POST['thanhtoantatca']))
+            {
+            $username=$_SESSION['username'];
+            $select_makh="select * from `taikhoan` where tendangnhap='$username'";
+            $select_makh_run=mysqli_query($con,$select_makh);
+            $row_taikhoan=mysqli_fetch_assoc($select_makh_run);
+            $get_makh=$row_taikhoan['MAKH'];
+            $select_khachhang="select * from `khachhang` where MAKH='$get_makh'";
+            $select_khachhang_run=mysqli_query($con,$select_khachhang);
+            $row_khachhang=mysqli_fetch_assoc($select_khachhang_run);
+            $get_hoten=$row_khachhang['HOTEN'];
+            $get_dchi=$row_khachhang['DCHI'];
+            $get_sodt=$row_khachhang['SODT'];
+            $get_gioitinh=$row_khachhang['GIOITINH'];
+            $get_socccd=$row_khachhang['SOCCCD'];
+            if($get_hoten=='' or $get_dchi=='' or $get_sodt=='' or $get_gioitinh=='' or $get_socccd=='')
+            {
+                echo "<script> alert('Bạn phải cập nhập đầy đủ thông tin trước khi thanh toán') </script>";
+                echo "<script>window.open('user.php?profile','_self')</script>>";
+                exit(0);
+            }
+        }
+        }
+        echo $check_thongtin=check_thongtin();
         function thanhtoan()
         {
             global $con;
@@ -172,10 +199,11 @@ cart();
                         }
                     }
                 } else {
-                    echo "<script>window.open('index.php','_self') </script>";
-                    echo "kop dc";
+                    echo "<script>window.open('user.php?purchar&type=-3','_self') </script>";
+                    
                 }
-            }
+            
+             }
         }
         echo $insert = thanhtoan();
         function thanhtoantatca()

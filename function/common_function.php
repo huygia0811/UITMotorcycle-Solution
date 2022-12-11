@@ -34,6 +34,12 @@ function showproduct()
 function cart()
 {
   if (isset($_GET['add_to_card'])) {
+    if(!isset($_SESSION['username'])) {
+      header('location: signin.php');
+      exit;
+    }
+    else
+    {
     global $con;
     $masp = $_GET['add_to_card'];
     $ip_address = getIPAddress();
@@ -52,6 +58,7 @@ function cart()
         echo "<script>window.open('index.php','_self')</script>";
       }
     }
+  }
   }
 }
 
