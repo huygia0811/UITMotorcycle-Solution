@@ -1,3 +1,13 @@
+<?php
+ob_start();
+session_start();
+// Check if the user is logged in or not
+if(!isset($_SESSION['user'])) {
+	header('location: login.php');
+	exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,7 +66,7 @@
                             <a class="nav-link" href="#">List users</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng xuất</a>
+                            <a class="nav-link" href="logout.php">Đăng xuất</a>
                         </li>
                     </ul>
                 </div>

@@ -104,24 +104,28 @@ function viewmore()
 ";
   }
 }
-function show_don_mua($masp_id,$get_sl,$id)
+function show_don_mua($masp_id, $get_sl, $id, $so_hd)
 {
-      global $con;
-       $total = 0;
-        $getip = getIPAddress();
-        $select_cart = "select * from `sanpham` where MASP='$masp_id'";
-        $select_cart_run = mysqli_query($con, $select_cart);
-        $count_row = mysqli_num_rows($select_cart_run);
-        if ($count_row > 0) {
-            echo "<form action='' method='post'><table class='table table-striped' style='text-align:center'>
+  global $con;
+  $total = 0;
+  $getip = getIPAddress();
+  $select_cart = "select * from `sanpham` where MASP='$masp_id'";
+  $select_cart_run = mysqli_query($con, $select_cart);
+  $count_row = mysqli_num_rows($select_cart_run);
+  if ($count_row > 0) {
+    echo "<form action='' method='post'><table class='table table-striped' style='text-align:center'>
                     <thead class='thead-dark'>
                         <tr role='row' >
                             <th width='50'>Chọn</th>
+                            <th width='180'>
+                            Số hóa đơn
+                           </th>
                             <th width='160'>
                                 Ảnh</th>
                             <th width='180'>
                                 Tên sản phẩm
                             </th>
+                           
                             <th width='100'>
                                 Màu</th>
                             <th width='70'>
@@ -135,103 +139,112 @@ function show_don_mua($masp_id,$get_sl,$id)
                         </tr>
                     </thead>
                     <tbody>";
-            while ($row_cart = mysqli_fetch_array($select_cart_run)) {
-                $masp = $row_cart['MASP'];
-                $select_product = "select * from `sanpham` where MASP='$masp'";
-                $select_product_run = mysqli_query($con, $select_product);
-                while ($row_product = mysqli_fetch_array($select_product_run)) {
-                    $tensp = $row_product['TENSP'];
-                    $url_image = $row_product['URL_IMAGE'];
-                    $mau = $row_product['MAU'];
-                    $gia = $row_product['GIA'];
-                    $total += $gia;
-        ?>
-                    <tr>
-                        <td><input type="checkbox" name="select[]" value="<?php echo $masp ?>"></td>
-                        <td>
-                            <img style="width: 60%; height: 60%; object-fit: contain;" src="./<?php echo $url_image; ?>" alt="<?php echo $tensp ?>">
-                        </td>
-                        <td><?php echo $tensp; ?></td>
-                        <td><?php echo $mau; ?></td>
+    while ($row_cart = mysqli_fetch_array($select_cart_run)) {
+      $masp = $row_cart['MASP'];
+      $select_product = "select * from `sanpham` where MASP='$masp'";
+      $select_product_run = mysqli_query($con, $select_product);
+      while ($row_product = mysqli_fetch_array($select_product_run)) {
+        $tensp = $row_product['TENSP'];
+        $url_image = $row_product['URL_IMAGE'];
+        $mau = $row_product['MAU'];
+        $gia = $row_product['GIA'];
+        $total += $gia;
+?>
+        <tr>
+          <td><input type="checkbox" name="select[]" value="<?php echo $so_hd ?>"></td>
+          <td><?php echo $so_hd; ?></td>
+          <td>
+            <img style="width: 60%; height: 60%; object-fit: contain;" src="./<?php echo $url_image; ?>" alt="<?php echo $tensp ?>">
+          </td>
+          <td><?php echo $tensp; ?></td>
+          <td><?php echo $mau; ?></td>
 
-                        <td>
-                            <div class="cart_quantity">
-                               
-                                <input type="text" name="qty" id="qty" value="<?php echo $get_sl ?>"  disabled/>
-                               
-                            </div>
-                        <td><?php echo $gia; ?> đ</td>
+          <td>
+            <div class="cart_quantity">
 
-                        <td><?php
-                            if($id==0)
-                            {
-                              echo "Đang giao";
-                            }
-                            if($id==1)
-                            {
-                              echo "Đã giao";
-                            }
-                            if($id==-1)
-                            {
-                              echo "Đã hủy";
-                            }
-                            ?></td>
-                        <td>
-                            <input type="submit" value="Hủy" name="Huy" class="bg-info p-2 border-0 my-2 px-2">                           
-                        </td>
-                    </tr>
+              <input type="text" name="qty" id="qty" value="<?php echo $get_sl ?>" disabled />
+
+            </div>
+          <td><?php echo $gia; ?> đ</td>
+
+          <td><?php
+              if ($id == 0) {
+                echo "Đang giao";
+              }
+              if ($id == -2) {
+                echo "Chờ xác nhận";
+              }
+              if ($id == 1) {
+                echo "Đã giao";
+              }
+              if ($id == -1) {
+                echo "Đã hủy";
+              }
+              ?></td>
+          <td>
             <?php
-                }
+            if ($id == -2) {
+            ?>
+              <input type="submit" value="Hủy" name="Huy" class="bg-info p-2 border-0 my-2 px-2">
+            <?php
             }
             ?>
-            </tbody>
-            </table>
-           
-            </form>
-        <?php
-        } else {
-            echo "<div class='cart_list cart_list--no-cart'>
-                    <img src='./asset/header_cart/empty-cart.webp' alt='' class='cart_list-no-cart-img' />
-                    <a href='./index.php' class='home-link'>
-                        <button class='home btn btn-lg btn-success'>Trang chủ</button>
-                    </a>
-                    </div>";
-        }
+          </td>
+        </tr>
+    <?php
+      }
+    }
+    ?>
+    </tbody>
+    </table>
+
+    </form>
+    <?php
+      if(isset($_POST['Huy']))
+      {
+        if (isset($_POST['select'])) {
+          foreach ($_POST['select'] as $sohd) {
+            echo var_dump($sohd);
+           // echo "<script>alert('Bạn có chắc muốn hủy hóa đơn $sohd')</script>";
+          }
+      }
+    }
+    ?>
+<?php
+  
+  }
+  
 }
 function don_mua($id)
 {
   global $con;
-  $select_hoadon="select * from `hoadon` where TRANGTHAI='$id'";
-  $select_hoadon_run=mysqli_query($con,$select_hoadon);  
-  while($row=mysqli_fetch_assoc($select_hoadon_run))
-  {
-    $get_sohd=$row['SOHD'];
-    $select_cthd="select * from `cthd` where SOHD='$get_sohd'";
-    $select_cthd_run=mysqli_query($con,$select_cthd);
-    while($row_cthd=mysqli_fetch_assoc($select_cthd_run))
-    {
-      $get_masp=$row_cthd['MASP'];
-      $get_sl=$row_cthd['SL'];
-      show_don_mua($get_masp,$get_sl,$id);
+  $select_hoadon = "select * from `hoadon` where TRANGTHAI='$id'";
+  $select_hoadon_run = mysqli_query($con, $select_hoadon);
+  while ($row = mysqli_fetch_assoc($select_hoadon_run)) {
+    $get_sohd = $row['SOHD'];
+    $select_cthd = "select * from `cthd` where SOHD='$get_sohd'";
+    $select_cthd_run = mysqli_query($con, $select_cthd);
+    while ($row_cthd = mysqli_fetch_assoc($select_cthd_run)) {
+      $get_masp = $row_cthd['MASP'];
+      $get_sl = $row_cthd['SL'];
+      show_don_mua($get_masp, $get_sl, $id,$get_sohd);
     }
   }
 }
 function don_mua_tatca()
 {
   global $con;
-  $select_hoadon="select * from `hoadon`";
-  $select_hoadon_run=mysqli_query($con,$select_hoadon);  
-  while($row=mysqli_fetch_assoc($select_hoadon_run))
-  {
-    $get_sohd=$row['SOHD'];
-    $get_trangthai=$row['TRANGTHAI'];
-    $select_cthd="select * from `cthd` where SOHD='$get_sohd'";
-    $select_cthd_run=mysqli_query($con,$select_cthd);
-    while($row_cthd=mysqli_fetch_assoc($select_cthd_run))
-    {
-      $get_masp=$row_cthd['MASP'];
-      $get_sl=$row_cthd['SL'];
-      show_don_mua($get_masp,$get_sl,$get_trangthai);
+  $select_hoadon = "select * from `hoadon`";
+  $select_hoadon_run = mysqli_query($con, $select_hoadon);
+  while ($row = mysqli_fetch_assoc($select_hoadon_run)) {
+    $get_sohd = $row['SOHD'];
+    $get_trangthai = $row['TRANGTHAI'];
+    $select_cthd = "select * from `cthd` where SOHD='$get_sohd'";
+    $select_cthd_run = mysqli_query($con, $select_cthd);
+    while ($row_cthd = mysqli_fetch_assoc($select_cthd_run)) {
+      $get_masp = $row_cthd['MASP'];
+      $get_sl = $row_cthd['SL'];
+      show_don_mua($get_masp, $get_sl, $get_trangthai,$get_sohd);
     }
   }
 }

@@ -148,7 +148,7 @@ cart();
                     $row_khachhang = mysqli_fetch_assoc($select_khachhang_run);
                     $get_makh = $row_khachhang['MAKH'];
                     //chèn hóa đơn
-                    $insert_hoadon = "insert into `hoadon` (NGHD,MAKH,TRIGIA,TRANGTHAI) values ('NOW()','$get_makh','$total','0')";
+                    $insert_hoadon = "insert into `hoadon` (NGHD,MAKH,TRIGIA,TRANGTHAI) values ('NOW()','$get_makh','$total','-2')";
                     $insert_hoadon_run = mysqli_query($con, $insert_hoadon);
                     //lấy số hd mới dc tạo
                     $select_hoadon = "select MAX(SOHD) from `hoadon`";
