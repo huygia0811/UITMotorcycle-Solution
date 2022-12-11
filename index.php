@@ -151,7 +151,7 @@ include('./function/common_function.php');
                         <img src="./Asset/Picture/banner_1.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./Asset/Picture/banner_1.png" class="d-block w-100" alt="...">
+                        <img src="./Asset/Picture/banner_2.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
                         <img src="./Asset/Picture/banner_1.png" class="d-block w-100" alt="...">
