@@ -7,8 +7,12 @@ cart();
     <div>
         <?php
         $total = 0;
-        $getip = getIPAddress();
-        $select_cart = "select * from `giohang` where khachhang_ip='$getip'";
+        $username=$_SESSION['username'];
+        $select_makh="select * from `taikhoan` where tendangnhap='$username'";
+        $select_makh_run=mysqli_query($con,$select_makh);
+        $row_makh=mysqli_fetch_assoc($select_makh_run);
+        $get_makh=$row_makh['MAKH'];
+        $select_cart = "select * from `giohang` where MAKH='$get_makh'";
         $select_cart_run = mysqli_query($con, $select_cart);
         $count_row = mysqli_num_rows($select_cart_run);
         if ($count_row > 0) {
@@ -34,7 +38,7 @@ cart();
                     <tbody>";
             while ($row_cart = mysqli_fetch_array($select_cart_run)) {
                 $masp = $row_cart['MASP'];
-                $soluong = $row_cart['soluong'];
+                $soluong = $row_cart['SOLUONG'];
                 $select_product = "select * from `sanpham` where MASP='$masp'";
                 $select_product_run = mysqli_query($con, $select_product);
                 while ($row_product = mysqli_fetch_array($select_product_run)) {

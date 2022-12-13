@@ -42,8 +42,12 @@ function cart()
     {
     global $con;
     $masp = $_GET['add_to_card'];
-    $ip_address = getIPAddress();
-    $select_query = "select * from `giohang` where MASP='$masp' and khachhang_ip='$ip_address'";
+    $username=$_SESSION['username'];
+    $select_makh="select * from `taikhoan` where tendangnhap='$username'";
+    $select_makh_run=mysqli_query($con,$select_makh);
+    $row_makh=mysqli_fetch_assoc($select_makh_run);
+    $get_makh=$row_makh['MAKH'];
+    $select_query = "select * from `giohang` where MASP='$masp' and MAKH='$get_makh'";
     $soluong = $_GET['soluong'];
     $select_query_run = mysqli_query($con, $select_query);
     $count = mysqli_num_rows($select_query_run);
@@ -51,7 +55,7 @@ function cart()
       echo "<script>alert('sản phẩm đã có sẵn trong giỏ hàng')</script>";
       echo "<script>window.open('index.php','_self')</script>";
     } else {
-      $insert_query = "insert into `giohang` (MASP, khachhang_ip,soluong) values ('$masp','$ip_address','$soluong')";
+      $insert_query = "insert into `giohang` (MASP, MAKH,soluong) values ('$masp','$get_makh','$soluong')";
       $result_query = mysqli_query($con, $insert_query);
       if ($result_query) {
         echo "<script>alert('this item added inside cart') </script>";
