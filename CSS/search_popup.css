@@ -135,7 +135,7 @@
     
 .color_multiple_select summary {
     padding: 10px 20px;
-    background-color: #f1f4f6;
+    background-color: white;
     border: 1px solid #05c5cc;
     border-radius: 5px;
 }
@@ -149,7 +149,7 @@
     z-index: 5;
     height: max-content;
     bottom: 40px;
-    background-color: #ededed !important;
+    background-color: white !important;
 }
     
 .color_multiple_select label {

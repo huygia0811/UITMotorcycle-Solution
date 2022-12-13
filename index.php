@@ -73,23 +73,10 @@ include('./function/common_function.php');
             height: 200px;
             object-fit: contain;
         }
-        
-        .btn_cart_view {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
-        }
-        @media screen and (max-width: 430px) {
-            .btn_cart_view {
-                display: block;
-            }
-            .btn_cart_view a {
-                width: 100%;
-            }
-            .btn_cart_view a:not(:last-child) {
-                width: 100%;
-                margin-bottom: 10px;
-            }
+        #btnViewMore {
+            width:100%;
+            background-color: #05c5cc;
+            border: none;
         }
         </style>
     </head>

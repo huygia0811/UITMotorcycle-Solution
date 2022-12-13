@@ -47,7 +47,7 @@ cart();
                             </div>
                             <div class="detail">
                                 <h2>' . $xe['TENSP'] . '</h2>
-                                <h3>' . currency_format($xe['GIA']) . '</h3>
+                                <h3 id="prod_price">' . currency_format($xe['GIA']) . ' đ</h3>
                         '
                     ?>
                     <div class="mauxe">
@@ -59,11 +59,14 @@ cart();
                             while ($xe2 = $kq2->fetch_assoc()) {
                                 $url_img = $xe2['URL_IMAGE'];
                                 $mausac = $xe2['MAU'];
+                                $gia = currency_format($xe2['GIA']);
+                                $gia .= " đ";
                                 echo '
                                             <div id="btnMau" onclick="document.getElementById
                                         ';
                                 echo "
-                                            ('prod_img_url').src='$url_img';get_color('$mausac');
+                                            ('prod_img_url').src='$url_img'; 
+                                            document.getElementById('prod_price').innerHTML='$gia';get_color('$mausac');
                                         ";
                                 echo '
                                             ">' . $mausac . '</div>
