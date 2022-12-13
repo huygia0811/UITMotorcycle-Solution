@@ -3,6 +3,17 @@ include('./function/common_function.php');
 include('./includes/connect_database.php');
 cart();
 ?>
+<style>
+    .btnshoppingcart {
+        background-color: #05c5cc !important;
+        border-radius: 5px;
+        color: white;
+    }
+    .shoppingcart_h4 {
+        color: #05c5cc !important;
+        font-size: 25px;
+    }
+</style>
 <div class="container" style="min-height: 400px;">
     <div>
         <?php
@@ -68,12 +79,12 @@ cart();
                             </div>
                             <!-- <input type="text" name="qty" class="form-input w-50" value="<?php echo $soluong ?>"></td> -->
 
-                        <td><?php echo $gia; ?> đ</td>
+                        <td><?php echo currency_format($gia); ?> đ</td>
 
 
                         <td>
-                            <input type="submit" value="Thanh toán" name="Thanh_toan" class="bg-info p-2 border-0 my-2 px-2">
-                            <input type="submit" value="Xóa" name="xoa" class="bg-info p-2 border-0">
+                            <input type="submit" value="Thanh toán" name="Thanh_toan" class="bg-info p-2 border-0 my-2 px-2 btnshoppingcart">
+                            <input type="submit" value="Xóa" name="xoa" class="bg-info p-2 border-0 btnshoppingcart">
 
                         </td>
                     </tr>
@@ -84,10 +95,10 @@ cart();
             </tbody>
             </table>
             <div class="d-flex">
-                <h4 class="px-3">Tổng: <strong class="text-info"><?php echo "$total" ?></strong></h4>
+                <h4 class="px-3">Tổng: <strong class="text-info shoppingcart_h4"><?php echo currency_format($total) . " đ"; ?></strong></h4>
 
-                <a href="#"><button type="submit" name="thanhtoantatca" class="bg-info p-2 border-0 mx-4">Thanh toán tất cả</button></a>
-                <a href="#"><button class="bg-info p-2 border-0">Thoát</button></a>
+                <a href="#"><button type="submit" name="thanhtoantatca" class="bg-info p-2 border-0 mx-4 btnshoppingcart">Thanh toán tất cả</button></a>
+                <a href="./index.php"><button class="bg-info p-2 border-0 btnshoppingcart">Thoát</button></a>
 
             </div>
             </form>
@@ -96,7 +107,7 @@ cart();
             echo "<div class='cart_list cart_list--no-cart'>
                     <img src='./asset/header_cart/empty-cart.webp' alt='' class='cart_list-no-cart-img' />
                     <a href='./index.php' class='home-link'>
-                        <button class='home btn btn-lg btn-success'>Trang chủ</button>
+                        <button class='home btn btn-lg btn-success btnshoppingcart'>Trang chủ</button>
                     </a>
                     </div>";
         }

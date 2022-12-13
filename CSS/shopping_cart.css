@@ -108,6 +108,7 @@ body {
 .cart_list--no-cart .container {
   display: none;
 }
+
 @media screen and (max-width: 1030px) {
   .container {
     font-size: 14px;
