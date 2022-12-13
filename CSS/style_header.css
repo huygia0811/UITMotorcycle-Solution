@@ -6,6 +6,10 @@ nav a {
   color: white !important;
 }
 
+#nav_ul li:not(:first-child) {
+  margin-left: 15px;
+}
+
 #nav_btnBoloc {
   margin: 10px;
 }
@@ -17,6 +21,9 @@ nav a {
 
   #myBtn {
     width: 100%;
+  }
+  #nav_ul li {
+    margin-left: 10px;
   }
 }
 @media only screen and (max-width: 400px) {
