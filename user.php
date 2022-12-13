@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="logout.php">
+                            <a href="user.php?logout">
                                 <i class="fas fa-sign-out"></i>
                                 <span>Đăng xuất</span>
                             </a>
@@ -92,6 +92,10 @@
             if(isset($_GET['purchar']))
             {
                 include('purchar.php');
+            }
+            if(isset($_GET['logout']))
+            {
+                include('logout.php');
             }
             ?>
                     </div>

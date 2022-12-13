@@ -9,29 +9,30 @@ function Search() {
         $searchvalues = "CONCAT(TENSP,TENHANG,TENLOAI,PHANKHOI,NAMSX,MAU) LIKE '%";
         $searchvalues .= implode("%' and CONCAT(TENSP,TENHANG,TENLOAI,PHANKHOI,NAMSX,MAU) LIKE '%", $split_searchvalue);
         $searchvalues .= "%'";
-        $query = "SELECT * FROM SANPHAM sp, HANGXE hx, LOAIXE lx WHERE sp.MAHANG = hx.MAHANG and lx.LOAIXE = sp.LOAIXE and $searchvalues and IS_ACTIVE=1";
-        $query_run = $con->query($query);
+        $query = "SELECT distinct TENSP FROM SANPHAM sp, HANGXE hx, LOAIXE lx WHERE sp.MAHANG = hx.MAHANG and lx.LOAIXE = sp.LOAIXE and $searchvalues";
+        $ketqua = $con->query($query);
             
-        if(mysqli_num_rows($query_run) > 0)
+        if(mysqli_num_rows($ketqua) > 0)
         {
-            while ($xe = $query_run->fetch_assoc())
+            while ($row = $ketqua->fetch_assoc())
             {
-                echo '
-                    <div class="col-6 col-md-4  mb-2 ">
-                        <div class="card">
-                            <img src="'.$xe['URL_IMAGE'].'" class="card-img-top" alt="$product_image3">
-                            <div class="card-body">
-                                <h5 class="card-title">'.$xe['TENSP'].'</h5>
-                                <p class="card-text">'.currency_format($xe['GIA']).' đ</p>
-                                <div class="btn_cart_view">
-                                    <a href="index.php?add_to_card='.$xe['MASP'].'&soluong=1" class="btn btn-info">Add to cart</a>
-                                    <a href="Product_Detail.php?tenxe='.$xe['TENSP'].'" class="btn btn-secondary">View more</a>
+                $tensp = $row['TENSP'];
+                $select_one = "select TENSP, GIA, URL_IMAGE from sanpham where TENSP='$tensp' LIMIT 1";
+                $result = mysqli_query($con, $select_one);
+                while ($xe = mysqli_fetch_assoc($result)) {
+                    echo '
+                        <div class="col-6 col-md-4  mb-2 ">
+                            <div class="card">
+                                <img src="' . $xe['URL_IMAGE'] . '" class="card-img-top" alt="$product_image3">
+                                <div class="card-body">
+                                    <h5 class="card-title">' . $xe['TENSP'] . '</h5>
+                                    <p class="card-text">' . currency_format($xe['GIA']) . ' đ</p>
+                                    <a href="Product_Detail.php?tenxe=' . $xe['TENSP'] . '" class="btn btn-secondary" id="btnViewMore">View more</a>
                                 </div>
-                                
                             </div>
                         </div>
-                    </div>
-                ';
+                    ';
+                }
             }
         }
         else
@@ -46,7 +47,7 @@ function Search_Filter() {
     {
         include "./includes/connect_database.php";
                
-        $query = "SELECT * FROM SANPHAM WHERE IS_ACTIVE = 1";
+        $query = "SELECT distinct(TENSP) FROM SANPHAM WHERE IS_ACTIVE = 1";
         if (isset($_GET['LoaiXe']) && !empty($_GET['LoaiXe']))
         {
             $loaixe = $_GET['LoaiXe'];
@@ -79,28 +80,29 @@ function Search_Filter() {
             $mausac .= "%'";
             $query .= " and ($mausac)";
         }
-        $query_run = $con->query($query);
+        $ketqua = $con->query($query);
             
-        if(mysqli_num_rows($query_run) > 0)
+        if(mysqli_num_rows($ketqua) > 0)
         {
-            while ($xe = $query_run->fetch_assoc())
+            while ($row = $ketqua->fetch_assoc())
             {
-                echo '
-                    <div class="col-6 col-md-4  mb-2 ">
-                        <div class="card">
-                            <img src="'.$xe['URL_IMAGE'].'" class="card-img-top" alt="$product_image3">
-                            <div class="card-body">
-                                <h5 class="card-title">'.$xe['TENSP'].'</h5>
-                                <p class="card-text">'.currency_format($xe['GIA']).' đ</p>
-                                <div class="btn_cart_view">
-                                    <a href="index.php?add_to_card='.$xe['MASP'].'&soluong=1" class="btn btn-info">Add to cart</a>
-                                    <a href="Product_Detail.php?tenxe='.$xe['TENSP'].'" class="btn btn-secondary">View more</a>
+                $tensp = $row['TENSP'];
+                $select_one = "select TENSP, GIA, URL_IMAGE from sanpham where TENSP='$tensp' LIMIT 1";
+                $result = mysqli_query($con, $select_one);
+                while ($xe = mysqli_fetch_assoc($result)) {
+                    echo '
+                        <div class="col-6 col-md-4  mb-2 ">
+                            <div class="card">
+                                <img src="' . $xe['URL_IMAGE'] . '" class="card-img-top" alt="$product_image3">
+                                <div class="card-body">
+                                    <h5 class="card-title">' . $xe['TENSP'] . '</h5>
+                                    <p class="card-text">' . currency_format($xe['GIA']) . ' đ</p>
+                                    <a href="Product_Detail.php?tenxe=' . $xe['TENSP'] . '" class="btn btn-secondary" id="btnViewMore">View more</a>
                                 </div>
-                                
                             </div>
                         </div>
-                    </div>
-                ';
+                    ';
+                }
             }
         }
         else
