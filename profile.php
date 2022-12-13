@@ -42,14 +42,14 @@ include('./function/common_function.php');
                 <input class="form-control" style="width: 70%;" type="text" name="hoten" placeholder="Nhập họ tên"
                     value="<?php echo $get_hoten?>" />
             </div>
-            <div class="form-group d-flex flex-row justify-content-start align-items-center mb-5">
+            <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label>Giới tính</label>
-                <label class="form-check-label px-4">Nam <input class="form-check-input" type="radio" value="Nam"
-                        name="gioitinh"></label>
-                <label class="form-check-label">Nữ <input class="form-check-input" type="radio" value="Nữ"
-                        name="gioitinh"></label>
-                <label class="form-check-label px-4">Khác <input class="form-check-input" type="radio" value="Khác"
-                        name="gioitinh"></label>
+                <label class="form-check-label px-4">Nam <input class="form-check-input" type="radio" value="Nam" <?php if ($get_gioitinh == 'Nam')
+                    echo 'checked'; ?> name="gioitinh"></label>
+                <label class="form-check-label">Nữ <input class="form-check-input" type="radio" value="Nữ" <?php if ($get_gioitinh == 'Nữ')
+                    echo 'checked'; ?> name="gioitinh"></label>
+                <label class="form-check-label px-4">Khác <input class="form-check-input" type="radio" value="Khác" <?php if ($get_gioitinh == 'Khác')
+                    echo 'checked'; ?> name="gioitinh"></label>
             </div>
             <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">Địa chỉ</label>

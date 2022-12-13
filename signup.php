@@ -45,16 +45,11 @@ session_start();
                             <input type="password" class="form-control" id="pwd" placeholder="Nhập mật khẩu"
                                 name="pwd" />
                         </div>
-                        <!-- <div class="form-group">
-              <label for="phonenum">Số điện thoại:</label>
-              <input
-                type="tel"
-                class="form-control"
-                id="phonenum"
-                placeholder="Nhập số điện thoại"
-                name="phonenum"
-              />
-            </div> -->
+                        <div class="form-group">
+                            <label for="pwd">Nhập lại mật khẩu:</label>
+                            <input type="password" class="form-control" id="confirmpwd" placeholder="Nhập lại mật khẩu"
+                                name="confirmpwd" />
+                        </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
                             <input type="email" class="form-control" id="email" placeholder="Nhập email" name="email" />
@@ -85,7 +80,7 @@ session_start();
               //$phonenum=$_POST['phonenum'];
               $email=mysqli_real_escape_string($con,$_POST['email']) ;
               $ip = getIPAddress();  
-              if($username=='' or  $pwd=='' or $email=='')
+              if($username=='' or  $pwd=='' or $confirmpwd='' or $email=='')
               {
                
                 $_SESSION['status']="Vui lòng điền đầy đủ thông tin";
@@ -108,24 +103,33 @@ session_start();
                 }
                 else
                 {
-                  $getip=getIPAddress();
-                  $insert_khachhang="INSERT into `khachhang` (HOTEN,DCHI,SODT,NGSINH,NGDK,SODU,khachhang_ip,GIOITINH,SOCCCD) VALUES ('','','','','NOW()','','$getip','','')";
-                  $insert_khachhang_run=mysqli_query($con,$insert_khachhang);
-
-                  $select_khachhang="SELECT MAX(MAKH) from `khachhang`";
-                  $select_khachhang_run=mysqli_query($con,$select_khachhang);
-                  $select_khachhang_row=mysqli_fetch_assoc($select_khachhang_run);
-                  $row=$select_khachhang_row['MAX(MAKH)'];
-                  
-                  $insert_query="insert into `taikhoan`(tendangnhap,MAKH,matkhau,email,khachhang_ip) values('$username','$row','$hash_pwd','$email','$ip')";
-                  $result_query=mysqli_query($con,$insert_query);
-                 //echo var_dump($result_query);
-                  
-                  if($result_query)
+                  if($_POST['confirmpwd']===$_POST['pwd'])
                   {
+                    $getip=getIPAddress();
+                    $insert_khachhang="INSERT into `khachhang` (HOTEN,DCHI,SODT,NGSINH,NGDK,SODU,khachhang_ip,GIOITINH,SOCCCD) VALUES ('','','','','NOW()','','$getip','','')";
+                    $insert_khachhang_run=mysqli_query($con,$insert_khachhang);
+
+                    $select_khachhang="SELECT MAX(MAKH) from `khachhang`";
+                    $select_khachhang_run=mysqli_query($con,$select_khachhang);
+                    $select_khachhang_row=mysqli_fetch_assoc($select_khachhang_run);
+                    $row=$select_khachhang_row['MAX(MAKH)'];
                     
-                    $_SESSION['status']="Tạo tài khoản thành công";
-                    header("Location:signin.php");
+                    $insert_query="insert into `taikhoan`(tendangnhap,MAKH,matkhau,email,khachhang_ip) values('$username','$row','$hash_pwd','$email','$ip')";
+                    $result_query=mysqli_query($con,$insert_query);
+                    //echo var_dump($result_query);
+                    
+                    if($result_query)
+                    {
+                      
+                      $_SESSION['status']="Tạo tài khoản thành công";
+                      header("Location:signin.php");
+                      exit(0);
+                    }
+                  }
+                  else
+                  {
+                    $_SESSION['status']="Mật khẩu không khớp";
+                    header("Location:signup.php");
                     exit(0);
                   }
                 } 

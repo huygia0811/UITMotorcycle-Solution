@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="logout.php">
                                 <i class="fas fa-sign-out"></i>
                                 <span>Đăng xuất</span>
                             </a>

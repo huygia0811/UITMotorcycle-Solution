@@ -1,0 +1,27 @@
+.set_Color_nav {
+  background-color: #06c7ce !important;
+}
+
+nav a {
+  color: white !important;
+}
+
+#nav_btnBoloc {
+  margin: 10px;
+}
+
+@media screen and (max-width: 991px) {
+  #nav_btnBoloc {
+    margin-left: 0;
+  }
+
+  #myBtn {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+}
