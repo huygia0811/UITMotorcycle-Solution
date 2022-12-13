@@ -20,7 +20,7 @@ include "index.php";
             <table id="products" class="table table-striped table-hover" role="grid" aria-describedby="products_info">
                 <thead class="thead-dark">
                     <tr role="row" style='text-align:center'>
-                        <th width="10" scope="col">#</th>
+                        <th width="100" scope="col">Mã nạp tiền</th>
                         <th width="160" scope="col">
                             Mã khách hàng</th>
                         <th width="160" scope="col">

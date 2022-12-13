@@ -57,13 +57,13 @@ if(!isset($_SESSION['user'])) {
                             <a class="nav-link" href="view_brands.php">Xem hãng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">All order</a>
+                            <a class="nav-link" href="all_order.php">All order</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="CheckPayment.php">All payment</a>
+                            <a class="nav-link" href="check_payment.php">All payment</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">List users</a>
+                            <a class="nav-link" href="view_user.php">List users</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="logout.php">Đăng xuất</a>
