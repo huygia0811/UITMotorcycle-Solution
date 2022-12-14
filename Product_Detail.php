@@ -108,7 +108,7 @@ cart();
                                 {
                                     $message_eror="Vui lòng chọn màu";
                                     ?>
-                                    <div class="alert alert-danger"><?php echo $message_eror ?></div>
+                                    <div class="alert alert-danger" ><?php echo $message_eror ?></div>
                                     <?php
                                 }
                                 else
