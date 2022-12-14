@@ -14,27 +14,30 @@ include './includes/connect_database.php';
 
 <body>
     <div>
-        <img style="height:auto; width:300px;" src="Asset/Picture/momo.jpg">   
-        <form method="GET">
-            <div>
-                <h1>Nạp tiền QUA MOMO</h1>
-                <form action="" method="get">
-                    Nhập ngày <input type="date" name="date"> <br>
-                    Số tiền <input type="text" name="sotien"> <br>
-                    Số tài khoản <input type="text" name="sotaikhoan"> <br>
-                    <input type="submit" class='btn-naptien' name="NapTien" value='Nạp tiền'>
-                </form>
-            </div>
-        </form>
+        <img style="height:auto; width:300px;" src="Asset/Picture/momo.jpg">
+        <div>
+            <h1>Nạp tiền QUA MOMO</h1>
+            <form action="" method="post">
+                Nhập ngày <input type="date" name="date"> <br>
+                Số tiền <input type="text" name="sotien"> <br>
+                Số tài khoản <input type="text" name="sotaikhoan"> <br>
+                <input type="submit" class='btn-naptien' name="NapTien" value='Nạp tiền'>
+            </form>
+        </div>
         <?php
-        if (isset($_GET["NapTien"]) && $_GET["NapTien"] == "Nạp tiền") {
-            if (empty($_GET["date"]) || empty($_GET["sotien"]) || empty($_GET["sotaikhoan"])) {
+        if (isset($_POST["NapTien"]) && $_POST["NapTien"] == "Nạp tiền") {
+            if (empty($_POST["date"]) || empty($_POST["sotien"]) || empty($_POST["sotaikhoan"])) {
                 echo "VUI LÒNG NHẬP ĐẦY ĐỦ!!!";
             } else {
-                $sotien = $_GET["sotien"];
-                $ngaynap = $_GET["date"];
-                $sotaikhoan = $_GET["sotaikhoan"];
-                $insert = "INSERT INTO NAPTIEN (`MAKH`, `SOTIEN`, `NGAYNAP`, `SOTAIKHOAN`, `DADUYET`) VALUES (0, '$sotien', '$ngaynap', '$sotaikhoan', 0)";
+                $get_user = $_SESSION['username'];
+                $sql = "Select MAKH from taikhoan where tendangnhap = '$get_user'";
+                $result = mysqli_query($con, $sql);
+                $row = mysqli_fetch_assoc($result);
+                $makh = $row['MAKH'];
+                $sotien = $_POST["sotien"];
+                $ngaynap = $_POST["date"];
+                $sotaikhoan = $_POST["sotaikhoan"];
+                $insert = "INSERT INTO NAPTIEN (`MAKH`, `SOTIEN`, `NGAYNAP`, `SOTAIKHOAN`, `DADUYET`) VALUES ('$makh', '$sotien', '$ngaynap', '$sotaikhoan', 0)";
                 $result_query = mysqli_query($con, $insert);
             }
         }

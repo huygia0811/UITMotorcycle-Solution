@@ -54,16 +54,6 @@
             amountE.value = amount2;
         }
     </script>
-    <td>
-                            <div class="cart_quantity">
-                                <span>
-                                    <i id="minusProduct" class="fa fa-minus"></i>
-                                </span>
-                                <input type="text" min="1" name="qty" id="qty" value="1">
-                                <span>
-                                    <i id="plusProduct" class="fa fa-plus"></i>
-                                </span>
-                            </div>
-                        </td>
+    
 </body>
 </html>

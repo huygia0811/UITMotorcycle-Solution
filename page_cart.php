@@ -72,12 +72,13 @@ cart();
                                 <span>
                                     <i id="minusProduct" class="fa fa-minus"></i>
                                 </span>
-                                <input type="text" min="1" name="qty" id="qty" value="1">
+                                <input type="text" min="1" name="qty" id="qty" value="<?php echo $soluong ?>">
                                 <span>
                                     <i id="plusProduct" class="fa fa-plus"></i>
                                 </span>
                             </div>
-                            <!-- <input type="text" name="qty" class="form-input w-50" value="<?php echo $soluong ?>"></td> -->
+                        </td>
+
 
                         <td><?php echo currency_format($gia); ?> đ</td>
 
@@ -172,7 +173,11 @@ cart();
                 if (isset($_POST['select'])) {
                     foreach ($_POST['select'] as $remove_id) {
                         //lấy số lượng
-                        $select_giohang = "select * from `giohang` where MASP='$remove_id'";
+                        $sl_update = $_POST['qty'];
+                        $sql = "UPDATE GIOHANG SET SOLUONG = $sl_update WHERE MASP = $remove_id";
+                        mysqli_query($con, $sql);
+
+                        $select_giohang = "select * from giohang where MASP='$remove_id'";
                         $select_giohang_run = mysqli_query($con, $select_giohang);
                         $row_giohang = mysqli_fetch_assoc($select_giohang_run);
                         $get_sl = $row_giohang['SOLUONG'];
