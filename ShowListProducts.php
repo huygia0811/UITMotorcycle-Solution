@@ -7,12 +7,12 @@
         {
             if (!isset($_GET['loaixe']))
             {
-                $truyvan = "select distinct TENSP from sanpham where IS_ACTIVE=1";
+                $truyvan = "select distinct TENSP from sanpham";
             }
             else if (isset($_GET['loaixe']))
             {
                 $loaixe = $_GET['loaixe'];
-                $truyvan = "select distinct TENSP from sanpham where LOAIXE = $loaixe and IS_ACTIVE=1";
+                $truyvan = "select distinct TENSP from sanpham where LOAIXE = $loaixe";
             }
             $ketqua = $con->query($truyvan);
             while ($row = $ketqua->fetch_assoc())
