@@ -119,7 +119,7 @@ function show_don_mua($masp_id, $get_sl, $id, $so_hd)
 {
   global $con;
   $total = 0;
-  $getip = getIPAddress();
+ 
   $select_cart = "select * from `sanpham` where MASP='$masp_id'";
   $select_cart_run = mysqli_query($con, $select_cart);
   $count_row = mysqli_num_rows($select_cart_run);
@@ -221,7 +221,12 @@ function show_don_mua($masp_id, $get_sl, $id, $so_hd)
 function don_mua($id)
 {
   global $con;
-  $select_hoadon = "select * from `hoadon` where TRANGTHAI='$id'";
+  $get_username=$_SESSION['username'];
+  $select_taikhoan="select * from `taikhoan` where tendangnhap='$get_username'";
+  $select_taikhoan_run=mysqli_query($con,$select_taikhoan);
+  $row=mysqli_fetch_assoc($select_taikhoan_run);
+  $get_makh=$row['MAKH'];
+  $select_hoadon = "select * from `hoadon` where TRANGTHAI='$id' and MAKH='$get_makh'";
   $select_hoadon_run = mysqli_query($con, $select_hoadon);
   while ($row = mysqli_fetch_assoc($select_hoadon_run)) {
     $get_sohd = $row['SOHD'];
@@ -250,7 +255,12 @@ function don_mua($id)
 function don_mua_tatca()
 {
   global $con;
-  $select_hoadon = "select * from `hoadon`";
+  $get_username=$_SESSION['username'];
+  $select_taikhoan="select * from `taikhoan` where tendangnhap='$get_username'";
+  $select_taikhoan_run=mysqli_query($con,$select_taikhoan);
+  $row=mysqli_fetch_assoc($select_taikhoan_run);
+  $get_makh=$row['MAKH'];
+  $select_hoadon = "select * from `hoadon` where MAKH='$get_makh'";
   $select_hoadon_run = mysqli_query($con, $select_hoadon);
   while ($row = mysqli_fetch_assoc($select_hoadon_run)) {
     $get_sohd = $row['SOHD'];
