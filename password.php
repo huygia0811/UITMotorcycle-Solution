@@ -20,12 +20,12 @@ include('./function/common_function.php');
                 $select_taikhoan="select * from `taikhoan` where tendangnhap='$username'";
                 $select_taikhoan_run=mysqli_query($con,$select_taikhoan);
                 $row_taikhoan=mysqli_fetch_assoc($select_taikhoan_run);
-                $get_old_pwd = $row_taikhoan['matkhau'];
+                $get_email=$row_taikhoan['email'];
             ?>
                 <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
-                    <label for="">Mật khẩu cũ</label>
-                    <input class="form-control" style="width: 70%;" type="password" name="old_pwd"
-                        placeholder="Nhập mật khẩu cũ" value="<?php echo $get_old_pwd ?>" />
+                    <label for="">Gmail</label>
+                    <input class="form-control" style="width: 70%;" type="text" name="old_pwd"
+                        placeholder="" value="<?php echo $get_email ?>" disabled/>
                 </div>
                 <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                     <label for="">Mật khẩu mới</label>
