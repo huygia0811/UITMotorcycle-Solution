@@ -14,7 +14,7 @@ include('./includes/connect_database.php');
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="nav_ul">
-                
+
                 <!-- tượng trưng -->
 
                 <?php
@@ -26,25 +26,22 @@ include('./includes/connect_database.php');
                         <?php echo $_SESSION['username'] ?></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./logout.php"><i class="fas fa-sign-out"></i> Đăng xuất</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="page_shopping_cart.php"><i
                             class="fa-solid fa-cart-shopping"></i><sup>1</sup> Giỏ hàng</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link disabled" href="#"><?php echo $_SESSION['username'] ?></a>
-                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="./logout.php"><i class="fas fa-sign-out"></i> Đăng xuất</a>
+                </li>
                 <?php
                 }
                 else
                 {
                 ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="./signin.php">Đăng nhập</a>
+                    <a class="nav-link" href="./signin.php"><i class="fas fa-sign-out"></i> Đăng nhập</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./signup.php">Đăng ký</a>
+                    <a class="nav-link" href="./signup.php"><i class="fas fa-sign-in"></i> Đăng ký</a>
                 </li>
 
                 <?php
