@@ -211,20 +211,11 @@ function show_don_mua($masp_id, $get_sl, $id, $so_hd)
 </table>
 
 </form>
-<?php
-      if(isset($_POST['Huy']))
-      {
-        if (isset($_POST['select'])) {
-          foreach ($_POST['select'] as $sohd) {
-            echo var_dump($sohd);
-           // echo "<script>alert('Bạn có chắc muốn hủy hóa đơn $sohd')</script>";
-          }
-      }
-    }
-    ?>
+      
 <?php
   
   }
+ 
   
 }
 function don_mua($id)
@@ -242,6 +233,19 @@ function don_mua($id)
       show_don_mua($get_masp, $get_sl, $id,$get_sohd);
     }
   }
+  if(isset($_POST['Huy']))
+  {
+    if (isset($_POST['select'])) {
+      foreach ($_POST['select'] as $sohd) {
+        echo "<script>alert('Bạn đã hủy hóa đơn $sohd')</script>";
+        $delete_hoadon="delete from `hoadon` where SOHD='$sohd'";
+        $delete_cthd="delete from `cthd` where SOHD='$sohd'";
+        $delete_cthd_run=mysqli_query($con, $delete_cthd);
+        $delete_hoadon_run=mysqli_query($con, $delete_hoadon);
+        echo "<script>window.open('user.php?purchar&type=-3','_self')</script>";
+      }
+    }
+}
 }
 function don_mua_tatca()
 {
@@ -259,4 +263,17 @@ function don_mua_tatca()
       show_don_mua($get_masp, $get_sl, $get_trangthai,$get_sohd);
     }
   }
+  if(isset($_POST['Huy']))
+  {
+    if (isset($_POST['select'])) {
+      foreach ($_POST['select'] as $sohd) {
+        echo "<script>alert('Bạn đã hủy hóa đơn $sohd')</script>";
+        $delete_hoadon="delete from `hoadon` where SOHD='$sohd'";
+        $delete_cthd="delete from `cthd` where SOHD='$sohd'";
+        $delete_cthd_run=mysqli_query($con, $delete_cthd);
+        $delete_hoadon_run=mysqli_query($con, $delete_hoadon);
+        echo "<script>window.open('user.php?purchar&type=-3','_self')</script>";
+      }
+    }
+}
 }

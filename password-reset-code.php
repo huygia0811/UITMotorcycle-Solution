@@ -66,10 +66,9 @@ if(isset($_POST['password_reset_link']))
         if($update_password_run)
         {
             send_password_reset($get_name,$get_email,$token);
-            $_SESSION['status']="Chúng tôi đã gửi mật khẩu đến email của bạn";
+            $_SESSION['status']="Chúng tôi đã gửi mật khẩu đến email của bạn <a href='https://mail.google.com/'>click to gmail</a>";
             header("Location:password_reset.php");
             exit(0);
-            //echo "<a href='https://mail.google.com/'>click to gmail</a>";
         }
         else
         {
