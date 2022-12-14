@@ -61,7 +61,6 @@ cart();
                                 $mausac = $xe2['MAU'];
                                 $gia = currency_format($xe2['GIA']);
                                 $gia .= " đ";
-                                $id = $xe2['MASP'];
                                 echo '
                                             <div id="btnMau" onclick="document.getElementById
                                         ';
@@ -107,7 +106,7 @@ cart();
                                 }
                                 else
                                 {
-                                $select_sp = "select * from `sanpham` where MASP = $id";
+                                $select_sp = "select * from `sanpham` where TENSP = '$tenxe' and MAU='$get_Color'";
                                 $select_run = mysqli_query($con, $select_sp);
                                 $row = mysqli_fetch_assoc($select_run);
                                 $typeid = $row['MASP'];
