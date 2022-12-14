@@ -173,13 +173,15 @@ cart();
                         $select_giohang = "select * from `giohang` where MASP='$remove_id'";
                         $select_giohang_run = mysqli_query($con, $select_giohang);
                         $row_giohang = mysqli_fetch_assoc($select_giohang_run);
-                        $get_sl = $row_giohang['soluong'];
-                        // lấy giá
+                        $get_sl = $row_giohang['SOLUONG'];
                         $select_sanpham = "select * from `sanpham` where MASP='$remove_id'";
                         $select_sanpham_run = mysqli_query($con, $select_sanpham);
                         $row_sanpham = mysqli_fetch_assoc($select_sanpham_run);
                         $get_gia = $row_sanpham['GIA'];
+                        echo "<script>alert($get_sl)</script>";
+                        echo "<script>alert($get_gia)</script>";
                         $total += $get_sl * $get_gia;
+                        echo "<script>alert($total)</script>";
                     }
                     $get_username = $_SESSION['username'];
                     // lấy mã khách hàng
@@ -200,7 +202,7 @@ cart();
                         $select_giohang = "select * from `giohang` where MASP='$remove_id'";
                         $select_giohang_run = mysqli_query($con, $select_giohang);
                         $row_giohang = mysqli_fetch_assoc($select_giohang_run);
-                        $get_sl = $row_giohang['soluong'];
+                        $get_sl = $row_giohang['SOLUONG'];
                         //chèn vào cthd
                         $insert_cthd = "insert into `cthd` (SOHD,MASP,SL) value ('$get_sohd','$remove_id','$get_sl')";
                         $insert_cthd_run = mysqli_query($con, $insert_cthd);
@@ -222,11 +224,18 @@ cart();
             global $con;
             $total = 0;
             if (isset($_POST['thanhtoantatca'])) {
+
                 $select_giohang = "select * from `giohang`";
                 $select_giohang_run = mysqli_query($con, $select_giohang);
                 while ($row = mysqli_fetch_assoc($select_giohang_run)) {
                     $get_id = $row['MASP'];
                     $get_soluong = $row['soluong'];
+                $select_giohang="select * from `giohang`";
+                $select_giohang_run=mysqli_query($con,$select_giohang);
+                while($row=mysqli_fetch_assoc($select_giohang_run))
+                {
+                    $get_id=$row['MASP'];
+                    $get_soluong=$row['SOLUONG'];
                     $select_sanpham = "select * from `sanpham` where MASP='$get_id'";
 
                     $select_sanpham_run = mysqli_query($con, $select_sanpham);
@@ -258,6 +267,8 @@ cart();
                     $row_giohang = mysqli_fetch_assoc($select_giohang_run);
                     $get_sl = $row_giohang['soluong'];
                     $get_id = $row_giohang['MASP'];
+                    $get_sl = $row_giohang['SOLUONG'];
+                    $get_id=$row_giohang['MASP'];
                     //chèn vào cthd
                     $insert_cthd = "insert into `cthd` (SOHD,MASP,SL) value ('$get_sohd','$get_id','$get_sl')";
 
