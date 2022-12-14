@@ -91,13 +91,12 @@ include "index.php";
                     echo "<td style='text-align:left'>";
                     echo $cccd;
                     echo "</td>";
+                    echo "<td><a href='user_delete.php?id=$makh'>Delete</a></td>";
                 }
                 ?>
-                <td><button id="delete_user" data-makh=<?php echo '"'.$makh.'"'?> onclick="Delete_User()">Duyệt</button></td>
             </tbody>
         </table>
     </div>
-    
 </body>
 
 </html>
