@@ -61,12 +61,13 @@ cart();
                                 $mausac = $xe2['MAU'];
                                 $gia = currency_format($xe2['GIA']);
                                 $gia .= " đ";
+                                $id =  $xe2['MASP'];
                                 echo '
                                             <div id="btnMau" onclick="document.getElementById
                                         ';
                                 echo "
                                             ('prod_img_url').src='$url_img'; 
-                                            document.getElementById('prod_price').innerHTML='$gia';get_color('$mausac');
+                                            document.getElementById('prod_price').innerHTML='$gia';get_color('$mausac');get_id('$id');
                                         ";
                                 echo '
                                             ">' . $mausac . '</div>
@@ -79,6 +80,11 @@ cart();
                                     console.log(x);
 
                                 }
+                                function get_id(id) {
+                                    var x = document.getElementById('get_id').value = id;
+                                    console.log(x);
+
+                                }
                             </script>
                             </div>
                         </div>
@@ -87,7 +93,7 @@ cart();
                     <div class="addToCart_Buynow">
                         <form action="" method="post">
                             <input type="hidden" id="get_color_name" name="get_color" value="">
-
+                            <input type="hidden" id="get_id" name="get_id" value="">
                             <button id="addtocart" type="submit" name="mua" value="">
                                     Thêm vào giỏ hàng
                             </button>      
@@ -96,6 +102,7 @@ cart();
                             if(isset($_POST['mua']))
                             {
                                 $get_Color=$_POST['get_color'];
+                                $get_ID=$_POST['get_id'];
                                 
                                 if($get_Color=='')
                                 {
@@ -106,7 +113,7 @@ cart();
                                 }
                                 else
                                 {
-                                $select_sp = "select * from `sanpham` where TENSP = '$tenxe' and MAU='$get_Color'";
+                                $select_sp = "select * from `sanpham` where MASP='$get_ID'";
                                 $select_run = mysqli_query($con, $select_sp);
                                 $row = mysqli_fetch_assoc($select_run);
                                 $typeid = $row['MASP'];
