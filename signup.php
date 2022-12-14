@@ -13,12 +13,11 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="./asset/DB-Picture/logo.ico" type="image/x-icon">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-            rel="stylesheet" />
         <link rel="stylesheet" href="./CSS/signup.css" />
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <!-- fontawwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 
     <body>
@@ -47,14 +46,16 @@ session_start();
                         </div>
                         <div class="form-group">
                             <label for="pwd_comfirm">Nhập lại mật khẩu:</label>
-                            <input type="password" class="form-control" id="pwd_comfirm" placeholder="Nhập mật khẩu"
+                            <input type="password" class="form-control" id="pwd_comfirm" placeholder="Nhập lại mật khẩu"
                                 name="pwd_comfirm" />
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
                             <input type="email" class="form-control" id="email" placeholder="Nhập email" name="email" />
                         </div>
-                        <input type="submit" value="Đăng Ký" name="insert_user" class="btn btn-primary signup_btn">
+                        <div class="form-group">
+                            <input type="submit" value="Đăng Ký" name="insert_user" class="btn btn-primary signup_btn">
+                        </div>
                         <?php
               if(isset($_SESSION['status']))
               {
@@ -124,7 +125,7 @@ session_start();
                 }
                 else
                 {
-                  $_SESSION['status']="Mật khẩu phải giống nhau";
+                  $_SESSION['status']="Mật khẩu không khớp";
                   header("Location:signup.php");
                   exit(0);
                 }

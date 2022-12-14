@@ -45,8 +45,7 @@ header span {
 }
 .signup_btn {
   display: block;
-  margin: 0 auto;
-  margin-bottom: 15px;
+  margin: 15px auto;
 }
 label {
   padding: 12px 12px 12px 0;

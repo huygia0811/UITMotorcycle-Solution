@@ -43,48 +43,58 @@ $mail = new PHPMailer(true);
 $mail_tempalde="
 <h5>Thông báo</h5>  
 <p>Bạn đã yêu cầu reset password. Vui lòng nhấn vào link bên dưới để reset password</P>  
-<a href='http://localhost/UITMotorcycle-Solution/password_change.php?token=$token&email=$get_email'>cick hear to resset password</a>";
+<a href='http://localhost/UITMotorcycle-Solution/password_change.php?token=$token&email=$get_email'>cick hear to reset password</a>";
 $mail->Body=$mail_tempalde;
  $mail->send();
 }
 
 if(isset($_POST['password_reset_link']))
 {
-    $email=mysqli_real_escape_string($con, $_POST['email']);
-    $token=md5(rand());
-    $check_email="select * from `taikhoan` where email='$email' limit 1";
-    $check_email_query=mysqli_query($con,$check_email);
-  var_dump( mysqli_num_rows($check_email_query));
-    if(mysqli_num_rows($check_email_query)>0)
+    if($_POST['email'] == '')
     {
-        $row=mysqli_fetch_array($check_email_query);
-       $get_name=$row['tendangnhap'];
-        $get_email=$row['email'];
-        
-        $update_password="update `taikhoan` set matkhau='$token' where email='$get_email' limit 1";
-        $update_password_run=mysqli_query($con,$update_password);
-        if($update_password_run)
-        {
-            send_password_reset($get_name,$get_email,$token);
-            $_SESSION['status']="Chúng tôi đã gửi mật khẩu đến email của bạn <a href='https://mail.google.com/'>click to gmail</a>";
-            header("Location:password_reset.php");
-            exit(0);
-        }
-        else
-        {
-            $_SESSION['status']="Đã có lỗi xảy ra";
-            header("Location:password_reset.php");
-            exit(0);
-           // echo "co loi";
-        }
+        $_SESSION['status']="Vui lòng điền đầy đủ thông tin";
+        header("Location:password_reset.php");
+        exit(0);
     }
     else
     {
-        $_SESSION['status']="Không thể tìm thấy email";
-        header("Location:password_reset.php");
-        exit(0);
-       // echo "k tim thay email";
+        $email=mysqli_real_escape_string($con, $_POST['email']);
+        $token=md5(rand());
+        $check_email="select * from `taikhoan` where email='$email' limit 1";
+        $check_email_query=mysqli_query($con,$check_email);
+      var_dump( mysqli_num_rows($check_email_query));
+        if(mysqli_num_rows($check_email_query)>0)
+        {
+            $row=mysqli_fetch_array($check_email_query);
+           $get_name=$row['tendangnhap'];
+            $get_email=$row['email'];
+            
+            $update_password="update `taikhoan` set matkhau='$token' where email='$get_email' limit 1";
+            $update_password_run=mysqli_query($con,$update_password);
+            if($update_password_run)
+            {
+                send_password_reset($get_name,$get_email,$token);
+                $_SESSION['status']="Chúng tôi đã gửi mật khẩu đến email của bạn <a href='https://mail.google.com/'>click to gmail</a>";
+                header("Location:password_reset.php");
+                exit(0);
+            }
+            else
+            {
+                $_SESSION['status']="Đã có lỗi xảy ra";
+                header("Location:password_reset.php");
+                exit(0);
+               // echo "co loi";
+            }
+        }
+        else
+        {
+            $_SESSION['status']="Không thể tìm thấy email";
+            header("Location:password_reset.php");
+            exit(0);
+           // echo "k tim thay email";
+        }
     }
+    
 }
 
 if(isset($_POST['password_update']))
@@ -96,7 +106,13 @@ if(isset($_POST['password_update']))
     $token=mysqli_real_escape_string($con, $_POST['password_token']);
     if($token!='')
     {
-        if($email!='' or $new_password!='' or  $confirm_password!='')
+        if($email=='' or $new_password=='' or  $confirm_password=='')
+        {
+            $_SESSION['status']="Vui lòng điền đầy đủ thông tin";
+            header("Location:password_change.php");
+            exit(0);
+        }
+        else
         {
             $check_token="select * from `taikhoan` where matkhau='$token'";
             $check_token_query=mysqli_query($con, $check_token);
@@ -137,16 +153,10 @@ if(isset($_POST['password_update']))
                 exit(0);
             }
         }
-        else
-        {
-            $_SESSION['status']="Đã có lỗi xảy ra";
-            header("Location:password_change.php");
-            exit(0);
-        }
     }
     else
     {
-        $_SESSION['status']="Đã có lỗi xảy ra";
+        $_SESSION['status']="Vui lòng điền đầy đủ thông tin";
         header("Location:password_change.php");
         exit(0);
     }

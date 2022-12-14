@@ -14,7 +14,7 @@ include('./function/common_function.php');
     <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
 </div>
 <div class="row profile">
-    <div class="col-lg-10 border-botton">
+    <div class="col-lg-10 border-bottom">
         <form action="" method="post">
             <?php
                 $username=$_SESSION['username'];
@@ -35,7 +35,7 @@ include('./function/common_function.php');
             <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">Tên đăng nhập</label>
                 <input class="form-control" style="width: 70%;" type="text" name="tendangnhap"
-                    placeholder="Nhập tên đăng nhập" value="<?php echo $_SESSION['username'] ?>" />
+                    placeholder="Nhập tên đăng nhập" value="<?php echo $_SESSION['username'] ?>" disabled />
             </div>
             <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">Tên</label>
@@ -88,12 +88,6 @@ include('./function/common_function.php');
         </form>
 
     </div>
-    <!-- <div class="col-2">
-        <div class="form-outline mb-4 w-20 m-auto">
-            <label for="product_image2" class="form-label">Chọn ảnh</label>
-            <input type="file" name="product_image2" id="product_image2" class="form-control" required="required">
-        </div>
-    </div> -->
 </div>
 <?php
 if(isset($_POST['thaydoi']))
