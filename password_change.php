@@ -49,7 +49,7 @@ session_start();
             if(isset($_SESSION['status']))
             {
               ?>
-                        <div class="alert alert-success">
+                        <div class="alert alert-success mt-3">
                             <h5><?= $_SESSION['status']?></h5>
                         </div>
                         <?php
