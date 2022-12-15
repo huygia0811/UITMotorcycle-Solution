@@ -196,6 +196,7 @@ cart();
     <script>
     const amountE = document.getElementById('qty');
     let amount2 = amountE.value;
+    document.getElementById("get_sl").value = amount2;
     document.getElementById("plusProduct").onclick = function() {
         amount2++;
         amountE.value = amount2;

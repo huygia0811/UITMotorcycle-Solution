@@ -107,7 +107,9 @@
     margin: auto;
     margin-bottom: 10px;
     border: none;
-    background-color: #05c5cc;
+}
+#addtocart {
+    background-color: #92e6e9;
 }
 .more-details {
     width: 100%;
