@@ -20,17 +20,16 @@ if(!isset($_REQUEST['id'])) {
 } else {
 
     $id = $_GET['id'];
+   
+    $select_query = "delete FROM `giohang` WHERE MASP=$id";
+    $result_query = mysqli_query($con, $select_query);
+
+    $select_query = "delete FROM `cthd` WHERE MASP=$id";
+    $result_query = mysqli_query($con, $select_query);
+    
     $select_query="delete FROM `sanpham` WHERE MASP=$id";
     $result_query=mysqli_query($con, $select_query);
-    //giam gia tri cac masp phia sau sanpham vua xoa de cac gia tri lien tiep
-    $select_query = "select * from `sanpham` where MASP>$id";
-    $result_query = mysqli_query($con, $select_query);
-    while($row=mysqli_fetch_assoc($result_query))
-    {
-        $update_query = "update sanpham set MASP = $id where MASP='".$row['MASP']."'";
-        $result_update = mysqli_query($con,$update_query);
-        $id++;
-    }
+
     mysqli_close($con);
     header('location:view_products.php');
 }
