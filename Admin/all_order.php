@@ -59,6 +59,11 @@ include "index.php";
                         case 1:
                             $trangthai_text = "Đã giao";
                             break;
+                        $trangthai_text = "Đang giao";
+                        break;
+                        case 1:
+                        $trangthai_text = "Đã giao";
+                        break;
                     }
                     $select_query1 = "SELECT * FROM CTHD, SANPHAM WHERE CTHD.MASP = SANPHAM.MASP AND SOHD = $sohd";
                     $result_query1 = mysqli_query($con, $select_query1);

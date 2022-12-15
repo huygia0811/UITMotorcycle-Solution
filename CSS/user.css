@@ -71,7 +71,7 @@ ul ul a {
   margin-bottom: 5px;
 }
 .profile .button_sm {
-  display: none;
+  display: none !important;
 }
 /* Same dropdown links padding*/
 #sidebar.active ul ul a {
@@ -94,7 +94,7 @@ ul ul a {
     display: none !important;
   }
   .profile .button_sm {
-    display: block;
+    display: block !important;
   }
   .profile .form-check-input {
     margin-top: 4px;

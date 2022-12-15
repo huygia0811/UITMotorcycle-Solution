@@ -36,7 +36,7 @@ include "index.php";
     else{
         echo "ĐÃ DUYỆT TRƯỚC ĐÓ!!! THAO TÁC THẤT BẠI!!!";
     }
-    echo "<br><a href='CheckPayment.php'>QUAY LẠI</a>"
+    echo "<br><a href='check_payment.php'>QUAY LẠI</a>"
     ?>
     
 </body>

@@ -3,18 +3,8 @@ include('./function/common_function.php');
 include('./includes/connect_database.php');
 cart();
 ?>
-<style>
-    .btnshoppingcart {
-        background-color: #05c5cc !important;
-        border-radius: 5px;
-        color: white;
-    }
-    .shoppingcart_h4 {
-        color: #05c5cc !important;
-        font-size: 25px;
-    }
-</style>
-<div class="container" style="min-height: 400px;">
+<link rel="stylesheet" href="./CSS/page_cart.css">
+<div class="container-sm page_cart" style="min-height: 400px;">
     <div>
         <?php
         $total = 0;
@@ -29,7 +19,7 @@ cart();
         if ($count_row > 0) {
             echo "<form action='' method='post'><table class='table table-striped' style='text-align:center'>
                     <thead class='thead-dark'>
-                        <tr role='row' >
+                        <tr role='row' class='table_header'>
                             <th width='50'>Chọn</th>
                             <th width='160'>
                                 Ảnh</th>
@@ -59,50 +49,57 @@ cart();
                     $gia = $row_product['GIA'];
                     $total += $gia;
         ?>
-                    <tr>
-                        <td><input type="checkbox" name="select[]" value="<?php echo $masp ?>"></td>
-                        <td>
-                            <img style="width: 60%; height: 60%; object-fit: contain;" src="./<?php echo $url_image; ?>" alt="<?php echo $tensp ?>">
-                        </td>
-                        <td><?php echo $tensp; ?></td>
-                        <td><?php echo $mau; ?></td>
+        <tr class="table_content">
+            <td><input type="checkbox" name="select[]" value="<?php echo $masp ?>"></td>
+            <td>
+                <img style="width: 60%; height: 60%; object-fit: contain;" src="./<?php echo $url_image; ?>"
+                    alt="<?php echo $tensp ?>">
+            </td>
+            <td><?php echo $tensp; ?></td>
+            <td><?php echo $mau; ?></td>
 
-                        <td>
-                        <div class="cart_quantity">
-                                <span>
-                                    <i id="minusProduct" class="fa fa-minus"></i>
-                                </span>
-                                <input type="text" min="1" name="qty" id="qty" value="<?php echo $soluong ?>">
-                                <span>
-                                    <i id="plusProduct" class="fa fa-plus"></i>
-                                </span>
-                            </div>
-                        </td>
-
-
-                        <td><?php echo currency_format($gia); ?> đ</td>
+            <td>
+                <div class="cart_quantity">
+                    <span>
+                        <i id="minusProduct" class="fa fa-minus"></i>
+                    </span>
+                    <input type="text" min="1" name="qty" id="qty" value="<?php echo $soluong ?>">
+                    <span>
+                        <i id="plusProduct" class="fa fa-plus"></i>
+                    </span>
+                </div>
+            </td>
 
 
-                        <td>
-                            <input type="submit" value="Thanh toán" name="Thanh_toan" class="bg-info p-2 border-0 my-2 px-2 btnshoppingcart">
-                            <input type="submit" value="Xóa" name="xoa" class="bg-info p-2 border-0 btnshoppingcart">
+            <td><?php echo currency_format($gia); ?> đ</td>
 
-                        </td>
-                    </tr>
-            <?php
+
+            <td>
+                <input type="submit" value="Thanh toán" name="Thanh_toan"
+                    class="bg-info p-2 border-0 my-2 px-2 button btnshoppingcart">
+                <input type="submit" value="Thanh toán" name="Thanh_toan"
+                    class="bg-info btn-sm button_sm p-1 border-0 my-1 px-2">
+                <input type="submit" value="Xóa" name="xoa" class="bg-info p-2 border-0 button btnshoppingcart">
+                <input type="submit" value="Xóa" name="xoa" class="bg-info btn-sm button_sm p-1 border-0">
+
+            </td>
+        </tr>
+        <?php
                 }
             }
             ?>
-            </tbody>
-            </table>
-            <div class="d-flex">
-                <h4 class="px-3">Tổng: <strong class="text-info shoppingcart_h4"><?php echo currency_format($total) . " đ"; ?></strong></h4>
+        </tbody>
+        </table>
+        <div class="d-flex">
+            <h4 class="px-3">Tổng: <strong
+                    class="text-info shoppingcart_h4"><?php echo currency_format($total) . " đ"; ?></strong></h4>
 
-                <a href="#"><button type="submit" name="thanhtoantatca" class="bg-info p-2 border-0 mx-4 btnshoppingcart">Thanh toán tất cả</button></a>
-                <a href="./index.php"><button class="bg-info p-2 border-0 btnshoppingcart">Thoát</button></a>
+            <a href="#"><button type="submit" name="thanhtoantatca"
+                    class="bg-info p-2 border-0 mx-4 btnshoppingcart">Thanh toán tất cả</button></a>
+            <a href="./index.php"><button class="bg-info p-2 border-0 btnshoppingcart">Thoát</button></a>
 
-            </div>
-            </form>
+        </div>
+        </form>
         <?php
         } else {
             echo "<div class='cart_list cart_list--no-cart'>

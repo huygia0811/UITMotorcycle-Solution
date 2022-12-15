@@ -21,7 +21,6 @@
 
     <body style="background-color: #efefef" class="container">
 
-
         <div class="container-fluid user_content">
             <div class="header">
                 <?php

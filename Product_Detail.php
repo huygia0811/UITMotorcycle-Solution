@@ -1,6 +1,6 @@
 <?php
 include('./function/common_function.php');
-$message_eror='';
+$message_eror = '';
 ?>
 <!DOCTYPE html>
 <html>
@@ -72,54 +72,64 @@ cart();
                                 echo '
                                             ">' . $mausac . '</div>
                                         ';
-                                    }
-                                ?>
-                                <script>
+                            }
+                            ?>
+                            <script>
                                 function get_color(color) {
                                     var x = document.getElementById('get_color_name').value = color;
                                     console.log(x);
 
                                 }
+
                                 function get_id(id) {
                                     var x = document.getElementById('get_id').value = id;
                                     console.log(x);
 
                                 }
                             </script>
-                            </div>
                         </div>
+                    </div>
 
+                    <div class="cart_quantity">
+                        <!-- Chưa css chê! -->
+                        <p>Số lượng:</>
+                        <span>
+                            <i id="minusProduct" class="fa fa-minus"></i>
+                        </span>
+                        <input type="text" min="1" name="qty" id="qty" value="1">
+                        <span>
+                            <i id="plusProduct" class="fa fa-plus"></i>
+                        </span>
+                    </div><br>
 
                     <div class="addToCart_Buynow">
                         <form action="" method="post">
                             <input type="hidden" id="get_color_name" name="get_color" value="">
                             <input type="hidden" id="get_id" name="get_id" value="">
+                            <input type="hidden" id="get_sl" name="get_sl" value="">
                             <button id="addtocart" type="submit" name="mua" value="">
-                                    Thêm vào giỏ hàng
-                            </button>      
+                                Thêm vào giỏ hàng
+                            </button>
                         </form>
                         <?php
-                            if(isset($_POST['mua']))
-                            {
-                                $get_Color=$_POST['get_color'];
-                                $get_ID=$_POST['get_id'];
-                                
-                                if($get_Color=='')
-                                {
-                                    $message_eror="Vui lòng chọn màu";
-                                    ?>
-                                    <div class="alert alert-danger" ><?php echo $message_eror ?></div>
-                                    <?php
-                                }
-                                else
-                                {
+                        if (isset($_POST['mua'])) {
+                            $get_Color = $_POST['get_color'];
+                            $get_ID = $_POST['get_id'];
+
+                            if ($get_Color == '') {
+                                $message_eror = "Vui lòng chọn màu";
+                        ?>
+                                <div class="alert alert-danger"><?php echo $message_eror ?></div>
+                        <?php
+                            } else {
                                 $select_sp = "select * from `sanpham` where MASP='$get_ID'";
                                 $select_run = mysqli_query($con, $select_sp);
                                 $row = mysqli_fetch_assoc($select_run);
                                 $typeid = $row['MASP'];
-                                echo "<script>window.open('Product_Detail.php?add_to_card=$typeid&soluong=1','_self')</script>";
-                                }
+                                $sl = $_POST['qty'];
+                                echo "<script>window.open('Product_Detail.php?add_to_card=$typeid&soluong=$sl','_self')</script>";
                             }
+                        }
                         ?>
                     </div>
                 </div>
@@ -169,12 +179,28 @@ cart();
         </div>
         </div>
 
-        <script src="./JS/javscr.js"></script> 
+        <script src="./JS/javscr.js"></script>
     </main>
     <?php
     include "footer_copy.php";
     ?>
 
 </body>
+<script>
+    const amountE = document.getElementById('qty');
+    let amount2 = amountE.value;
+    document.getElementById("plusProduct").onclick = function() {
+        amount2++;
+        amountE.value = amount2;
+    }
+    document.getElementById("minusProduct").onclick = function() {
+        if (amount2 <= 1) {
+            amount2 = 1;
+        } else {
+            amount2--;
+        }
+        amountE.value = amount2;
+    }
+</script>
 
 </html>
