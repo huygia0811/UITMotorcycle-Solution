@@ -91,7 +91,7 @@ cart();
                     </div>
 
                     <div class="cart_quantity">
-                        <!-- Chưa css chê! -->
+                        <!-- Chưa css -->
                         <p>Số lượng:</>
                         <span>
                             <i id="minusProduct" class="fa fa-minus"></i>

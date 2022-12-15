@@ -84,7 +84,7 @@ session_start();
                 header("Location:signup.php");
                 exit(0);
               }
-              if(!preg_match("/^[a-zA-Z\s]+$/", $username) or strpos($username, $spacing))
+              if(!preg_match("/^[0-9-a-zA-Z\s]+$/", $username) or strpos($username, $spacing))
               {
                 $_SESSION['status']="Tên đăng nhập không hợp lệ";
                 header("Location:signup.php");
