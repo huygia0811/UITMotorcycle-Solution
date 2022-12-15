@@ -103,12 +103,12 @@
             </div>
 
         </div>
+
         <div class="footer">
             <?php
-    include('./footer.php');
+    include('./footer_copy.php');
     ?>
         </div>
-
 
 
 

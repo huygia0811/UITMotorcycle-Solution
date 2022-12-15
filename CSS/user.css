@@ -7,7 +7,7 @@
 .wrapper {
   display: flex;
   align-items: stretch;
-  margin-top: 20px;
+  margin: 20px 0;
   background-color: rgb(231, 230, 230);
 }
 
@@ -70,7 +70,8 @@ ul ul a {
   font-size: 1.8em;
   margin-bottom: 5px;
 }
-.profile .button_sm {
+.profile .button_sm,
+.password .button_sm {
   display: none !important;
 }
 /* Same dropdown links padding*/
@@ -90,10 +91,12 @@ ul ul a {
   .profile {
     font-size: 0.7em;
   }
-  .profile .button {
+  .profile .button,
+  .password .button {
     display: none !important;
   }
-  .profile .button_sm {
+  .profile .button_sm,
+  .password .button_sm {
     display: block !important;
   }
   .profile .form-check-input {
