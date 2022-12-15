@@ -14,7 +14,7 @@ include('./function/common_function.php');
     <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
 </div>
 <div class="row profile">
-    <div class="col-lg-10 border-bottom">
+    <div class="col-lg-10">
         <form action="" method="post">
             <?php
                 $username=$_SESSION['username'];
