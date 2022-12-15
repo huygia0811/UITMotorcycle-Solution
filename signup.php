@@ -75,6 +75,7 @@ session_start();
               $pwd_confirm=$_POST['pwd_comfirm'];
               $hash_pwd =password_hash($pwd,PASSWORD_DEFAULT );      
               $email=mysqli_real_escape_string($con,$_POST['email']) ;
+              $spacing=" ";
               $ip = getIPAddress();  
               if($username=='' or  $pwd=='' or $email=='' or $pwd_confirm=='')
               {
@@ -83,12 +84,52 @@ session_start();
                 header("Location:signup.php");
                 exit(0);
               }
+              if(!preg_match("/^[a-zA-Z\s]+$/", $username) or strpos($username, $spacing))
+              {
+                $_SESSION['status']="Tên đăng nhập không hợp lệ";
+                header("Location:signup.php");
+                exit(0);
+              }
+              if(strlen($username)<7)
+              {
+                $_SESSION['status']="Tên đăng nhập phải có ít nhất 6 ký tự";
+                header("Location:signup.php");
+                exit(0);
+              }
+              if(!preg_match("/^[0-9-a-zA-Z\s]+$/", $pwd) or strpos($pwd, $spacing) or !preg_match("/^[0-9-a-zA-Z\s]+$/", $pwd_confirm) or strpos($pwd_confirm, $spacing))
+              {
+                $_SESSION['status']="Mật khẩu không hợp lệ";
+                header("Location:signup.php");
+                exit(0);
+              }
+              if(strlen($pwd)<8 or strlen($pwd_confirm)<8)
+              {
+                $_SESSION['status']="Độ dài mật khẩu phải có ít nhất 8 ký tự";
+                header("Location:signup.php");
+                exit(0);
+              }
+              if(strlen($pwd)<8 or strlen($pwd_confirm)<8)
+              {
+                $_SESSION['status']="Độ dài mật khẩu phải có ít nhất 8 ký tự";
+                header("Location:signup.php");
+                exit(0);
+              }
               else
               {
-                if($pwd==$pwd_confirm)
+                $select_email="select * from `taikhoan` where email='$email'";
+                $select_email_run=mysqli_query($con,$select_email);
+                $num_email=mysqli_num_rows($select_email_run);
+                if($num_email>0)
+                {
+                  $_SESSION['status']="Email đã tồn tại";
+                  header("Location:signup.php");
+                  exit(0);
+                }
+                else
+                {
+                  if($pwd==$pwd_confirm)
                 {
                   $select_query="select * from `taikhoan` where tendangnhap='$username'";
-               
                   $select_result=mysqli_query($con, $select_query);
                   $count_row=mysqli_num_rows($select_result);
                  
@@ -129,7 +170,7 @@ session_start();
                   header("Location:signup.php");
                   exit(0);
                 }
-                
+                }
               }
             }
             ?>
