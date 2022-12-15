@@ -68,7 +68,7 @@ include('./function/common_function.php');
             </div>
             <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">Ngày sinh</label>
-                <input class="form-control" style="width: 70%;" type="date" name="ngaysinh" placeholder="dd-mm-yyyy"
+                <input class="form-control" style="width: 70%;" type="date" name="ngaysinh" placeholder="mm-dd-yyyy"
                     value="<?php echo $get_ngsinh;?>" min="1950-01-01" max="2030-12-31" />
             </div>
 
