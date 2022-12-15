@@ -1,0 +1,29 @@
+.btnshoppingcart,
+.button_sm {
+  background-color: #05c5cc !important;
+  border-radius: 5px;
+  color: white;
+}
+
+.shoppingcart_h4 {
+  color: #05c5cc !important;
+  font-size: 25px;
+}
+.button_sm {
+  display: none !important;
+}
+@media only screen and (max-width: 768px) {
+  .table_content {
+    font-size: 0.7rem;
+  }
+  .button_sm {
+    display: block !important;
+  }
+  .button {
+    display: none !important;
+  }
+  .table_content img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
