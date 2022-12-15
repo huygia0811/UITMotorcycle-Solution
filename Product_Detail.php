@@ -131,7 +131,7 @@ cart();
                                 $select_run = mysqli_query($con, $select_sp);
                                 $row = mysqli_fetch_assoc($select_run);
                                 $typeid = $row['MASP'];
-                                $sl = $_POST['qty'];
+                                $sl = $_POST['get_sl'];
                                 echo "<script>window.open('Product_Detail.php?add_to_card=$typeid&soluong=$sl','_self')</script>";
                             }
                         }
@@ -199,6 +199,7 @@ cart();
     document.getElementById("plusProduct").onclick = function() {
         amount2++;
         amountE.value = amount2;
+        document.getElementById("get_sl").value = amount2;
     }
     document.getElementById("minusProduct").onclick = function() {
         if (amount2 <= 1) {
@@ -207,6 +208,7 @@ cart();
             amount2--;
         }
         amountE.value = amount2;
+        document.getElementById("get_sl").value = amount2;
     }
     </script>
 
