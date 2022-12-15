@@ -5,36 +5,41 @@ $message_eror = '';
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>UIT MotorCycle</title>
-    <link rel="icon" href="./asset/DB-Picture/logo.ico" type="image/x-icon">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- bootstrap cdn -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <!-- fontawwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./CSS/style_chitietsp.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-</head>
-<?php
+    <head>
+        <title>UIT MotorCycle</title>
+        <link rel="icon" href="./asset/DB-Picture/logo.ico" type="image/x-icon">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- bootstrap cdn -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <!-- fontawwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="./CSS/style_chitietsp.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+        </script>
+    </head>
+    <?php
 include "./includes/connect_database.php";
 include('./header.php');
 cart();
 ?>
 
-<body>
-    <?php
+    <body>
+        <?php
     if (!isset($_GET['tenxe'])) {
         return null;
     }
     ?>
-    <main>
-        <div class="container">
-            <div class="prod_detail">
-                <div class="prod_row_0">
-                    <?php
+        <main>
+            <div class="container">
+                <div class="prod_detail">
+                    <div class="prod_row_0">
+                        <?php
                     include "./function/currency_format.php";
 
                     $tenxe = $_GET['tenxe'];
@@ -50,10 +55,10 @@ cart();
                                 <h3 id="prod_price">' . currency_format($xe['GIA']) . ' đ</h3>
                         '
                     ?>
-                    <div class="mauxe">
-                        <div id="txtMauxe">Màu sắc:</div>
-                        <div class="lstmau">
-                            <?php
+                        <div class="mauxe">
+                            <div id="txtMauxe">Màu sắc:</div>
+                            <div class="lstmau">
+                                <?php
                             $kq2 = $con->query($sql);
                             $getcolor = '';
                             while ($xe2 = $kq2->fetch_assoc()) {
@@ -74,7 +79,7 @@ cart();
                                         ';
                             }
                             ?>
-                            <script>
+                                <script>
                                 function get_color(color) {
                                     var x = document.getElementById('get_color_name').value = color;
                                     console.log(x);
@@ -86,32 +91,32 @@ cart();
                                     console.log(x);
 
                                 }
-                            </script>
+                                </script>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="cart_quantity">
-                        <!-- Chưa css -->
-                        <p>Số lượng:</>
-                        <span>
-                            <i id="minusProduct" class="fa fa-minus"></i>
-                        </span>
-                        <input type="text" min="1" name="qty" id="qty" value="1">
-                        <span>
-                            <i id="plusProduct" class="fa fa-plus"></i>
-                        </span>
-                    </div><br>
+                        <div class="cart_quantity">
+                            <!-- Chưa css -->
+                            <p>Số lượng:</>
+                                <span>
+                                    <i id="minusProduct" class="fa fa-minus"></i>
+                                </span>
+                                <input type="text" min="1" name="qty" id="qty" value="1">
+                                <span>
+                                    <i id="plusProduct" class="fa fa-plus"></i>
+                                </span>
+                        </div><br>
 
-                    <div class="addToCart_Buynow">
-                        <form action="" method="post">
-                            <input type="hidden" id="get_color_name" name="get_color" value="">
-                            <input type="hidden" id="get_id" name="get_id" value="">
-                            <input type="hidden" id="get_sl" name="get_sl" value="">
-                            <button id="addtocart" type="submit" name="mua" value="">
-                                Thêm vào giỏ hàng
-                            </button>
-                        </form>
-                        <?php
+                        <div class="addToCart_Buynow">
+                            <form action="" method="post">
+                                <input type="hidden" id="get_color_name" name="get_color" value="">
+                                <input type="hidden" id="get_id" name="get_id" value="">
+                                <input type="hidden" id="get_sl" name="get_sl" value="">
+                                <button id="addtocart" type="submit" name="mua" value="">
+                                    Thêm vào giỏ hàng
+                                </button>
+                            </form>
+                            <?php
                         if (isset($_POST['mua'])) {
                             $get_Color = $_POST['get_color'];
                             $get_ID = $_POST['get_id'];
@@ -119,8 +124,8 @@ cart();
                             if ($get_Color == '') {
                                 $message_eror = "Vui lòng chọn màu";
                         ?>
-                                <div class="alert alert-danger"><?php echo $message_eror ?></div>
-                        <?php
+                            <div class="alert alert-danger"><?php echo $message_eror ?></div>
+                            <?php
                             } else {
                                 $select_sp = "select * from `sanpham` where MASP='$get_ID'";
                                 $select_run = mysqli_query($con, $select_sp);
@@ -131,18 +136,18 @@ cart();
                             }
                         }
                         ?>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="more-details">
-                <table>
-                    <tr>
-                        <th colspan="2">
-                            <h3>Thông tin chi tiết</h3>
-                        </th>
-                    </tr>
-                    <?php
+                <div class="more-details">
+                    <table>
+                        <tr>
+                            <th colspan="2">
+                                <h3>Thông tin chi tiết</h3>
+                            </th>
+                        </tr>
+                        <?php
                     $sql2 = "select TENHANG, LOAIXE, PHANKHOI, NAMSX from sanpham, hangxe where sanpham.MAHANG = hangxe.MAHANG and TENSP = '$tenxe'";
                     $kq = $con->query($sql2);
                     $xe = $kq->fetch_assoc();
@@ -174,19 +179,21 @@ cart();
                             ';
                     ?>
 
-                </table>
+                    </table>
+                </div>
             </div>
-        </div>
-        </div>
+            </div>
 
-        <script src="./JS/javscr.js"></script>
-    </main>
-    <?php
+            <script src="./JS/javscr.js"></script>
+        </main>
+        <div class="container">
+            <?php
     include "footer_copy.php";
     ?>
+        </div>
 
-</body>
-<script>
+    </body>
+    <script>
     const amountE = document.getElementById('qty');
     let amount2 = amountE.value;
     document.getElementById("plusProduct").onclick = function() {
@@ -201,6 +208,6 @@ cart();
         }
         amountE.value = amount2;
     }
-</script>
+    </script>
 
 </html>

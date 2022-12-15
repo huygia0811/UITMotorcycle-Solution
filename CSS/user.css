@@ -88,7 +88,8 @@ ul ul a {
   }
   /* Downsize the navigation links font size */
   #sidebar.active ul li a,
-  .profile {
+  .profile,
+  .password {
     font-size: 0.7em;
   }
   .profile .button,
@@ -108,7 +109,8 @@ ul ul a {
   .profile_title p {
     font-size: medium;
   }
-  .profile .form-control {
+  .profile .form-control,
+  .password .form-control {
     align-items: center;
     height: 1.8rem !important;
     font-size: 1.2em;
@@ -133,7 +135,8 @@ ul ul a {
   }
   /* Downsize the navigation links font size */
 
-  .profile {
+  .profile,
+  .password {
     font-size: 0.5em;
   }
   .profile_title h1 {
@@ -145,10 +148,12 @@ ul ul a {
   .profile .form-check-input {
     margin-top: 3px;
   }
-  .profile .form-group {
+  .profile .form-group,
+  .password .form-group {
     margin-bottom: 20px !important;
   }
-  .profile .form-control {
+  .profile .form-control,
+  .password .form-control {
     height: 1.8rem !important;
     font-size: 1em;
   }

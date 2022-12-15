@@ -6,13 +6,13 @@ include('./function/common_function.php');
 <head>
     <link rel="stylesheet" href="./CSS/user.css">
 </head>
-<div class="mt-2 border-bottom">
+<div class="mt-2">
     <h3>Đổi mật khẩu</h3>
     <p>Để bảo mật tài khoản vui lòng không chia sẻ mật khẩu cho người khác</p>
 </div>
 
 <div class="row password">
-    <div class="col-lg-10 border-bottom">
+    <div class="col-lg-10">
         <form action="" method="post">
             <?php
                 $username=$_SESSION['username'];
