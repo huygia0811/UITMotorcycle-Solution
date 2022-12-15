@@ -135,6 +135,32 @@ tr:first-child {
 tr:nth-child(even) {
     background: rgb(231, 230, 230);
 }
+#minusProduct, #plusProduct {
+    border: 1px solid #ccc;
+    padding: 6px 7px;
+    cursor: pointer;
+}
+#minusProduct {
+    margin-left: 20px;
+    border-radius: 5px;
+}
+#plusProduct {
+    border-radius: 5px;
+}
+#minusProduct:hover, #plusProduct:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
+#qty {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 2px;
+}
+#qty:focus {
+    outline: none;
+}
 
 @media screen and (max-width: 759px) {
     .prod_row_0 {
