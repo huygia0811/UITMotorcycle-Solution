@@ -37,23 +37,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="./JS/shopping_cart.js"></script>
-    <script>
-        const amountE = document.getElementById('qty');
-        let amount2 = amountE.value;
-        document.getElementById("plusProduct").onclick = function() {
-            amount2++;
-            amountE.value = amount2;
-        }
-        document.getElementById("minusProduct").onclick = function() {
-            if(amount2<=1){
-                amount2=1;
-            }
-            else{
-                amount2--;
-            }           
-            amountE.value = amount2;
-        }
-    </script>
-    
 </body>
 </html>

@@ -88,12 +88,12 @@ include "index.php";
                     echo "<td style='text-align:left'>";
                     echo $trangthai_text;
                     echo "</td>";
-                    echo "<td><form method='GET'></form></td>";
+                    echo "<td></td></tr>";                   
                 }
                 ?>
             </tbody>
+            
         </table>
     </div>
 </body>
-
 </html>

@@ -68,7 +68,7 @@ cart();
                         <td><?php echo $mau; ?></td>
 
                         <td>
-                        <div class="cart_quantity">
+                            <div class="cart_quantity">
                                 <span>
                                     <i id="minusProduct" class="fa fa-minus"></i>
                                 </span>
