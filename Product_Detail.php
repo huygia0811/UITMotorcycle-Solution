@@ -58,26 +58,26 @@ cart();
                         <div class="mauxe">
                             <div id="txtMauxe">Màu sắc:</div>
                             <div class="lstmau">
-                                <?php
-                            $kq2 = $con->query($sql);
-                            $getcolor = '';
-                            while ($xe2 = $kq2->fetch_assoc()) {
-                                $url_img = $xe2['URL_IMAGE'];
-                                $mausac = $xe2['MAU'];
-                                $gia = currency_format($xe2['GIA']);
-                                $gia .= " đ";
-                                $id =  $xe2['MASP'];
-                                echo '
-                                            <div id="btnMau" onclick="document.getElementById
-                                        ';
-                                echo "
-                                            ('prod_img_url').src='$url_img'; 
-                                            document.getElementById('prod_price').innerHTML='$gia';get_color('$mausac');get_id('$id');
-                                        ";
-                                echo '
-                                            ">' . $mausac . '</div>
-                                        ';
-                            }
+                            <?php
+                                $kq2 = $con->query($sql);
+                                $getcolor = '';
+                                while ($xe2 = $kq2->fetch_assoc()) {
+                                    $url_img = $xe2['URL_IMAGE'];
+                                    $mausac = $xe2['MAU'];
+                                    $gia = currency_format($xe2['GIA']);
+                                    $gia .= " đ";
+                                    $id =  $xe2['MASP'];
+                                    echo '
+                                                <div id="btnMau" onclick="document.getElementById
+                                            ';
+                                    echo "
+                                                ('prod_img_url').src='$url_img'; 
+                                                document.getElementById('prod_price').innerHTML='$gia';get_color('$mausac');get_id('$id');
+                                            ";
+                                    echo '
+                                                ">' . $mausac . '</div>
+                                            ';
+                                }
                             ?>
                                 <script>
                                 function get_color(color) {
