@@ -15,68 +15,8 @@ include('./function/common_function.php');
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- fontawwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-    <style>
-        .container {
-            margin: 15px auto 0 auto !important;
-            border: none !important;
-            padding: 0 !important;
-        }
-
-        #card-row {
-            margin: 20px 10px;
-            row-gap: 15px;
-        }
-
-        .card {
-            display: grid;
-            grid-template-rows: 200px 1fr;
-            height: 100%;
-            border-radius: 10px;
-        }
-
-        .card img {
-            height: 100%;
-            width: 100%;
-            object-fit: contain;
-        }
-
-        .card-body {
-            background-color: #cbf6f8;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-
-        .btn-info {
-            background-color: #05c5cc !important;
-            color: white !important;
-        }
-
-        .submenu {
-            margin: auto !important;
-        }
-
-        .submenu .btn {
-            padding-top: 20px !important;
-        }
-
-        .submenu .btn:hover {
-            background-color: #f0f0f0 !important;
-        }
-
-        .card-img-top {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-        }
-
-        #btnViewMore {
-            width: 100%;
-            background-color: #05c5cc;
-            border: none;
-        }
-    </style>
+    <link rel="stylesheet" href="./CSS/style_main.css">
+    <link rel="stylesheet" href="./CSS/style_pagination.css">
 </head>
 
 <body style="background: #efefef">
