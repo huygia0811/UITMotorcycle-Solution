@@ -45,6 +45,9 @@ if(!isset($_SESSION['user'])) {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav nav-tabs list">
                         <li class="nav-item">
+                            <a class="nav-link" href="thongke.php">Thống kê</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="insert_car.php">Thêm sản phẩm</a>
                         </li>
                         <li class="nav-item">

@@ -56,7 +56,7 @@ include "index.php";
                         case 0:
                         $trangthai_text = "Đang giao";
                         break;
-                        case 11:
+                        case 1:
                         $trangthai_text = "Đã giao";
                         break;
                     }
