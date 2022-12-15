@@ -1,6 +1,7 @@
 <?php
 include('../includes/connect_database.php');
 include "index.php";
+include ('../function/currency_format.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,7 +88,7 @@ include "index.php";
                 $select_query = "SELECT SUM(TRIGIA) FROM HOADON WHERE TRANGTHAI = 1";
                 $result_query = mysqli_query($con, $select_query);
                 $row = mysqli_fetch_assoc($result_query);
-                echo $row['SUM(TRIGIA)'];
+                echo currency_format($row['SUM(TRIGIA)']) . " đ";
                 ?>
                 </p>
             </div>

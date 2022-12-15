@@ -1,6 +1,7 @@
 <?php
 include('../includes/connect_database.php');
 include "index.php";
+include ('../function/currency_format.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,7 +89,7 @@ include "index.php";
                     echo $ngayhd;
                     echo "</td>";
                     echo "<td style='text-align:left'>";
-                    echo $tongtien . " VNĐ";
+                    echo currency_format($tongtien) . " đ";
                     echo "</td>";
                     echo "<td style='text-align:left'>";
                     echo $trangthai_text;

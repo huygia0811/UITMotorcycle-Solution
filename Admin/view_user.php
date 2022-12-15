@@ -1,6 +1,7 @@
 <?php
 include('../includes/connect_database.php');
 include "index.php";
+include ('../function/currency_format.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,7 +84,7 @@ include "index.php";
                     echo $ngdk;
                     echo "</td>";
                     echo "<td style='text-align:left'>";
-                    echo $sodu;
+                    echo currency_format($sodu) . " đ";
                     echo "</td>";
                     echo "<td style='text-align:left'>";
                     echo $gioitinh;
