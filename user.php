@@ -53,7 +53,7 @@
                                 <i class="fas fa-sack-dollar"></i>
                                 <span>Nạp tiền</span>
                             </a>
-                            <a href="user.php?purchar&type=-2">
+                            <a href="user.php?purchar&type=-3">
                                 <i class="fa-solid fa-receipt"></i>
                                 <span> Đơn mua</span>
                             </a>

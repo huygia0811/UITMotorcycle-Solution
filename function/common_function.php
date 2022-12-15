@@ -278,9 +278,8 @@ function don_mua_tatca()
     if (isset($_POST['select'])) {
       foreach ($_POST['select'] as $sohd) {
         echo "<script>alert('Bạn đã hủy hóa đơn $sohd')</script>";
-        $delete_hoadon="delete from `hoadon` where SOHD='$sohd'";
-        $delete_cthd="delete from `cthd` where SOHD='$sohd'";
-        $delete_cthd_run=mysqli_query($con, $delete_cthd);
+
+        $delete_hoadon="update `hoadon` set TRANGTHAI='-1' where SOHD='$sohd'";
         $delete_hoadon_run=mysqli_query($con, $delete_hoadon);
         echo "<script>window.open('user.php?purchar&type=-3','_self')</script>";
       }
