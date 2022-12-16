@@ -1,19 +1,7 @@
 <?php
-include('../includes/connect_database.php');
-include "header.php";
-?>
-<!DOCTYPE html>
-<html lang="en">
+    include('../includes/connect_database.php');
+    include "header.php";
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <?php
     $manaptien = $_GET['id'];
     $select_query = "SELECT * FROM NAPTIEN WHERE MANAPTIEN ='$manaptien'";
     $result_query = mysqli_query($con, $select_query);
@@ -37,8 +25,4 @@ include "header.php";
         echo "ĐÃ DUYỆT TRƯỚC ĐÓ!!! THAO TÁC THẤT BẠI!!!";
     }
     echo "<br><a href='check_payment.php'>QUAY LẠI</a>"
-    ?>
-    
-</body>
-
-</html>
+?>

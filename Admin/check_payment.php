@@ -14,9 +14,6 @@ include('../function/currency_format.php');
 </head>
 
 <body>
-    <?php
-
-    ?>
     <div class="container pt-4">
         <div class="row">
             <div class="col-md-12">
@@ -80,8 +77,6 @@ include('../function/currency_format.php');
                 </div>
             </div>
         </div>
-
-
     </div>
 </body>
 

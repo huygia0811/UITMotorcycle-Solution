@@ -33,15 +33,7 @@ include "header.php";?>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $select_query="SELECT
-                                                                            
-                                                            t1.`MAHANG`,
-                                                            t1.`URLIMAGE`,
-                                                            t1.`TENHANG`
-
-                                                            FROM `hangxe` t1
-                                                            ORDER BY t1.`MAHANG` ASC
-                                                            ";
+                                                $select_query="SELECT * FROM `hangxe` t1 ORDER BY t1.`MAHANG` ASC";
                                                 $brand_query=mysqli_query($con, $select_query);
                                                 
                                                 while($row=mysqli_fetch_assoc($brand_query))
@@ -64,7 +56,6 @@ include "header.php";?>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
