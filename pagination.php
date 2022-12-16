@@ -23,24 +23,14 @@
                     }
                 }
                 echo "<li><a>...</a></li>";
-                // echo "<li><a href='$url&trang=$second_last'>$second_last</a></li>";
                 echo "<li><a href='$url&trang=$tong_so_trang'>$tong_so_trang</a></li>";
             }
 
             elseif($trang > 2 && $trang < $tong_so_trang - 1) {		 
                 echo "<li><a href='$url&trang=1'>1</a></li>";
-                // echo "<li><a href='$url&trang=2'>2</a></li>";
                 echo "<li><a>...</a></li>";
-                // for ($counter = $trang - $adjacents; $counter <= $trang + $adjacents; $counter++) {			
-                // 	if ($counter == $trang) {
-                // 		echo "<li class='is_active'><a>$counter</a></li>";	
-                // 	}else{
-                // 		echo "<li><a href='$url&trang=$counter'>$counter</a></li>";
-                // 	}                  
-                // }
                 echo "<li class='is_active'><a>$trang</a></li>";
                 echo "<li><a>...</a></li>";
-                // echo "<li><a href='$url&trang=$second_last'>$second_last</a></li>";
                 echo "<li><a href='$url&trang=$tong_so_trang'>$tong_so_trang</a></li>";      
             }
             
