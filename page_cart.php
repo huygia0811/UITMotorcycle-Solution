@@ -59,7 +59,7 @@ cart();
             <td><?php echo $mau; ?></td>
 
             <td>
-                <div class="cart_quantity">          
+                <div class="cart_quantity">
                     <?php echo $soluong ?>
                 </div>
             </td>
@@ -90,7 +90,8 @@ cart();
 
             <a href="#"><button type="submit" name="thanhtoantatca"
                     class="bg-info p-2 border-0 mx-4 btnshoppingcart">Thanh toán tất cả</button></a>
-            <a class="bg-info p-2 border-0 btnshoppingcart" style="width: 100px; text-align: center; text-decoration: none;" href="./index.php">Thoát</a>
+            <a class="bg-info p-2 border-0 btnshoppingcart"
+                style="width: 100px; text-align: center; text-decoration: none;" href="./index.php">Thoát</a>
 
         </div>
         </form>
@@ -181,7 +182,9 @@ cart();
                     $row_khachhang = mysqli_fetch_assoc($select_khachhang_run);
                     $get_makh = $row_khachhang['MAKH'];
                     //chèn hóa đơn
-                    $insert_hoadon = "insert into `hoadon` (NGHD,MAKH,TRIGIA,TRANGTHAI) values ('NOW()','$get_makh','$total','-2')";
+                    date_default_timezone_set('Asia/Ho_Chi_Minh');
+                    $get_date = date("Y-m-d H:i:s");
+                    $insert_hoadon = "insert into `hoadon` (NGHD,MAKH,TRIGIA,TRANGTHAI) values ('$get_date','$get_makh','$total','-2')";
                     $insert_hoadon_run = mysqli_query($con, $insert_hoadon);
                     //lấy số hd mới dc tạo
                     $select_hoadon = "select MAX(SOHD) from `hoadon`";
