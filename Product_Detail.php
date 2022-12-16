@@ -58,7 +58,7 @@ cart();
                         <div class="mauxe">
                             <div id="txtMauxe">Màu sắc:</div>
                             <div class="lstmau">
-                            <?php
+                                <?php
                                 $kq2 = $con->query($sql);
                                 $getcolor = '';
                                 while ($xe2 = $kq2->fetch_assoc()) {
