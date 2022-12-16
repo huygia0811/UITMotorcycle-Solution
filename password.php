@@ -59,11 +59,24 @@ if(isset($_POST['thaydoi']))
     $new_pwd = $_POST['new_pwd'];
     $confirm_pwd = $_POST['confirm_pwd'];
     $getussername=$_SESSION['username'];
+    $spacing=" ";
     if($new_pwd=='' or $confirm_pwd =='')
     {
         $_SESSION['status_password']="Vui lòng nhập đầy đủ thông tin";
         echo "<script>window.open('user.php?password','_self')</script>";
         exit(0);
+    }
+    if(!preg_match("/^[0-9-a-zA-Z\s]+$/", $new_pwd) or strpos($new_pwd, $spacing) or !preg_match("/^[0-9-a-zA-Z\s]+$/", $confirm_pwd) or strpos($confirm_pwd, $spacing))
+    {
+      $_SESSION['status_password']="Mật khẩu không hợp lệ";
+      header("Location:user.php?password");
+      exit(0);
+    }
+    if(strlen($new_pwd)<8)
+    {
+      $_SESSION['status_password']="Độ dài mật khẩu phải có ít nhất 8 ký tự";
+      header("Location:user.php?password");
+      exit(0);
     }
     else
     {
@@ -75,7 +88,7 @@ if(isset($_POST['thaydoi']))
             if($update_pwd_run)
             {
                 $_SESSION['status_password']="Cập nhập thành công";
-                echo "<script>window.open('user.php?password','_self')</script>";
+                echo "<script>window.open('logout.php','_self')</script>";
                 exit(0);
             }
             else
