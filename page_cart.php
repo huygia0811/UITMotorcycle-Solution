@@ -90,7 +90,7 @@ cart();
 
             <a href="#"><button type="submit" name="thanhtoantatca"
                     class="bg-info p-2 border-0 mx-4 btnshoppingcart">Thanh toán tất cả</button></a>
-            <a href="./index.php"><button class="bg-info p-2 border-0 btnshoppingcart">Thoát</button></a>
+            <a class="bg-info p-2 border-0 btnshoppingcart" style="width: 100px; text-align: center; text-decoration: none;" href="./index.php">Thoát</a>
 
         </div>
         </form>
