@@ -1,6 +1,6 @@
 <?php
 include('../includes/connect_database.php');
-include "index.php";
+include "header.php";
 include ('../function/currency_format.php');
 ?>
 <!DOCTYPE html>
@@ -115,7 +115,8 @@ include ('../function/currency_format.php');
                             <form method="post">
                                 <div class="mb-3">
                                     <label for="recipient-name" class="col-form-label">Hóa đơn: </label>
-                                    <input type="text" name="sohd_" value="" class="form-control" id="recipient-name" >
+                                    <input type="hidden" name="sohd_" value="" class="form-control" id="recipient-name" >
+                                    <input type="text" name="sohd_" value="" class="form-control" id="recipient-name_" disabled>
                                 </div>
                                 <div class="mb-3">
                                     <label for="message-text" class="col-form-label">Trạng thái:</label>
@@ -142,7 +143,8 @@ include ('../function/currency_format.php');
                             $update_hd_run = mysqli_query($con, $update_hd);
                             if ($update_hd_run) {
                                 //echo var_dump($get_trangthai);
-                                echo "<script>alert('$get_trangthai')</script>";
+                                echo "<script>alert('Thành công')</script>";
+                                echo "<script>window.open('all_order.php','_self')</script>";
                             }
                         }
                         ?>
@@ -170,8 +172,11 @@ include ('../function/currency_format.php');
         const modalTitle = exampleModal.querySelector('.modal-title')
        // const modalBodyInput = exampleModal.querySelector('.modal-body input')
        const modalBodyInput=document.getElementById('recipient-name');
+       const modalBodyInput_=document.getElementById('recipient-name_');
+       
 
         modalTitle.textContent = `Cập nhập trạng thái hóa đơn: ${recipient}`
         modalBodyInput.value = recipient
+        modalBodyInput_.value=recipient
     })
 </script>

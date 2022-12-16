@@ -20,6 +20,14 @@ include('./includes/connect_database.php');
                 <?php
                 if(isset($_SESSION['username']))
                 {
+                    $username=$_SESSION['username'];
+                    $select_makh="select * from `taikhoan` where tendangnhap='$username'";
+                    $select_makh_run=mysqli_query($con,$select_makh);
+                    $row_makh=mysqli_fetch_assoc($select_makh_run);
+                    $get_makh=$row_makh['MAKH'];
+                    $select_cart = "select * from `giohang` where MAKH='$get_makh'";
+                    $select_cart_run = mysqli_query($con, $select_cart);
+                    $count_row = mysqli_num_rows($select_cart_run);
                 ?>
                 <li class="nav-item">
                     <a class="nav-link" href="./user.php?profile"><i class="fa-solid fa-user"></i>
@@ -27,7 +35,7 @@ include('./includes/connect_database.php');
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="page_shopping_cart.php"><i
-                            class="fa-solid fa-cart-shopping"></i><sup>1</sup> Giỏ hàng</a>
+                            class="fa-solid fa-cart-shopping"></i><sup><?php echo $count_row ?></sup> Giỏ hàng</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./logout.php"><i class="fas fa-sign-out"></i> Đăng xuất</a>
@@ -63,75 +71,3 @@ include('./includes/connect_database.php');
         </div>
     </div>
 </nav>
-<script>
-$(document).ready(function() {
-    var ids = new Array();
-    $('#over').on('click', function() {
-        $('#list').toggle();
-    });
-
-    //Message with Ellipsis
-    $('div.msg').each(function() {
-        var len = $(this).text().trim(" ").split(" ");
-        if (len.length > 12) {
-            var add_elip = $(this).text().trim().substring(0, 65) + "…";
-            $(this).text(add_elip);
-        }
-
-    });
-
-
-    $("#bell-count").on('click', function(e) {
-        e.preventDefault();
-
-        let belvalue = $('#bell-count').attr('data-value');
-
-        if (belvalue == '') {
-
-            console.log("inactive");
-        } else {
-            $(".round").css('display', 'none');
-            $("#list").css('display', 'block');
-            //Ajax
-            $('.message').click(function(e) {
-                e.preventDefault();
-                $.ajax({
-                    url: './function/deactive.php',
-                    type: 'POST',
-                    data: {
-                        "id": $(this).attr('data-id')
-                    },
-                    success: function(data) {
-
-                        console.log(data);
-                        location.reload();
-                    }
-                });
-            });
-        }
-    });
-
-    //submit form
-    //    $('#notify').on('click',function(e){
-    //         e.preventDefault();
-    //         var name = $('#notifications_name').val();
-    //         var ins_msg = $('#message').val();
-    //         if($.trim(name).length > 0 && $.trim(ins_msg).length > 0){
-    //           var form_data = $('#frm_data').serialize();
-    //         $.ajax({
-    //           url:'./connection/insert.php',
-    //                 type:'POST',
-    //                 data:form_data,
-    //                 success:function(data){
-    //                     location.reload();
-    //                 }
-    //         });
-    //         }else{
-    //           alert("Please Fill All the fields");
-    //         }
-
-
-    //    }
-    //    );
-});
-</script>

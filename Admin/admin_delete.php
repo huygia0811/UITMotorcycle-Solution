@@ -1,8 +1,8 @@
 <?php
 include('../includes/connect_database.php');
-include "header.php";
+include "index.php";
 if (!isset($_REQUEST['id'])) {
-    header('location:view_user.php');
+    header('location:view_admin.php');
     exit;
 } else {
     $id = $_GET['id'];
@@ -27,6 +27,6 @@ if (!isset($_REQUEST['id'])) {
     $query = "delete FROM `khachhang` WHERE MAKH=$id";
     $result_query = mysqli_query($con, $query);
     mysqli_close($con);
-    header('location:view_user.php');
+    header('location:view_admin.php');
 }
 ?>

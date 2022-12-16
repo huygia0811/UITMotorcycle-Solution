@@ -12,7 +12,7 @@
 
         <?php
 include('../includes/connect_database.php');
- include "index.php";?>
+ include "header.php";?>
         <?php 
 if(!isset($_REQUEST['id'])) {
     header('location:view_products.php');

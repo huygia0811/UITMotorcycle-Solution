@@ -1,52 +1,52 @@
 <?php
 include('../includes/connect_database.php');
-include "index.php";
+include "header.php";
 include ('../function/currency_format.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>List user</title>
+    </head>
 
-<body>
-    <?php
+    <body>
+        <?php
 
     ?>
-    <div class="container pt-4">
-        <table id="products" class="table table-striped table-hover" role="grid" aria-describedby="products_info">
-            <thead class="thead-dark">
-                <tr role="row" style='text-align:center'>
-                    <th width="160" scope="col">
-                        Mã khách hàng</th>
-                    <th width="160" scope="col">
-                        Tên khách hàng</th>
-                    <th width="160" scope="col">
-                        Địa chỉ</th>
-                    <th width="160" scope="col">
-                        Số điện thoại</th>
-                    <th width="160" scope="col">
-                        Email</th>
-                    <th width="160" scope="col">
-                        Ngày sinh</th>
-                    <th width="160" scope="col">
-                        Ngày đăng ký</th>
-                    <th width="160" scope="col">
-                        Số dư</th>
-                    <th width="160" scope="col">
-                        Giới tính</th>
-                    <th width="160" scope="col">
-                        Số CCCD</th>
-                    <th width="160" scope="col">
-                        Thao tác</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
+        <div class="container pt-4">
+            <table id="products" class="table table-striped table-hover" role="grid" aria-describedby="products_info">
+                <thead class="thead-dark">
+                    <tr role="row" style='text-align:center'>
+                        <th width="160" scope="col">
+                            Mã khách hàng</th>
+                        <th width="160" scope="col">
+                            Tên khách hàng</th>
+                        <th width="160" scope="col">
+                            Địa chỉ</th>
+                        <th width="160" scope="col">
+                            Số điện thoại</th>
+                        <th width="160" scope="col">
+                            Email</th>
+                        <th width="160" scope="col">
+                            Ngày sinh</th>
+                        <th width="160" scope="col">
+                            Ngày đăng ký</th>
+                        <th width="160" scope="col">
+                            Số dư</th>
+                        <th width="160" scope="col">
+                            Giới tính</th>
+                        <th width="160" scope="col">
+                            Số CCCD</th>
+                        <th width="160" scope="col">
+                            Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
                 $select_query = "SELECT * FROM KHACHHANG, TAIKHOAN WHERE KHACHHANG.MAKH = TAIKHOAN.MAKH AND is_admin = 0";
                 $result_query = mysqli_query($con, $select_query);
 
@@ -92,12 +92,12 @@ include ('../function/currency_format.php');
                     echo "<td style='text-align:left'>";
                     echo $cccd;
                     echo "</td>";
-                    echo "<td><a href='user_delete.php?id=$makh'>Delete</a></td>";
+                    echo "<td><a href='user_delete.php?id=$makh' style='text-decoration: none; color:red'>Delete</a></td>";
                 }
                 ?>
-            </tbody>
-        </table>
-    </div>
-</body>
+                </tbody>
+            </table>
+        </div>
+    </body>
 
 </html>

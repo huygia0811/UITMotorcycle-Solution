@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
@@ -93,7 +93,7 @@ CREATE TABLE `khachhang` (
   `DCHI` varchar(200) DEFAULT NULL,
   `SODT` varchar(12) DEFAULT NULL,
   `NGSINH` datetime DEFAULT NULL,
-  `NGDK` datetime DEFAULT NULL,
+  `NGDK` date DEFAULT NULL,
   `SODU` int(50) NOT NULL,
   `khachhang_ip` varchar(100) DEFAULT NULL,
   `GIOITINH` varchar(40) DEFAULT NULL,
