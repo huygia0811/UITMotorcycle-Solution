@@ -92,7 +92,7 @@ CREATE TABLE `khachhang` (
   `HOTEN` varchar(100) DEFAULT NULL,
   `DCHI` varchar(200) DEFAULT NULL,
   `SODT` varchar(12) DEFAULT NULL,
-  `NGSINH` datetime DEFAULT NULL,
+  `NGSINH` date DEFAULT NULL,
   `NGDK` date DEFAULT NULL,
   `SODU` int(50) NOT NULL,
   `khachhang_ip` varchar(100) DEFAULT NULL,
