@@ -143,7 +143,9 @@ session_start();
                   else
                   {
                     $getip=getIPAddress();
-                    $insert_khachhang="INSERT into `khachhang` (HOTEN,DCHI,SODT,NGSINH,NGDK,SODU,khachhang_ip,GIOITINH,SOCCCD) VALUES ('','','','','NOW()','','$getip','','')";
+                    date_default_timezone_set('Asia/Ho_Chi_Minh');
+                    $get_date = date('Y:m:d H:i:s');
+                    $insert_khachhang="INSERT into `khachhang` (HOTEN,DCHI,SODT,NGSINH,NGDK,SODU,khachhang_ip,GIOITINH,SOCCCD) VALUES ('','','','','$get_date','','$getip','','')";
                     $insert_khachhang_run=mysqli_query($con,$insert_khachhang);
   
                     $select_khachhang="SELECT MAX(MAKH) from `khachhang`";
