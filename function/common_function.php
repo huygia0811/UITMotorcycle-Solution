@@ -159,6 +159,7 @@ function show_don_mua($masp_id, $get_sl, $id, $so_hd)
         $url_image = $row_product['URL_IMAGE'];
         $mau = $row_product['MAU'];
         $gia = $row_product['GIA'];
+        $gia = $gia*$get_sl;
         $total += $gia;
 ?>
 <tr>
