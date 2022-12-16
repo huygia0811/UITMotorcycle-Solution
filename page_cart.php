@@ -47,6 +47,7 @@ cart();
                     $url_image = $row_product['URL_IMAGE'];
                     $mau = $row_product['MAU'];
                     $gia = $row_product['GIA'];
+                    $gia = $soluong * $gia;
                     $total += $gia;
         ?>
                     <tr class="table_content">
@@ -64,8 +65,8 @@ cart();
                         </td>
 
 
-                        <td><?php $dongia = $soluong * $gia;
-                            echo currency_format($dongia); ?> đ</td>
+                        <td><?php 
+                            echo currency_format($gia); ?> đ</td>
 
 
                         <td>
