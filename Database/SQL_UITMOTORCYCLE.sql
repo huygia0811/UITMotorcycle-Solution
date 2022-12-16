@@ -77,7 +77,7 @@ CREATE TABLE `hoadon` (
   `SOHD` int(10) NOT NULL,
   `NGHD` datetime NOT NULL,
   `MAKH` int(10) NOT NULL,
-  `TRIGIA` int(20) NOT NULL,
+  `TRIGIA` bigint(255) NOT NULL,
   `TRANGTHAI` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -94,7 +94,7 @@ CREATE TABLE `khachhang` (
   `SODT` varchar(12) DEFAULT NULL,
   `NGSINH` date DEFAULT NULL,
   `NGDK` date DEFAULT NULL,
-  `SODU` int(50) NOT NULL,
+  `SODU` bigint(255) NOT NULL,
   `khachhang_ip` varchar(100) DEFAULT NULL,
   `GIOITINH` varchar(40) DEFAULT NULL,
   `SOCCCD` varchar(40) DEFAULT NULL
@@ -136,7 +136,7 @@ INSERT INTO `loaixe` (`LOAIXE`, `TENLOAI`) VALUES
 CREATE TABLE `naptien` (
   `MANAPTIEN` int(10) NOT NULL,
   `MAKH` int(10) NOT NULL,
-  `SOTIEN` int(100) NOT NULL,
+  `SOTIEN` bigint(255) NOT NULL,
   `NGAYNAP` date NOT NULL,
   `SOTAIKHOAN` varchar(40) NOT NULL,
   `DADUYET` int(2) NOT NULL
