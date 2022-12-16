@@ -43,6 +43,9 @@
                                     <a href="user.php?profile">Hồ sơ</a>
                                 </li>
                                 <li>
+                                    <a href="user.php?mypayment">Số dư tài khoản</a>
+                                </li>
+                                <li>
                                     <a href="user.php?password">Đổi mật khẩu</a>
                                 </li>
                             </ul>
@@ -95,6 +98,10 @@
             if(isset($_GET['logout']))
             {
                 include('logout.php');
+            }
+            if(isset($_GET['mypayment']))
+            {
+                include('mypayment.php');
             }
             ?>
                     </div>
