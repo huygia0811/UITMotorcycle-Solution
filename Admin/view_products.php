@@ -1,4 +1,4 @@
-<?php include('../includes/connect_database.php');include "index.php";include "../function/currency_format.php";?>
+<?php include('../includes/connect_database.php');include "header.php";include "../function/currency_format.php";?>
 <!DOCTYPE html>
 <html lang="en">
 
