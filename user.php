@@ -43,7 +43,7 @@
                                     <a href="user.php?profile">Hồ sơ</a>
                                 </li>
                                 <li>
-                                    <a href="user.php?mypayment">Số dư tài khoản</a>
+                                    <a href="user.php?mypayment">Quản lý tài chính</a>
                                 </li>
                                 <li>
                                     <a href="user.php?password">Đổi mật khẩu</a>

@@ -17,7 +17,7 @@
                       $get_sodu=$row_khachhang['SODU'];
                 ?>
                 <p>Số dư tài khoản hiện tại:</p>
-                <h5 class="text-danger"><?php echo currency_format($get_sodu) ?></h5>
+                <h5 class="text-danger"><?php echo currency_format($get_sodu )?></h5>
                 <div class="position-absolute bottom-0 end-0">
                     <a class="bg-success p-2 rounded" href="">Nạp tiền</a>
                 </div>
@@ -87,7 +87,7 @@
                                     <td><?php echo $row_naptien['MAKH'] ?></td>
                                     <td><?php echo $row_naptien['NGAYNAP'] ?></td>
                                     <td><?php echo $row_naptien['SOTAIKHOAN'] ?></td>
-                                    <td><?php echo currency_format($row_naptien['SOTIEN']) ?></td>
+                                    <td><?php echo $row_naptien['SOTIEN'] ?></td>
                                     <td><?php if ($row_naptien['DADUYET'] == 1) {
                                             echo "Thành công";
                                         } else {

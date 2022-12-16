@@ -31,7 +31,7 @@ cart();
                             <th width='70'>
                                 Số lượng</th>
                             <th width='120'>
-                                Đơn giá</th>
+                                Trị giá</th>
                             <th width='180'>
                                 Thao tác</th>
                         </tr>
