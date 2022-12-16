@@ -57,6 +57,7 @@ include './includes/connect_database.php';
                 $sotaikhoan = $_POST["sotaikhoan"];
                 $insert = "INSERT INTO NAPTIEN (`MAKH`, `SOTIEN`, `NGAYNAP`, `SOTAIKHOAN`, `DADUYET`) VALUES ('$makh', '$sotien', '$ngaynap', '$sotaikhoan', 0)";
                 $result_query = mysqli_query($con, $insert);
+                echo "<script>alert('Chúng tôi đã nhận được yêu cầu nạp tiền của bạn! Vui lòng chờ trong vòng 12h để chúng tôi duyệt!') </script>";
             }
         }
         ?>
