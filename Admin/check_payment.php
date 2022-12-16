@@ -70,7 +70,9 @@ include('../function/currency_format.php');
                                 echo "<td style='text-align:left'>";
                                 echo $daduyet;
                                 echo "</td>";
-                                echo "<td><form method='GET'><a href='add_money.php?id=$manaptien'>DUYỆT</a></form></td>";
+                                if($daduyet == 0){
+                                    echo "<td><form method='GET'><a style='text-decoration: none' href='add_money.php?id=$manaptien'>DUYỆT</a></form></td>";
+                                }
                             }
                             ?>
                         </tbody>

@@ -106,7 +106,7 @@
                                                             }
                                                         ?>
                                                         <br>
-                                                        <a href="changeactive.php?id=<?php echo $row['MASP']?>">Đổi</a>
+                                                        <a style="text-decoration: none" href="changeactive.php?id=<?php echo $row['MASP']?>">Đổi</a>
                                                     </td>
                                                     <td><?php echo currency_format($row['GIA']); ?> đ</td>
                                                     <td>

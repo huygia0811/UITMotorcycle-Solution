@@ -27,6 +27,7 @@ if (!isset($_REQUEST['id'])) {
     $query = "delete FROM `khachhang` WHERE MAKH=$id";
     $result_query = mysqli_query($con, $query);
     mysqli_close($con);
-    header('location:view_user.php');
+    echo "<script>alert('Đã xóa người dùng thành công!!!')</script>";
+    echo "<script>window.location='view_user.php' </script>";
 }
 ?>

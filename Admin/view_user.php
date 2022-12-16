@@ -50,7 +50,7 @@ include('../function/currency_format.php');
                         </thead>
                         <tbody>
                             <?php
-                            $select_query = "SELECT * FROM KHACHHANG, TAIKHOAN WHERE KHACHHANG.MAKH = TAIKHOAN.MAKH AND is_admin = 0";
+                            $select_query = "SELECT * FROM KHACHHANG, TAIKHOAN WHERE KHACHHANG.MAKH = TAIKHOAN.MAKH AND is_admin = 0 ORDER BY KHACHHANG.MAKH";
                             $result_query = mysqli_query($con, $select_query);
 
                             while ($row = mysqli_fetch_assoc($result_query)) {

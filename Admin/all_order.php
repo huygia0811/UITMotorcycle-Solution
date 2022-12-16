@@ -41,7 +41,7 @@ include('../function/currency_format.php');
                         </thead>
                         <tbody>
                             <?php
-                            $select_query = "SELECT * FROM HOADON, KHACHHANG WHERE HOADON.MAKH = KHACHHANG.MAKH";
+                            $select_query = "SELECT * FROM HOADON, KHACHHANG WHERE HOADON.MAKH = KHACHHANG.MAKH ORDER BY SOHD DESC";
                             $result_query = mysqli_query($con, $select_query);
                             while ($row = mysqli_fetch_assoc($result_query)) {
                                 $sohd = $row['SOHD'];
