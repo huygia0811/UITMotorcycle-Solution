@@ -102,15 +102,15 @@ session_start();
                 header("Location:signup.php");
                 exit(0);
               }
-              if(strlen($pwd)<8 or strlen($pwd_confirm)<8)
+              if(strlen($pwd)<8)
               {
                 $_SESSION['status']="Độ dài mật khẩu phải có ít nhất 8 ký tự";
                 header("Location:signup.php");
                 exit(0);
               }
-              if(strlen($pwd)<8 or strlen($pwd_confirm)<8)
+              if($pwd!==$pwd_confirm)
               {
-                $_SESSION['status']="Độ dài mật khẩu phải có ít nhất 8 ký tự";
+                $_SESSION['status']="Mật khẩu không khớp";
                 header("Location:signup.php");
                 exit(0);
               }

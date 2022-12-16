@@ -1,27 +1,20 @@
 <?php
 include('./function/common_function.php');
 ?>
-<div class="p-2">
-    <div class="d-flex flex-row flex-1 justify-content-around">
-        <div class="w-full border text-center btn mx-1 btn-secondary flex-fill">
-            <a href="user.php?purchar&type=-3">Tất cả</a>
-        </div>
-        <div class="w-full border text-center btn mx-1 btn-secondary flex-fill">
-            <a href="user.php?purchar&type=-2">Chờ xác nhận</a>
-        </div>
-        <div class="w-full border text-center btn mx-1 btn-secondary flex-fill">
-            <a href="user.php?purchar&type=0">Đang giao</a>
-        </div>
-        <div class="w-full border text-center btn mx-1 btn-secondary flex-fill">
-            <a href="user.php?purchar&type=1">Đã giao</a>
-        </div>
-        <div class="w-full border text-center btn mx-1 btn-secondary flex-fill">
-            <a href="user.php?purchar&type=-1">Đã hủy</a>
-        </div>
+<link rel="stylesheet" href="./CSS/purchar.css">
+
+<div class="container purchar">
+    <div class="d-flex flex-row flex-1 justify-content-around my-2">
+        <a href="user.php?purchar&type=-3" class="w-full border text-center btn mx-1 btn-secondary flex-fill">Tất cả</a>
+        <a href="user.php?purchar&type=-2" class="w-full border text-center btn mx-1 btn-secondary flex-fill">Chờ xác
+            nhận</a>
+        <a href="user.php?purchar&type=0" class="w-full border text-center btn mx-1 btn-secondary flex-fill">Đang
+            giao</a>
+        <a href="user.php?purchar&type=1" class="w-full border text-center btn mx-1 btn-secondary flex-fill">Đã giao</a>
+        <a href="user.php?purchar&type=-1" class="w-full border text-center btn mx-1 btn-secondary flex-fill">Đã hủy</a>
     </div>
-</div>
-<div>
-    <?php
+    <div>
+        <?php
         if(isset($_GET['type']))
         {
             if($_GET['type']==-3)
@@ -46,4 +39,5 @@ include('./function/common_function.php');
             }        
         }       
     ?>
+    </div>
 </div>

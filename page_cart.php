@@ -65,7 +65,7 @@ cart();
             </td>
 
 
-            <td><?php echo currency_format($gia); ?> đ</td>
+            <td><?php $dongia=$soluong*$gia; echo currency_format($dongia); ?> đ</td>
 
 
             <td>

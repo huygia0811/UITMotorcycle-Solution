@@ -124,11 +124,11 @@ function show_don_mua($masp_id, $get_sl, $id, $so_hd)
   $select_cart_run = mysqli_query($con, $select_cart);
   $count_row = mysqli_num_rows($select_cart_run);
   if ($count_row > 0) {
-    echo "<form action='' method='post'><table class='table table-striped' style='text-align:center'>
+    echo "<form action='' method='post'><table class='table table-striped table_content' style='text-align:center'>
                     <thead class='thead-dark'>
                         <tr role='row' >
-                            <th width='50'>Chọn</th>
-                            <th width='180'>
+                            <th width='40'>Chọn</th>
+                            <th width='100'>
                             Số hóa đơn
                            </th>
                             <th width='160'>
@@ -139,13 +139,13 @@ function show_don_mua($masp_id, $get_sl, $id, $so_hd)
                            
                             <th width='100'>
                                 Màu</th>
-                            <th width='70'>
+                            <th width='90'>
                                 Số lượng</th>
                             <th width='120'>
                                 Tổng tiền</th>
                                 <th width='120'>
                                 Trạng thái</th>
-                            <th width='180'>
+                            <th width='130'>
                                 Thao tác</th>
                         </tr>
                     </thead>
@@ -172,12 +172,8 @@ function show_don_mua($masp_id, $get_sl, $id, $so_hd)
     <td><?php echo $mau; ?></td>
 
     <td>
-        <div class="cart_quantity">
-
-            <input type="text" name="qty" id="qty" value="<?php echo $get_sl ?>" disabled />
-
-        </div>
-    <td><?php echo $gia; ?> đ</td>
+        <?php echo $get_sl ?>
+    <td><?php echo currency_format($gia); ?> đ</td>
 
     <td><?php
               if ($id == 0) {
@@ -197,7 +193,7 @@ function show_don_mua($masp_id, $get_sl, $id, $so_hd)
         <?php
             if ($id == -2) {
             ?>
-        <input type="submit" value="Hủy" name="Huy" class="bg-info p-2 border-0 my-2 px-2">
+        <input type="submit" value="Hủy" name="Huy" class="btn btn-sm btn-outline-danger my-3 button_cancel">
         <?php
             }
             ?>
@@ -211,7 +207,7 @@ function show_don_mua($masp_id, $get_sl, $id, $so_hd)
 </table>
 
 </form>
-      
+
 <?php
   
   }

@@ -69,7 +69,7 @@ include('./function/common_function.php');
             <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
                 <label for="">Ngày sinh</label>
                 <input class="form-control" style="width: 70%;" type="date" name="ngaysinh" placeholder="mm-dd-yyyy"
-                    value="<?php echo $get_ngsinh ?>" min="1950-01-01" max="2030-12-31" />
+                    value="<?php echo $get_ngsinh;?>" min="1950-01-01" max="2030-12-31" />
             </div>
 
             <?php
@@ -96,7 +96,6 @@ if(isset($_POST['thaydoi']))
     $diachi=$_POST['diachi'];
     $sodt=$_POST['sodt'];
     $cccd=$_POST['cccd'];
-    $ngaysinh=$_POST['ngaysinh'];
     $gioitinh=$_POST['gioitinh'];
     $getip=getIPAddress();
     $getussername=$_SESSION['username'];
@@ -104,6 +103,14 @@ if(isset($_POST['thaydoi']))
     $select_taikhoan_run=mysqli_query($con,$select_taikhoan);
     $get_row=mysqli_fetch_assoc($select_taikhoan_run);
     $get_makh=$get_row['MAKH'];
+
+    $timestamp = strtotime($_POST['ngaysinh']); 
+    $date=date('d',$timestamp);
+    $month=date('m',$timestamp);
+    $year=date('Y',$timestamp);
+    $ngaysinh = $year . "-" . $month . "-" . $date;
+    
+
     if($hoten=='' or $diachi =='' or $sodt==''or $cccd=='' or $ngaysinh=='' or $gioitinh=='')
     {
         $_SESSION['status_profile']="Vui lòng nhập đầy đủ thông tin";
