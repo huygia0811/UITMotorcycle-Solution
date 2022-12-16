@@ -6,48 +6,53 @@ include ('../function/currency_format.php');
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .grid_thongke{
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        .grid_thongke {
             padding: 100px;
             display: grid;
             gap: 16px;
             grid-template-columns: repeat(4, minmax(0, 1fr));
         }
-        .flex_a_thongke{
+
+        .flex_a_thongke {
             display: flex;
             flex-direction: row;
             align-items: center;
             border-radius: 8px;
-            padding: 16px; 
-            text-decoration: none;      
+            padding: 16px;
+            text-decoration: none;
         }
-        .flex_a_thongke:hover{
+
+        .flex_a_thongke:hover {
             background-color: greenyellow;
         }
-        .img_thongke{
+
+        .img_thongke {
             height: 80px;
             width: 80px;
             border-top-left-radius: 0.5rem;
             border-top-right-radius: 0.5rem;
             object-fit: cover;
         }
-        .flex_text_thongke{
+
+        .flex_text_thongke {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             padding: 16px;
-            line-height: 1.5; 
+            line-height: 1.5;
         }
-        .h5{
+
+        .h5 {
             margin-bottom: 8px;
         }
-    </style>
-</head>
+        </style>
+    </head>
 
 <body>
     <div class="container my-5">
@@ -121,6 +126,6 @@ include ('../function/currency_format.php');
        
     </div>
 
-</body>
+    </body>
 
 </html>
