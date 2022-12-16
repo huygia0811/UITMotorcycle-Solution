@@ -180,6 +180,11 @@ cart();
                     $row_sodu = mysqli_fetch_assoc($run);
                     $get_sodu = $row_sodu['SODU'];
                     if ($get_sodu > $total) {
+                        //tru tien khach hang
+                        $sodu_updated = $get_sodu - $total;
+                        $sql_updatesodu ="UPDATE KHACHHANG SET SODU = $sodu_updated WHERE MAKH = $get_makh";
+                        mysqli_query($con, $sql_updatesodu);
+
                         //chèn hóa đơn
                         date_default_timezone_set('Asia/Ho_Chi_Minh');
                         $get_date = date("Y-m-d H:i:s");
@@ -246,6 +251,11 @@ cart();
                 $row_sodu = mysqli_fetch_assoc($run);
                 $get_sodu = $row_sodu['SODU'];
                 if ($get_sodu > $total) {
+                    //tru tien khach hang
+                    $sodu_updated = $get_sodu - $total;
+                    $sql_updatesodu ="UPDATE KHACHHANG SET SODU = $sodu_updated WHERE MAKH = $get_makh";
+                    mysqli_query($con, $sql_updatesodu);
+                    
                     //chèn hóa đơn
                     date_default_timezone_set('Asia/Ho_Chi_Minh');
                     $get_date = date('Y:m:d H:i:s');
