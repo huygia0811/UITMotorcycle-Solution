@@ -34,8 +34,9 @@ if(!isset($_SESSION['user'])) {
     <body>
         <div class="container p-3 navbar navbar-expand-xxl bg-secondary index_container">
             <div class="container-fluid">
-                <div class="px-sm-5 admin_name">
-                    <label class="text-light text-center"><?php echo "Xin chào " .$_SESSION['user'] ?></label>
+                <div class="px-sm-4 admin_name">
+                    <a href="index.php" style="cursor: pointer; text-decoration: none;"
+                        class="text-light text-center"><?php echo "Xin chào " .$_SESSION['user'] ?></a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -44,9 +45,6 @@ if(!isset($_SESSION['user'])) {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav nav-tabs list">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php">Thống kê</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="insert_car.php">Thêm sản phẩm</a>
                         </li>
@@ -67,6 +65,9 @@ if(!isset($_SESSION['user'])) {
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="view_user.php">List users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="view_admin.php">List admins</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="logout.php">Đăng xuất</a>
