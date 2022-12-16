@@ -69,6 +69,9 @@ if(!isset($_SESSION['user'])) {
                             <a class="nav-link" href="view_user.php">List users</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="view_admin.php">List admins</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="logout.php">Đăng xuất</a>
                         </li>
                     </ul>
