@@ -1,13 +1,8 @@
 <?php
-ob_start();
-session_start();
-// Check if the user is logged in or not
-if(!isset($_SESSION['user'])) {
-	header('location: login.php');
-	exit;
-}
+include('../includes/connect_database.php');
+include "header.php";
+include ('../function/currency_format.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,72 +10,110 @@ if(!isset($_SESSION['user'])) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin</title>
-        <!--bootstrap  css link-->
-        <!-- CSS only -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"
-            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
-        <!--font asswsome link  -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!-- css -->
-        <link rel="stylesheet" href="../CSS/admin.css" />
+        <title>Document</title>
+        <style>
+        .grid_thongke {
+            padding: 100px;
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .flex_a_thongke {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-radius: 8px;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        .flex_a_thongke:hover {
+            background-color: greenyellow;
+        }
+
+        .img_thongke {
+            height: 80px;
+            width: 80px;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            object-fit: cover;
+        }
+
+        .flex_text_thongke {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 16px;
+            line-height: 1.5;
+        }
+
+        .h5 {
+            margin-bottom: 8px;
+        }
+        </style>
     </head>
 
     <body>
-        <div class="container p-3 navbar navbar-expand-xxl bg-secondary index_container">
-            <div class="container-fluid">
-                <div class="px-sm-5 admin_name">
-                    <label class="text-light text-center"><?php echo "Xin chào " .$_SESSION['user'] ?></label>
+        <div class="grid_thongke">
+            <a href="view_user.php" class="flex_a_thongke">
+                <img class="img_thongke" src="../Asset/Picture/avatar-svgrepo-com.svg" alt="" />
+                <div class="flex_text_thongke">
+                    <h5>Người dùng</h5>
+                    <p>
+                        <?php 
+                $select_query = "SELECT COUNT(*) FROM KHACHHANG, TAIKHOAN WHERE KHACHHANG.MAKH = TAIKHOAN.MAKH AND is_admin = 0";
+                $result_query = mysqli_query($con, $select_query);
+                $row = mysqli_fetch_assoc($result_query);
+                echo $row['COUNT(*)'];
+                ?>
+                    </p>
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="nav nav-tabs list">
-                        <li class="nav-item">
-                            <a class="nav-link" href="thongke.php">Thống kê</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="insert_car.php">Thêm sản phẩm</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="view_products.php">Xem sản phẩm</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="insert_brands.php">Thêm hãng</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="view_brands.php">Xem hãng</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="all_order.php">All order</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="check_payment.php">All payment</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="view_user.php">List users</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="view_admin.php">List admins</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="logout.php">Đăng xuất</a>
-                        </li>
-                    </ul>
+            </a>
+            <a href="all_order.php" class="flex_a_thongke">
+                <img class="img_thongke" src="../Asset/Picture/order-placed-purchased-icon.png" alt="" />
+                <div class="flex_text_thongke">
+                    <h5>Đơn hàng</h5>
+                    <p>
+                        <?php 
+                $select_query = "SELECT COUNT(*) FROM HOADON";
+                $result_query = mysqli_query($con, $select_query);
+                $row = mysqli_fetch_assoc($result_query);
+                echo $row['COUNT(*)'];
+                ?>
+                    </p>
                 </div>
-            </div>
+            </a>
+            <a href="all_order.php" class="flex_a_thongke">
+                <img class="img_thongke" src="../Asset/Picture/money.png" alt="" />
+                <div class="flex_text_thongke">
+                    <h5>Doanh thu</h5>
+                    <p>
+                        <?php 
+                $select_query = "SELECT SUM(TRIGIA) FROM HOADON WHERE TRANGTHAI = 1";
+                $result_query = mysqli_query($con, $select_query);
+                $row = mysqli_fetch_assoc($result_query);
+                echo currency_format($row['SUM(TRIGIA)']) . " đ";
+                ?>
+                    </p>
+                </div>
+            </a>
+            <a href="check_payment.php" class="flex_a_thongke">
+                <img class="img_thongke" src="../Asset/Picture/request.png" alt="" />
+                <div class="flex_text_thongke">
+                    <h5>Yêu cầu</h5>
+                    <p>
+                        <?php 
+                $select_query = "SELECT COUNT(*) FROM naptien WHERE DADUYET = 0";
+                $result_query = mysqli_query($con, $select_query);
+                $row = mysqli_fetch_assoc($result_query);
+                echo $row['COUNT(*)'];
+                ?>
+                    </p>
+                </div>
+            </a>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
-        </script>
+
     </body>
 
 </html>

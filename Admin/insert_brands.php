@@ -1,6 +1,6 @@
 <?php
 include('../includes/connect_database.php');
-include "index.php";
+include "header.php";
 if(isset($_POST['insert_brand']) && $_POST['insert_brand'] == "Thêm hãng")
 {
     $valid = 1;

@@ -1,6 +1,6 @@
 <?php
 include('../includes/connect_database.php');
-include "index.php";
+include "header.php";
 include ('../function/currency_format.php');
 ?>
 <!DOCTYPE html>
