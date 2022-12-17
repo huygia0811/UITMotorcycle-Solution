@@ -1,4 +1,3 @@
-<h1 class="text-danger">Push tạm chưa xong</h1>
 <div class="container border mx-auto">
     <div class="row">
         <?php
@@ -65,54 +64,7 @@
                             ?>
                         </p>
                     </div>
-                    <div class="align-self-end">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="<?php echo $get_sohd ?>">Xem chi tiết</button>
-                    </div>
-                    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-
-                                    <div class="mb-3">
-                                        <!-- <label for="recipient-name" class="col-form-label">Hóa đơn: </label>
-                                        <input type="hidden" name="sohd_" value="" class="form-control" id="recipient-name">
-                                        <input type="text" name="sohd_" value="" class="form-control" id="recipient-name_" disabled> -->
-                                        <table>
-                                            <tr>
-                                                <td>Họ và tên</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Số điện thoại</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Địa chỉ</td>
-                                                <td></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">Số hóa đơn <?php echo $get_sohd ?></label>
-                                        <!-- <textarea class="form-control" id="message-text"></textarea> -->
-                                        <div class="d-flex flex-row">
-                                          <img class="align-self-start" style="width: 25%; height: 25%; object-fit: contain;" src="./<?php echo $get_image ?>" alt="<?php echo "" ?>">
-                                          <p><?php echo $get_ten ?></p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                    <button type="submit" name="cap_nhap" class="btn btn-primary">Cập nhập</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         <?php
@@ -120,25 +72,3 @@
         ?>
     </div>
 </div>
-<script>
-    const exampleModal = document.getElementById('exampleModal')
-    exampleModal.addEventListener('show.bs.modal', event => {
-        // Button that triggered the modal
-        const button = event.relatedTarget
-        // Extract info from data-bs-* attributes
-        const recipient = button.getAttribute('data-bs-whatever')
-        // If necessary, you could initiate an AJAX request here
-        // and then do the updating in a callback.
-        //
-        // Update the modal's content.
-        const modalTitle = exampleModal.querySelector('.modal-title')
-        // const modalBodyInput = exampleModal.querySelector('.modal-body input')
-        const modalBodyInput = document.getElementById('recipient-name');
-        const modalBodyInput_ = document.getElementById('recipient-name_');
-
-
-        modalTitle.textContent = `Thông tin hóa đơn: ${recipient}`
-        modalBodyInput.value = recipient
-        modalBodyInput_.value = recipient
-    })
-</script>
