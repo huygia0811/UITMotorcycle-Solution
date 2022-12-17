@@ -2,7 +2,7 @@
 .button_sm {
   background-color: #05c5cc !important;
   border-radius: 5px;
-  color: white;
+  color: white !important;
 }
 
 .shoppingcart_h4 {
@@ -16,6 +16,10 @@
   .table_content {
     font-size: 0.7rem;
   }
+  .total,
+  .shoppingcart_h4 {
+    font-size: 1.3rem;
+  }
   .button_sm {
     display: block !important;
   }
@@ -25,5 +29,14 @@
   .table_content img {
     width: 100% !important;
     height: 100% !important;
+  }
+}
+@media only screen and (max-width: 465px) {
+  .total,
+  .shoppingcart_h4 {
+    font-size: 1.1rem;
+  }
+  .d-flex a {
+    font-size: 0.8rem;
   }
 }

@@ -50,47 +50,58 @@ cart();
                     $gia = $soluong * $gia;
                     $total += $gia;
         ?>
-                    <tr class="table_content">
-                        <td><input type="checkbox" name="select[]" value="<?php echo $masp ?>"></td>
-                        <td>
-                            <img style="width: 60%; height: 60%; object-fit: contain;" src="./<?php echo $url_image; ?>" alt="<?php echo $tensp ?>">
-                        </td>
-                        <td><?php echo $tensp; ?></td>
-                        <td><?php echo $mau; ?></td>
+        <tr class="table_content">
+            <td><input type="checkbox" name="select[]" value="<?php echo $masp ?>"></td>
+            <td>
+                <img style="width: 60%; height: 60%; object-fit: contain;" src="./<?php echo $url_image; ?>"
+                    alt="<?php echo $tensp ?>">
+            </td>
+            <td><?php echo $tensp; ?></td>
+            <td><?php echo $mau; ?></td>
 
-                        <td>
-                            <div class="cart_quantity">
-                                <?php echo $soluong ?>
-                            </div>
-                        </td>
+            <td>
+                <div class="cart_quantity">
+                    <?php echo $soluong ?>
+                </div>
+            </td>
 
 
-                        <td><?php 
+            <td><?php 
                             echo currency_format($gia); ?> đ</td>
 
 
-                        <td>
-                            <input type="submit" value="Thanh toán" name="Thanh_toan" class="bg-info p-2 border-0 my-2 px-2 button btnshoppingcart">
-                            <input type="submit" value="Thanh toán" name="Thanh_toan" class="bg-info btn-sm button_sm p-1 border-0 my-1 px-2">
-                            <input type="submit" value="Xóa" name="xoa" class="bg-info p-2 border-0 button btnshoppingcart">
-                            <input type="submit" value="Xóa" name="xoa" class="bg-info btn-sm button_sm p-1 border-0">
+            <td>
+                <input type="submit" value="Thanh toán" name="Thanh_toan"
+                    class="bg-info p-2 border-0 my-2 px-2 button btnshoppingcart">
+                <input type="submit" value="Thanh toán" name="Thanh_toan"
+                    class="bg-info btn-sm button_sm p-1 border-0 my-1 px-2">
+                <input type="submit" value="Xóa" name="xoa" class="bg-info p-2 border-0 button btnshoppingcart">
+                <input type="submit" value="Xóa" name="xoa" class="bg-info btn-sm button_sm p-1 border-0">
 
-                        </td>
-                    </tr>
-            <?php
+            </td>
+        </tr>
+        <?php
                 }
             }
             ?>
-            </tbody>
-            </table>
-            <div class="d-flex">
-                <h4 class="px-3">Tổng: <strong class="text-info shoppingcart_h4"><?php echo currency_format($total) . " đ"; ?></strong></h4>
+        </tbody>
+        </table>
+        <div class="d-flex">
+            <h4 class="px-3 total">Tổng: <strong
+                    class="text-info shoppingcart_h4"><?php echo currency_format($total) . " đ"; ?></strong></h4>
 
-                <a href="#"><button type="submit" name="thanhtoantatca" class="bg-info p-2 border-0 mx-4 btnshoppingcart">Thanh toán tất cả</button></a>
-                <a class="bg-info p-2 border-0 btnshoppingcart" style="width: 100px; text-align: center; text-decoration: none;" href="./index.php">Thoát</a>
+            <a href="#"><button type="submit" name="thanhtoantatca"
+                    class="bg-info p-2 border-0 mx-4 btnshoppingcart button">Thanh toán tất cả</button></a>
+            <a href="#" style="width: fit-content;text-decoration: none;"><button type="submit" name="thanhtoantatca"
+                    class="bg-info p-1 border-0 mx-2 btn-sm button_sm">Thanh toán tất
+                    cả</button></a>
+            <a class="bg-info p-2 border-0 btnshoppingcart button"
+                style="width: 100px; text-align: center; text-decoration: none;" href="./index.php">Thoát</a>
+            <a class="bg-info p-1 border-0 mx-2 button_sm"
+                style="height:fit-content; text-align: center; text-decoration: none;" href="./index.php">Thoát</a>
 
-            </div>
-            </form>
+        </div>
+        </form>
         <?php
         } else {
             echo "<div class='cart_list cart_list--no-cart'>
@@ -213,7 +224,7 @@ cart();
                             }
                         }
                     } else {
-                        echo "<script>alert('Số dư củ của bạn không đủ! Vui lòng nạp thêm tiền để thanh toán!')</script>";
+                        echo "<script>alert('Số dư của bạn không đủ! Vui lòng nạp thêm tiền để thanh toán!')</script>";
                         echo "<script>window.open('user.php?payment') </script>";
                     }
                 } else {
@@ -289,7 +300,7 @@ cart();
                         }
                     }
                 } else {
-                    echo "<script>alert('Số dư củ của bạn không đủ! Vui lòng nạp thêm tiền để thanh toán!')</script>";
+                    echo "<script>alert('Số dư của bạn không đủ! Vui lòng nạp thêm tiền để thanh toán!')</script>";
                     echo "<script>window.open('user.php?payment') </script>";
                 }
             }

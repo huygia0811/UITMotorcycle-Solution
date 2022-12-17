@@ -1,35 +1,6 @@
 <?php
 include('./includes/connect_database.php');
 include('./function/get_ipaddress.php');
-function showproduct()
-{
-  global $con;
-  $select_product = "select * from `sanpham`";
-  $select_product_run = mysqli_query($con, $select_product);
-  while ($row = mysqli_fetch_assoc($select_product_run)) {
-    $masp = $row['MASP'];
-    $tensp = $row['TENSP'];
-    $phankhoi = $row['PHANKHOI'];
-    $mau = $row['MAU'];
-    $namsx = $row['NAMSX'];
-    $gia = $row['GIA'];
-    $img = $row['URL_IMAGE'];
-    echo "
-        <div class='col-6 col-md-4  mb-2 '>
-        <div class='card'>
-          <img src='./$img' class='card-img-top' alt='$tensp'>
-          <div class='card-body'>
-            <h5 class='card-title'>$tensp</h5>
-            <p class='card-text'>$gia</p>
-            <a href='index.php?add_to_card=$masp' class='btn btn-info'>Add to cart</a>
-            <a href='chitiet.php?sanpham=$masp' class='btn btn-secondary'>View more</a>
-          </div>
-        </div>
-      </div>
-        ";
-  }
-}
-
 
 function cart()
 {
@@ -52,13 +23,13 @@ function cart()
     $select_query_run = mysqli_query($con, $select_query);
     $count = mysqli_num_rows($select_query_run);
     if ($count > 0) {
-      echo "<script>alert('sản phẩm đã có sẵn trong giỏ hàng')</script>";
+      echo "<script>alert('Sản phẩm đã có sẵn trong giỏ hàng')</script>";
       echo "<script>window.open('index.php','_self')</script>";
     } else {
       $insert_query = "insert into `giohang` (MASP, MAKH,soluong) values ('$masp','$get_makh','$soluong')";
       $result_query = mysqli_query($con, $insert_query);
       if ($result_query) {
-        echo "<script>alert('this item added inside cart') </script>";
+        echo "<script>alert('Sản phẩm đã được thêm vào giỏ hàng') </script>";
         echo "<script>window.open('index.php','_self')</script>";
       }
     }

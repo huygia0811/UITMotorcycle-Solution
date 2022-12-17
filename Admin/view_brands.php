@@ -61,28 +61,6 @@ include "header.php";?>
                 </div>
             </div>
         </section>
-
-        <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Are you sure want to delete this item?</p>
-                        <p style="color:red;">Be careful! This product will be deleted from the order table, payment
-                            table, size
-                            table, color table and rating table also.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-danger btn-ok">Delete</a>
-                    </div>
-                </div>
-            </div>
-        </div>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>

@@ -19,10 +19,10 @@
         $result_query2 = mysqli_query($con, $select_query2);
         $select_query3 = "UPDATE NAPTIEN SET DADUYET = 1 WHERE MANAPTIEN = '$manaptien'";
         $result_query3 = mysqli_query($con, $select_query3);
-        echo "ĐÃ CỘNG TIỀN VÀO TÀI KHOẢN KHÁCH HÀNG!!!";
+        echo "<div class='container text-center'><div class='alert alert-success text-center my-3 mx-auto'>ĐÃ CỘNG TIỀN VÀO TÀI KHOẢN KHÁCH HÀNG!!!</div>";
     }
     else{
-        echo "ĐÃ DUYỆT TRƯỚC ĐÓ!!! THAO TÁC THẤT BẠI!!!";
+        echo "<div class='container text-center'><div class='alert alert-danger text-center my-3 mx-auto'>ĐÃ DUYỆT TRƯỚC ĐÓ!!! THAO TÁC THẤT BẠI!!!</div>";
     }
-    echo "<br><a href='check_payment.php'>QUAY LẠI</a>"
+    echo "<br><a href='check_payment.php' class='p-2' style='text-decoration:none; background-color: #05c5cc;border-radius:5px; color:white'>QUAY LẠI</a></div>"
 ?>
