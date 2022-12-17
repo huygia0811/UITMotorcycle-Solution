@@ -51,8 +51,8 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="user.php?notifition">
-                              <i class="fa-regular fa-envelope"></i>
+                            <a href="user.php?notification">
+                                <i class="fa-regular fa-envelope"></i>
                                 <span>Thông báo</span>
                             </a>
                             <a href="user.php?payment">
@@ -107,9 +107,9 @@
             {
                 include('mypayment.php');
             }
-            if(isset($_GET['notifition']))
+            if(isset($_GET['notification']))
             {
-                include('notifition.php');
+                include('notification.php');
             }
             ?>
                     </div>

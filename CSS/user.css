@@ -81,6 +81,25 @@ ul ul a {
 .profile .form-check-input {
   margin-top: 5px;
 }
+@media only screen and (max-width: 992px) {
+  .notification_content h5 {
+    font-size: 1.2rem;
+  }
+  .notification_content p {
+    font-size: 0.9rem;
+  }
+  .notification img {
+    width: 40% !important;
+    height: 40% !important;
+    padding: 10px;
+    display: flex !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .notification {
+    display: block !important;
+  }
+}
 @media only screen and (max-width: 768px) {
   #sidebar.active {
     min-width: 70px;
