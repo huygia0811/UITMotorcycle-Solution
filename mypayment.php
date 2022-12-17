@@ -48,7 +48,7 @@
                                 ?>
                                     <tr class="text-center">
                                         <td><?php echo $row_hoadon['NGHD'] ?></td>
-                                        <td> <?php if($row_hoadon['TRANGTHAI']=='-1'){ echo "Hủy hóa đơn ". $row_hoadon['SOHD'];}else {echo "Thanh toán hóa đơn". $row_hoadon['SOHD'];} ?></td>
+                                        <td> <?php if($row_hoadon['TRANGTHAI']=='-1'){ echo "Hủy hóa đơn ". $row_hoadon['SOHD'];}else {echo "Thanh toán hóa đơn ". $row_hoadon['SOHD'];} ?></td>
                                         <td><?php if($row_hoadon['TRANGTHAI']=='-1'){ echo"+". currency_format($row_hoadon['TRIGIA']) . " đ";}else{echo"-". currency_format($row_hoadon['TRIGIA']) . " đ";} ?> </td>
                                     </tr>
                                 <?php
