@@ -19,13 +19,13 @@
                 <p>Số dư tài khoản hiện tại:</p>
                 <h5 class="text-danger"><?php echo currency_format($get_sodu) . " đ" ?></h5>
                 <div class="position-absolute bottom-0 end-0">
-                    <a class="bg-success p-2 rounded" href="">Nạp tiền</a>
+                    <a class="bg-success p-2 rounded" href="user.php?payment">Nạp tiền</a>
                 </div>
             </div>
         </div>
         <div class="col-6">
             <h5>Biến động số dư</h5>
-            <div class="row" style="overflow-x:scroll;">
+            <div class="row" style="overflow-Y:scroll;max-height: 300px;">
                 <div class="col-md-12">
                     <div class="table-responsive">
                         <table class="table table-striped table-hover" role="grid" aria-describedby="products_info">
@@ -36,7 +36,8 @@
                                     <th width="50" scope="col">
                                         Mô tả</th>
                                     <th width="50" scope="col">
-                                        Số dư</th>
+                                        Số tiền</th>
+                              
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,8 +48,8 @@
                                 ?>
                                     <tr class="text-center">
                                         <td><?php echo $row_hoadon['NGHD'] ?></td>
-                                        <td>Mua hàng</td>
-                                        <td><?php echo currency_format($row_hoadon['TRIGIA']) . " đ" ?></td>
+                                        <td> <?php if($row_hoadon['TRANGTHAI']=='-1'){ echo "Hủy hóa đơn ". $row_hoadon['SOHD'];}else {echo "Thanh toán hóa đơn". $row_hoadon['SOHD'];} ?></td>
+                                        <td><?php if($row_hoadon['TRANGTHAI']=='-1'){ echo"+". currency_format($row_hoadon['TRIGIA']) . " đ";}else{echo"-". currency_format($row_hoadon['TRIGIA']) . " đ";} ?> </td>
                                     </tr>
                                 <?php
                                 }
@@ -59,7 +60,8 @@
                                     <tr class="text-center">
                                         <td><?php echo $row_naptien['NGAYNAP'] ?></td>
                                         <td>Nạp tiền thành công</td>
-                                        <td><?php echo currency_format($row_naptien['SOTIEN']) . " đ" ?></td>
+                                        <td><?php echo"+". currency_format($row_naptien['SOTIEN']) . " đ" ?></td>
+                                    
                                     </tr>
                                 <?php
                                 }

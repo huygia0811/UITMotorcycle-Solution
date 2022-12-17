@@ -275,9 +275,19 @@ function don_mua_tatca()
     if (isset($_POST['select'])) {
       foreach ($_POST['select'] as $sohd) {
         echo "<script>alert('Bạn đã hủy hóa đơn $sohd')</script>";
-
-        $delete_hoadon="update `hoadon` set TRANGTHAI='-1' where SOHD='$sohd'";
-        $delete_hoadon_run=mysqli_query($con, $delete_hoadon);
+        $select_hoadon_ = "select * from `hoadon` where MAKH='$get_makh' and SOHD='$sohd'";
+        $select_hoadon_run_ = mysqli_query($con, $select_hoadon_);
+        $row_hoadon=mysqli_fetch_assoc($select_hoadon_run_);
+        $get_trigia=$row_hoadon['TRIGIA'];
+        $select_khachhang="select * from `khachhang` where MAKH='$get_makh'";
+        $select_khachhang_run=mysqli_query($con,$select_khachhang);
+        $row_khachhang=mysqli_fetch_assoc($select_khachhang_run);
+        $get_sodu=$row_khachhang['SODU'];
+        $get_sodu=$get_sodu+$get_trigia;
+        $update_khachhang="update `khachhang` set SODU='$get_sodu' where MAKH='$get_makh'";
+        $update_khachhang_run=mysqli_query($con,$update_khachhang);
+        $update_hoadon="update `hoadon` set TRANGTHAI='-1' where SOHD='$sohd'";
+        $update_hoadon_run=mysqli_query($con, $update_hoadon);
         echo "<script>window.open('user.php?purchar&type=-3','_self')</script>";
       }
     }

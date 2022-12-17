@@ -51,6 +51,10 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="user.php?notifition">
+                              <i class="fa-regular fa-envelope"></i>
+                                <span>Thông báo</span>
+                            </a>
                             <a href="user.php?payment">
                                 <i class="fas fa-sack-dollar"></i>
                                 <span>Nạp tiền</span>
@@ -102,6 +106,10 @@
             if(isset($_GET['mypayment']))
             {
                 include('mypayment.php');
+            }
+            if(isset($_GET['notifition']))
+            {
+                include('notifition.php');
             }
             ?>
                     </div>
