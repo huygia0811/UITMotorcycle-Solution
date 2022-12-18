@@ -101,6 +101,7 @@ include('../function/currency_format.php');
                                 <td>
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="<?php echo $sohd ?>">Sửa trạng thái</button>
                                 </td>
+                                
                             <?php
                             }
                             ?>
@@ -130,6 +131,7 @@ include('../function/currency_format.php');
                                                     <option value="1">Đã giao</option>
                                                     <option value="-1">Đã hủy</option>
                                                 </select>
+                                               
                                             </div>
 
                                     </div>
@@ -142,6 +144,16 @@ include('../function/currency_format.php');
                                     if (isset($_POST['cap_nhap'])) {
                                         $get_sohd = $_POST['sohd_'];
                                         $get_trangthai = $_POST['trang_thai'];
+                                        $select_hoadon="select * from `hoadon` where SOHD='$get_sohd'";
+                                        $select_hoadon_run=mysqli_query($con,$select_hoadon);
+                                        $row_hoadon=mysqli_fetch_assoc($select_hoadon_run);
+                                        $get_tt=$row_hoadon['TRANGTHAI'];
+                                        if($get_trangthai==$get_tt)
+                                        {
+                                            echo "<script>alert('đã có lỗi xảy ra vui lòng chọn lại')</script>";
+                                            echo "<script>window.open('all_order.php','_self')</script>";
+                                            exit();
+                                        }
                                         $update_hd = "update `hoadon` set TRANGTHAI='$get_trangthai' where SOHD='$get_sohd'";
                                         $update_hd_run = mysqli_query($con, $update_hd);
                                         if($get_trangthai==0)
