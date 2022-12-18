@@ -137,6 +137,7 @@ ul ul a {
   #content {
     padding: 20px 10px;
   }
+
   #sidebar.active ul ul a {
     font-size: 0.75em !important;
   }
@@ -145,6 +146,14 @@ ul ul a {
     display: block;
     font-size: 1.6em;
     margin-bottom: 5px;
+  }
+  .mypayment .info_account {
+    border: none !important;
+  }
+}
+@media only screen and (max-width: 485px) {
+  .mypayment {
+    width: 75vw;
   }
 }
 @media only screen and (max-width: 400px) {

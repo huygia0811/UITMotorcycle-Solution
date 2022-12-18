@@ -95,7 +95,7 @@ function show_don_mua($masp_id, $get_sl, $id, $so_hd)
   $select_cart_run = mysqli_query($con, $select_cart);
   $count_row = mysqli_num_rows($select_cart_run);
   if ($count_row > 0) {
-    echo "<form action='' method='post'><table class='table table-striped table_content' style='text-align:center'>
+    echo "<form action='' method='post'><div class='table-responsive'><table class='table table-striped table_content' style='text-align:center'>
                     <thead class='thead-dark'>
                         <tr role='row' >
                             <th width='40'>Chọn</th>
@@ -177,7 +177,7 @@ function show_don_mua($masp_id, $get_sl, $id, $so_hd)
     ?>
 </tbody>
 </table>
-
+</div>
 </form>
 
 <?php
