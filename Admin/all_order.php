@@ -144,6 +144,22 @@ include('../function/currency_format.php');
                                         $get_trangthai = $_POST['trang_thai'];
                                         $update_hd = "update `hoadon` set TRANGTHAI='$get_trangthai' where SOHD='$get_sohd'";
                                         $update_hd_run = mysqli_query($con, $update_hd);
+                                        if($get_trangthai==0)
+                                        {
+                                            $select_cthd="select * from `cthd` where SOHD='$get_sohd'";
+                                            $select_cthd_run=mysqli_query($con,$select_cthd);
+                                            while($row_cthd=mysqli_fetch_assoc($select_cthd_run))
+                                            {
+                                                $get_masp=$row_cthd['MASP'];
+                                                $select_sp="select * from `sanpham` where MASP='$get_masp'";
+                                                $select_sp_run=mysqli_query($con,$select_sp);
+                                                $row_sp=mysqli_fetch_assoc($select_sp_run);
+                                                $get_sl=$row_sp['SOLUONG'];
+                                                $get_sl=$get_sl-1;
+                                                $update_sp="update `sanpham` set SOLUONG='$get_sl' where MASP='$get_masp'";
+                                                $update_sp_run=mysqli_query($con,$update_sp);
+                                            }
+                                        }
                                         if ($update_hd_run) {
                                             //echo var_dump($get_trangthai);
                                             echo "<script>alert('Thành công')</script>";
