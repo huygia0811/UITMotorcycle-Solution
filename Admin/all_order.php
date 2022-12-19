@@ -131,7 +131,6 @@ include('../function/currency_format.php');
                                                     <option value="1">Đã giao</option>
                                                     <option value="-1">Đã hủy</option>
                                                 </select>
-                                               
                                             </div>
 
                                     </div>
@@ -156,6 +155,13 @@ include('../function/currency_format.php');
                                         }
                                         $update_hd = "update `hoadon` set TRANGTHAI='$get_trangthai' where SOHD='$get_sohd'";
                                         $update_hd_run = mysqli_query($con, $update_hd);
+                                        if($get_trangthai==-1)
+                                        {
+                                            $makh = $row_hoadon['MAKH'];
+                                            $trigia = $row_hoadon['TRIGIA'];
+                                            $update_kh="update KHACHHANG set SODU = SODU + $trigia where MAKH='$makh'";
+                                            $update_kh_run=mysqli_query($con,$update_kh);
+                                        }
                                         if($get_trangthai==0)
                                         {
                                             $select_cthd="select * from `cthd` where SOHD='$get_sohd'";
