@@ -8,8 +8,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="./asset/DB-Picture/logo.ico" type="image/x-icon">
-        <link rel="stylesheet" href="CSS/style_header.css">
-        <link rel="stylesheet" href="CSS/shopping_cart.css">
         <!-- bootstrap cdn -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -36,7 +34,7 @@
         <div class="container">
             <!-- footer -->
             <?php
-    include('./footer_copy.php');
+    include('./footer.php');
     ?>
         </div>
 
@@ -45,7 +43,6 @@
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="./JS/shopping_cart.js"></script>
     </body>
 
 </html>

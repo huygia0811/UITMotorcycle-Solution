@@ -188,7 +188,7 @@ cart();
         </main>
         <div class="container">
             <?php
-    include "footer_copy.php";
+    include "footer.php";
     ?>
         </div>
 

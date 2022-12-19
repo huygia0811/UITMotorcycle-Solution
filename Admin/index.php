@@ -1,17 +1,17 @@
 <?php
 include('../includes/connect_database.php');
 include "header.php";
-include ('../function/currency_format.php');
+include('../function/currency_format.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
         .grid_thongke {
             padding: 100px;
             display: grid;
@@ -51,81 +51,89 @@ include ('../function/currency_format.php');
         .h5 {
             margin-bottom: 8px;
         }
-        </style>
-    </head>
+    </style>
+</head>
 
 <body>
     <div class="container my-5">
-        <span><i class="fa-solid fa-right-from-bracket"></i>Thống kê</span>
+        <h3><i class="fa-solid fa-right-from-bracket"></i>Thống kê</h3>
     </div>
     <div class="row set_row mx-auto my-5 container">
         <div class="col-lg-3 col-xs-6">
             <a href="view_user.php" class="flex_a_thongke ">
-                <img class="img_thongke" src="../Asset/Picture/avatar-svgrepo-com.svg" alt=""/>
+                <img class="img_thongke" src="../Asset/Picture/avatar-svgrepo-com.svg" alt="" />
                 <div class="flex_text_thongke">
                     <h5>Người dùng</h5>
                     <p>
-                    <?php 
-                    $select_query = "SELECT COUNT(*) FROM KHACHHANG, TAIKHOAN WHERE KHACHHANG.MAKH = TAIKHOAN.MAKH AND is_admin = 0";
-                    $result_query = mysqli_query($con, $select_query);
-                    $row = mysqli_fetch_assoc($result_query);
-                    echo $row['COUNT(*)'];
-                    ?>
+                        <?php
+                        $select_query = "SELECT COUNT(*) FROM KHACHHANG, TAIKHOAN WHERE KHACHHANG.MAKH = TAIKHOAN.MAKH AND is_admin = 0";
+                        $result_query = mysqli_query($con, $select_query);
+                        $row = mysqli_fetch_assoc($result_query);
+                        echo $row['COUNT(*)'];
+                        ?>
                     </p>
                 </div>
             </a>
         </div>
-       <div class="col-lg-3 col-xs-6">
-        <a href="all_order.php" class="flex_a_thongke">
-                <img class="img_thongke" src="../Asset/Picture/order-placed-purchased-icon.png" alt=""/>
+        <div class="col-lg-3 col-xs-6">
+            <a href="all_order.php" class="flex_a_thongke">
+                <img class="img_thongke" src="../Asset/Picture/order-placed-purchased-icon.png" alt="" />
                 <div class="flex_text_thongke">
                     <h5>Đơn hàng</h5>
                     <p>
-                    <?php 
-                    $select_query = "SELECT COUNT(*) FROM HOADON";
-                    $result_query = mysqli_query($con, $select_query);
-                    $row = mysqli_fetch_assoc($result_query);
-                    echo $row['COUNT(*)'];
-                    ?>
-                    </p>
-                </div>
-            </a>
-       </div>
-        <div class="col-lg-3 col-xs-6">
-            <a href="all_order.php" class="flex_a_thongke">
-                <img class="img_thongke" src="../Asset/Picture/money.png" alt=""/>
-                <div class="flex_text_thongke">
-                    <h5>Doanh thu</h5>
-                    <p>
-                    <?php 
-                    $select_query = "SELECT SUM(TRIGIA) FROM HOADON WHERE TRANGTHAI = 1";
-                    $result_query = mysqli_query($con, $select_query);
-                    $row = mysqli_fetch_assoc($result_query);
-                    echo currency_format($row['SUM(TRIGIA)']) . " đ";
-                    ?>
+                        <?php
+                        $select_query = "SELECT COUNT(*) FROM HOADON";
+                        $result_query = mysqli_query($con, $select_query);
+                        $row = mysqli_fetch_assoc($result_query);
+                        echo $row['COUNT(*)'];
+                        ?>
                     </p>
                 </div>
             </a>
         </div>
-       <div class="col-lg-3 col-xs-6" >
-        <a href="check_payment.php" class="flex_a_thongke">
-                <img class="img_thongke" src="../Asset/Picture/request.png" alt=""/>
+        <div class="col-lg-3 col-xs-6">
+            <a href="all_order.php" class="flex_a_thongke">
+                <img class="img_thongke" src="../Asset/Picture/money.png" alt="" />
                 <div class="flex_text_thongke">
-                    <h5>Yêu cầu</h5>
+                    <h5>Doanh thu</h5>
                     <p>
-                    <?php 
-                    $select_query = "SELECT COUNT(*) FROM naptien WHERE DADUYET = 0";
-                    $result_query = mysqli_query($con, $select_query);
-                    $row = mysqli_fetch_assoc($result_query);
-                    echo $row['COUNT(*)'];
-                    ?>
+                        <?php
+                        $select_query = "SELECT SUM(TRIGIA) FROM HOADON WHERE TRANGTHAI = 1";
+                        $result_query = mysqli_query($con, $select_query);
+                        $row = mysqli_fetch_assoc($result_query);
+                        echo currency_format($row['SUM(TRIGIA)']) . " đ";
+                        ?>
                     </p>
                 </div>
             </a>
-       </div>
-       
+        </div>
+        <div class="col-lg-3 col-xs-6">
+            <a href="check_payment.php" class="flex_a_thongke">
+                <img class="img_thongke" src="../Asset/Picture/request.png" alt="" />
+                <div class="flex_text_thongke">
+                    <h5>Yêu cầu</h5>
+                    <p>
+                        <?php
+                        $select_query = "SELECT COUNT(*) FROM naptien WHERE DADUYET = 0";
+                        $result_query = mysqli_query($con, $select_query);
+                        $row = mysqli_fetch_assoc($result_query);
+                        echo $row['COUNT(*)'];
+                        ?>
+                    </p>
+                </div>
+            </a>
+        </div>
     </div>
 
-    </body>
+    <?php
+    $select_query = "SELECT TENHANG, COUNT(SANPHAM.MASP) FROM CTHD, SANPHAM, HANGXE WHERE CTHD.MASP = SANPHAM.MASP AND SANPHAM.MAHANG = HANGXE.MAHANG GROUP BY TENHANG;";
+    $result_query = mysqli_query($con, $select_query);
+    while ($row = mysqli_fetch_assoc($result_query)) {
+        $tenhang = $row['TENHANG'];
+        $count = $row['COUNT(SANPHAM.MASP)'];
+        echo "<p>Số lượng sản phẩm bán được của " . $tenhang . " là: " . $count . " sản phẩm<p><br>";
+    }
+    ?>
+</body>
 
 </html>

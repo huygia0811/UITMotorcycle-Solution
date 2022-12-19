@@ -121,7 +121,7 @@
 
         <div class="footer">
             <?php
-    include('./footer_copy.php');
+    include('./footer.php');
     ?>
         </div>
 

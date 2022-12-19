@@ -113,9 +113,6 @@ cart();
         }
         ?>
 
-
-
-        <script src="./JS/shopping_cart.js"></script>
         <?php
         function deleterow()
         {
