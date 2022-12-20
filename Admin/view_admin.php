@@ -11,16 +11,16 @@ include "header.php";?>
     </head>
 
     <body>
-        <section class="container pt-3 list_admins">
+        <section class="container pt-3 mt-3 list_admins">
             <div class="row">
                 <div class="col-md-12">
                     <div class="box box-info">
                         <div class="box-body table-responsive">
-                            <div id="products_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                            <div id="admins_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <table id="products" class="table table-striped table-hover" role="grid"
-                                            aria-describedby="products_info">
+                                        <table id="admins" class="table table-striped table-hover" role="grid"
+                                            aria-describedby="admins_info">
                                             <thead class="thead-dark">
                                                 <tr role="row" style='text-align:center'>
                                                     <th width="180" scope="col">

@@ -25,7 +25,8 @@
   margin: 10px 0 !important;
 }
 #products table,
-#brands table {
+#brands table,
+#admins table {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -39,7 +40,10 @@
 #products td,
 #brands table,
 #brands th,
-#brands td {
+#brands td,
+#admins table,
+#admins th,
+#admins td {
   border: 0.5px solid rgb(237, 235, 235);
   border-collapse: collapse;
 }
