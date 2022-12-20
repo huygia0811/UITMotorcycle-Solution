@@ -6,41 +6,42 @@ include('../function/currency_format.php');
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
 
-<body>
-    <div class="container pt-4">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="table-responsive">
-                    <table id="products" class="table table-striped table-hover" role="grid" aria-describedby="products_info">
-                        <thead class="thead-dark">
-                            <tr role="row" style='text-align:center'>
-                                <th width="50" scope="col">
-                                    Số hóa đơn</th>
-                                <th width="50" scope="col">
-                                    Mã khách hàng</th>
-                                <th width="160" scope="col">
-                                    Tên khách hàng</th>
-                                <th width="250" scope="col">
-                                    Tên sản phẩm và số lượng</th>
-                                <th width="160" scope="col">
-                                    Ngày hóa đơn</th>
-                                <th width="160" scope="col">
-                                    Tổng tiền</th>
-                                <th width="120" scope="col">
-                                    Trạng thái</th>
-                                <th width="160" scope="col">
-                                    Thao tác</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
+    <body>
+        <div class="container pt-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table id="products" class="table table-striped table-hover" role="grid"
+                            aria-describedby="products_info">
+                            <thead class="thead-dark">
+                                <tr role="row" style='text-align:center'>
+                                    <th width="50" scope="col">
+                                        Số hóa đơn</th>
+                                    <th width="50" scope="col">
+                                        Mã khách hàng</th>
+                                    <th width="160" scope="col">
+                                        Tên khách hàng</th>
+                                    <th width="250" scope="col">
+                                        Tên sản phẩm và số lượng</th>
+                                    <th width="160" scope="col">
+                                        Ngày hóa đơn</th>
+                                    <th width="160" scope="col">
+                                        Tổng tiền</th>
+                                    <th width="120" scope="col">
+                                        Trạng thái</th>
+                                    <th width="160" scope="col">
+                                        Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
                             $select_query = "SELECT * FROM HOADON, KHACHHANG WHERE HOADON.MAKH = KHACHHANG.MAKH ORDER BY SOHD DESC";
                             $result_query = mysqli_query($con, $select_query);
                             while ($row = mysqli_fetch_assoc($result_query)) {
@@ -94,48 +95,56 @@ include('../function/currency_format.php');
                                 echo "</td>";
                             ?>
                                 <td>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="<?php echo $sohd ?>">Sửa trạng thái</button>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal" data-bs-whatever="<?php echo $sohd ?>">Sửa trạng
+                                        thái</button>
                                 </td>
-                                
-                            <?php
+
+                                <?php
                             }
                             ?>
-                        </tbody>
-                        <!-- model -->
+                            </tbody>
+                            <!-- modal -->
 
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="post">
-                                            <div class="mb-3">
-                                                <label for="recipient-name" class="col-form-label">Hóa đơn: </label>
-                                                <input type="hidden" name="sohd_" value="" class="form-control" id="recipient-name">
-                                                <input type="text" name="sohd_" value="" class="form-control" id="recipient-name_" disabled>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="message-text" class="col-form-label">Trạng thái:</label>
-                                                <!-- <textarea class="form-control" id="message-text"></textarea> -->
-                                                <select name="trang_thai">
-                                                    <option value="">Chọn trạng thái</option>
-                                                    <option value="0">Đang giao</option>
-                                                    <option value="1">Đã giao</option>
-                                                    <option value="-1">Đã hủy</option>
-                                                </select>
-                                            </div>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="post">
+                                                <div class="mb-3">
+                                                    <label for="recipient-name" class="col-form-label">Hóa đơn: </label>
+                                                    <input type="hidden" name="sohd_" value="" class="form-control"
+                                                        id="recipient-name">
+                                                    <input type="text" name="sohd_" value="" class="form-control"
+                                                        id="recipient-name_" disabled>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="message-text" class="col-form-label">Trạng thái:</label>
+                                                    <!-- <textarea class="form-control" id="message-text"></textarea> -->
+                                                    <select name="trang_thai">
+                                                        <option value="">Chọn trạng thái</option>
+                                                        <option value="0">Đang giao</option>
+                                                        <option value="1">Đã giao</option>
+                                                        <option value="-1">Đã hủy</option>
+                                                    </select>
+                                                </div>
 
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                        <button type="submit" name="cap_nhap" class="btn btn-primary">Cập nhập</button>
-                                    </div>
-                                    </form>
-                                    <?php
-                                    if (isset($_POST['cap_nhap'])) {
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Đóng</button>
+                                            <button type="submit" name="cap_nhat" class="btn btn-primary">Cập
+                                                nhật</button>
+                                        </div>
+                                        </form>
+                                        <?php
+                                    if (isset($_POST['cap_nhat'])) {
                                         $get_sohd = $_POST['sohd_'];
                                         $get_trangthai = $_POST['trang_thai'];
                                         $select_hoadon="select * from `hoadon` where SOHD='$get_sohd'";
@@ -144,7 +153,7 @@ include('../function/currency_format.php');
                                         $get_tt=$row_hoadon['TRANGTHAI'];
                                         if($get_trangthai==$get_tt)
                                         {
-                                            echo "<script>alert('đã có lỗi xảy ra vui lòng chọn lại')</script>";
+                                            echo "<script>alert('Đã có lỗi xảy ra vui lòng chọn lại')</script>";
                                             echo "<script>window.open('all_order.php','_self')</script>";
                                             exit();
                                         }
@@ -180,40 +189,40 @@ include('../function/currency_format.php');
                                         }
                                     }
                                     ?>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!--  -->
-                    </table>
+                            <!--  -->
+                        </table>
+                    </div>
+
                 </div>
-
             </div>
-        </div>
 
-    </div>
-</body>
+        </div>
+    </body>
 
 </html>
 <script>
-    const exampleModal = document.getElementById('exampleModal')
-    exampleModal.addEventListener('show.bs.modal', event => {
-        // Button that triggered the modal
-        const button = event.relatedTarget
-        // Extract info from data-bs-* attributes
-        const recipient = button.getAttribute('data-bs-whatever')
-        // If necessary, you could initiate an AJAX request here
-        // and then do the updating in a callback.
-        //
-        // Update the modal's content.
-        const modalTitle = exampleModal.querySelector('.modal-title')
-        // const modalBodyInput = exampleModal.querySelector('.modal-body input')
-        const modalBodyInput = document.getElementById('recipient-name');
-        const modalBodyInput_ = document.getElementById('recipient-name_');
+const exampleModal = document.getElementById('exampleModal')
+exampleModal.addEventListener('show.bs.modal', event => {
+    // Button that triggered the modal
+    const button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    const recipient = button.getAttribute('data-bs-whatever')
+    // If necessary, you could initiate an AJAX request here
+    // and then do the updating in a callback.
+    //
+    // Update the modal's content.
+    const modalTitle = exampleModal.querySelector('.modal-title')
+    // const modalBodyInput = exampleModal.querySelector('.modal-body input')
+    const modalBodyInput = document.getElementById('recipient-name');
+    const modalBodyInput_ = document.getElementById('recipient-name_');
 
 
-        modalTitle.textContent = `Cập nhập trạng thái hóa đơn: ${recipient}`
-        modalBodyInput.value = recipient
-        modalBodyInput_.value = recipient
-    })
+    modalTitle.textContent = `Cập nhật trạng thái hóa đơn: ${recipient}`
+    modalBodyInput.value = recipient
+    modalBodyInput_.value = recipient
+})
 </script>
