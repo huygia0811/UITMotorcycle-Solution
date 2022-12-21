@@ -104,9 +104,9 @@ cart();
         </form>
         <?php
         } else {
-            echo "<div class='cart_list cart_list--no-cart'>
-                    <img src='./asset/header_cart/empty-cart.webp' alt='' class='cart_list-no-cart-img' />
-                    <a href='./index.php' class='home-link'>
+            echo "<div class='cart_list cart_list--no-cart text-center'>
+                    <img src='./asset/header_cart/empty-cart.webp' alt='' class='cart_list-no-cart-img mt-3' />
+                    <a href='./index.php' class='home-link d-block my-3'>
                         <button class='home btn btn-lg btn-success btnshoppingcart'>Trang chủ</button>
                     </a>
                     </div>";

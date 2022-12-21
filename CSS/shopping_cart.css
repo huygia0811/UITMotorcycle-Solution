@@ -43,7 +43,7 @@ body {
 }
 .cart_list--no-cart .cart_list-no-cart-img,
 .cart_list--no-cart .home {
-  display: block;
+  display: block !important;
 }
 .container {
   margin: 0 40px;
