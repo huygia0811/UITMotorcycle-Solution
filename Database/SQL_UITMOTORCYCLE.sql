@@ -308,6 +308,8 @@ INSERT INTO `taikhoan` (`tendangnhap`, `MAKH`, `matkhau`, `email`, `khachhang_ip
 ALTER TABLE `cthd`
   ADD KEY `fk01_CTHD` (`MASP`),
   ADD KEY `fk02_CTHD` (`SOHD`);
+ALTER TABLE `cthd`
+  ADD PRIMARY KEY (`MASP`, `SOHD`);
 
 --
 -- Chỉ mục cho bảng `giohang`
@@ -315,7 +317,8 @@ ALTER TABLE `cthd`
 ALTER TABLE `giohang`
   ADD KEY `fk01_GH` (`MASP`),
   ADD KEY `fk02_GH` (`MAKH`);
-
+ALTER TABLE `giohang`
+  ADD PRIMARY KEY (`MASP`, `MAKH`);
 --
 -- Chỉ mục cho bảng `hangxe`
 --
