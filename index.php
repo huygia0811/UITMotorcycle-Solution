@@ -79,7 +79,7 @@ include('./function/common_function.php');
                     </div>  
 
                     <div class="carousel-item" data-bs-interval="5000">
-                        <img src="./Asset/Picture/ad1.jpg" class="d-block w-100" alt="">
+                        <img src="./Asset/Picture/banner_3.png" class="d-block w-100" alt="">
                     </div>
 
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
