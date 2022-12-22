@@ -42,8 +42,8 @@ $mail = new PHPMailer(true);
  
 $mail_tempalde="
 <h5>Thông báo</h5>  
-<p>Bạn đã yêu cầu reset password. Vui lòng nhấn vào link bên dưới để reset password</P>  
-<a href='http://localhost/UITMotorcycle-Solution/password_change.php?token=$token&email=$get_email'>cick hear to reset password</a>";
+<p>Bạn đã yêu cầu đặt lại mật khẩu. Vui lòng nhấn vào link bên dưới để đặt lại mật khẩu</P>  
+<a href='http://localhost/UITMotorcycle-Solution/password_change.php?token=$token&email=$get_email'>Nhấn vào đây để đặt lại mật khẩu</a>";
 $mail->Body=$mail_tempalde;
  $mail->send();
 }
@@ -74,7 +74,7 @@ if(isset($_POST['password_reset_link']))
             if($update_password_run)
             {
                 send_password_reset($get_name,$get_email,$token);
-                $_SESSION['status']="Chúng tôi đã gửi mật khẩu đến email của bạn <a href='https://mail.google.com/'>click to gmail</a>";
+                $_SESSION['status']="Chúng tôi đã gửi link đặt lại mật khẩu đến email của bạn <a href='https://mail.google.com/'>nhấn vào đây để đi đến gmail</a>";
                 header("Location:password_reset.php");
                 exit(0);
             }
