@@ -38,7 +38,7 @@ $mail = new PHPMailer(true);
 
  //Content
  $mail->isHTML(true);                                  //Set email format to HTML
- $mail->Subject = 'Resert pasjknjknsword';
+ $mail->Subject = 'Reset password';
  
 $mail_tempalde="
 <h5>Thông báo</h5>  
