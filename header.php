@@ -57,9 +57,9 @@ include('./includes/connect_database.php');
                 ?>
             </ul>
             <form class="d-flex" role="search" action="index.php" method="GET">
-                <input class="form-control me-2" name="search_data" type="search" placeholder="Search"
+                <input class="form-control me-2" name="search_data" type="search" placeholder="Tìm kiếm xe"
                     aria-label="Search">
-                <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
+                <input type="submit" value="Tìm kiếm" class="btn btn-outline-light" name="search_data_product">
             </form>
             <form id="nav_btnBoloc" class="d-flex">
                 <input id="myBtn" type="button" value="Bộ lọc" class="btn btn-outline-light">

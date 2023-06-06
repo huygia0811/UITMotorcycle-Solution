@@ -123,7 +123,7 @@ if(isset($_POST['thaydoi']))
         $update_khachhang_run=mysqli_query($con,$update_khachhang);
         if($update_khachhang_run)
         {
-            $_SESSION['status_profile']="Cập nhập thành công";
+            $_SESSION['status_profile']="Cập nhật thông tin thành công";
             echo "<script>window.open('user.php?profile','_self')</script>";
             exit(0);
         }

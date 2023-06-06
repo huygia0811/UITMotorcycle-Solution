@@ -6,54 +6,57 @@ include('./function/common_function.php');
 <head>
     <link rel="stylesheet" href="./CSS/user.css">
 </head>
-<div class="mt-2">
-    <h3>Đổi mật khẩu</h3>
-    <p>Để bảo mật tài khoản vui lòng không chia sẻ mật khẩu cho người khác</p>
-</div>
 
-<div class="row password">
-    <div class="col-lg-10">
-        <form action="" method="post">
-            <?php
+<body>
+    <div class="mt-2">
+        <h3>Đổi mật khẩu</h3>
+        <p>Để bảo mật tài khoản vui lòng không chia sẻ mật khẩu cho người khác</p>
+    </div>
+
+    <div class="row password">
+        <div class="col-lg-10">
+            <form action="" method="post">
+                <?php
                 $username=$_SESSION['username'];
                 $select_taikhoan="select * from `taikhoan` where tendangnhap='$username'";
                 $select_taikhoan_run=mysqli_query($con,$select_taikhoan);
                 $row_taikhoan=mysqli_fetch_assoc($select_taikhoan_run);
                 $get_email=$row_taikhoan['email'];
             ?>
-            <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
-                <label for="">Gmail</label>
-                <input class="form-control" style="width: 70%;" type="text" name="old_pwd" placeholder=""
-                    value="<?php echo $get_email ?>" disabled />
-            </div>
-            <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
-                <label for="">Mật khẩu mới</label>
-                <input class="form-control" style="width: 70%;" type="password" name="new_pwd"
-                    placeholder="Nhập mật khẩu mới" value="" />
-            </div>
-            <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
-                <label for="">Nhập lại mật khẩu</label>
-                <input class="form-control" style="width: 70%;" type="password" name="confirm_pwd"
-                    placeholder="Nhập lại mật khẩu" value="" />
-            </div>
+                <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
+                    <label for="">Gmail</label>
+                    <input class="form-control" style="width: 70%;" type="text" name="old_pwd" placeholder=""
+                        value="<?php echo $get_email ?>" disabled />
+                </div>
+                <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
+                    <label for="">Mật khẩu mới</label>
+                    <input class="form-control" style="width: 70%;" type="password" name="new_pwd"
+                        placeholder="Nhập mật khẩu mới" value="" />
+                </div>
+                <div class="form-group d-flex flex-row justify-content-between align-items-center mb-5">
+                    <label for="">Nhập lại mật khẩu</label>
+                    <input class="form-control" style="width: 70%;" type="password" name="confirm_pwd"
+                        placeholder="Nhập lại mật khẩu" value="" />
+                </div>
 
-            <?php
+                <?php
     if(isset($_SESSION['status_password']))
     {
 ?>
-            <div class="alert alert-success text-center">
-                <h5><?= $_SESSION['status_password']; ?></h5>
-            </div>
-            <?php
+                <div class="alert alert-success text-center">
+                    <h5><?= $_SESSION['status_password']; ?></h5>
+                </div>
+                <?php
     unset($_SESSION['status_password']);   
     }
 ?>
-            <button class="btn btn-danger button" type="submit" name="thaydoi">Lưu thay đổi</button>
-            <button class="btn btn-sm btn-danger button_sm" type="submit" name="thaydoi">Lưu thay đổi</button>
-        </form>
+                <button class="btn btn-danger button" type="submit" name="thaydoi">Lưu thay đổi</button>
+                <button class="btn btn-sm btn-danger button_sm" type="submit" name="thaydoi">Lưu thay đổi</button>
+            </form>
 
-    </div>
-    <?php
+        </div>
+</body>
+<?php
 if(isset($_POST['thaydoi']))
 {
     $new_pwd = $_POST['new_pwd'];

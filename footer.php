@@ -13,6 +13,11 @@
                     <div class="HCM">
                         <p><b>Địa chỉ: </b>Trường Đại học CNTT, Khu phố 6, P.Linh Trung, TP.Thủ Đức, TP. HCM</p>
                         <p><b>Điện thoại: </b>1234567890</p>
+                        <a class="fa-brands fa-github fa-xl" style="margin-right: 20px;"
+                            href="https://github.com/huygia0811/UITMotorcycle-Solution" target="_blank"></a>
+                        <a class="fa-brands fa-dribbble fa-xl"
+                            href="https://dribbble.com/shots/20188739-UIT-MotorCycle-E-commerce-website?utm_source=Clipboard_Shot&utm_campaign=huygia0811&utm_content=UIT%20MotorCycle%20-%20E-commerce%20website&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=huygia0811&utm_content=UIT%20MotorCycle%20-%20E-commerce%20website&utm_medium=Social_Share"
+                            target="_blank"></a>
                     </div>
                 </div>
                 <div class="col-4">
@@ -33,7 +38,8 @@
                         <h6>VỀ CHÚNG TÔI</h6>
                         <div class="ft_horizontal_line"></div>
                         <div class="intro">
-                            <p><a href="#">Giới thiệu</a></p>
+                            <p><a href="https://thisismygroupname5dot1.wordpress.com/" target="_blank">Giới thiệu</a>
+                            </p>
                             <p><a href="#">Điều khoản sử dụng</a></p>
                             <p><a href="#">Quy chế hoạt động</a></p>
                             <p><a href="#">Trung tâm khách hàng</a></p>

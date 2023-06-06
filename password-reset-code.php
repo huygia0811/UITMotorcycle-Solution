@@ -43,7 +43,7 @@ $mail = new PHPMailer(true);
 $mail_tempalde="
 <h5>Thông báo</h5>  
 <p>Bạn đã yêu cầu đặt lại mật khẩu. Vui lòng nhấn vào link bên dưới để đặt lại mật khẩu</P>  
-<a href='http://localhost:8080/UITMotorCycle//password_change.php?token=$token&email=$get_email'>Nhấn vào đây để đặt lại mật khẩu</a>";
+<a href='http://localhost:8080/UITMotorcycle/UITMotorcycle-Solution/password_change.php?token=$token&email=$get_email'>Nhấn vào đây để đặt lại mật khẩu</a>";
 $mail->Body=$mail_tempalde;
  $mail->send();
 }

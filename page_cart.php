@@ -4,7 +4,7 @@ include('./includes/connect_database.php');
 cart();
 ?>
 <link rel="stylesheet" href="./CSS/page_cart.css">
-<div class="container-sm page_cart" style="min-height: 400px;">
+<div class="container-sm page_cart mt-4" style="min-height: 500px;">
     <div>
         <?php
         $total = 0;
@@ -86,7 +86,7 @@ cart();
             ?>
         </tbody>
         </table>
-        <div class="d-flex">
+        <div class="d-flex mb-5 mt-4">
             <h4 class="px-3 total">Tổng: <strong
                     class="text-info shoppingcart_h4"><?php echo currency_format($total) . " đ"; ?></strong></h4>
 
@@ -104,7 +104,7 @@ cart();
         </form>
         <?php
         } else {
-            echo "<div class='cart_list cart_list--no-cart text-center'>
+            echo "<div class='cart_list cart_list--no-cart text-center mb-5 mt-4'>
                     <img src='./asset/header_cart/empty-cart.webp' alt='' class='cart_list-no-cart-img mt-3' />
                     <a href='./index.php' class='home-link d-block my-3'>
                         <button class='home btn btn-lg btn-success btnshoppingcart'>Trang chủ</button>

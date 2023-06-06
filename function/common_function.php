@@ -24,13 +24,13 @@ function cart()
     $count = mysqli_num_rows($select_query_run);
     if ($count > 0) {
       echo "<script>alert('Sản phẩm đã có sẵn trong giỏ hàng')</script>";
-      echo "<script>window.open('index.php','_self')</script>";
+      echo "<script>window.location.href='page_shopping_cart.php'</script>";
     } else {
       $insert_query = "insert into `giohang` (MASP, MAKH,soluong) values ('$masp','$get_makh','$soluong')";
       $result_query = mysqli_query($con, $insert_query);
       if ($result_query) {
         echo "<script>alert('Sản phẩm đã được thêm vào giỏ hàng') </script>";
-        echo "<script>window.open('index.php','_self')</script>";
+        echo "<script>window.location.href='page_shopping_cart.php'</script>";
       }
     }
   }

@@ -36,7 +36,7 @@ cart();
     }
     ?>
         <main>
-            <div class="container">
+            <div class="container bg-light">
                 <div class="prod_detail">
                     <div class="prod_row_0">
                         <?php

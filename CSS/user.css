@@ -1,16 +1,14 @@
-.user_content {
-  padding: 0;
-}
-.header {
-  margin-top: 15px;
-}
 .wrapper {
   display: flex;
   align-items: stretch;
   margin: 20px 0;
   background-color: rgb(231, 230, 230);
 }
-
+.container {
+  margin: 15px auto 0 auto !important;
+  border: none !important;
+  padding: 0 !important;
+}
 a,
 a:hover,
 a:focus {

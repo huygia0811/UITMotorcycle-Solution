@@ -4,13 +4,23 @@
   border-radius: 5px;
   color: white !important;
 }
-
+.btnshoppingcart {
+  border: transparent !important;
+}
+.btnshoppingcart:hover {
+  transform: scale(1.02);
+}
 .shoppingcart_h4 {
   color: #05c5cc !important;
   font-size: 25px;
 }
 .button_sm {
   display: none !important;
+}
+.container {
+  margin: 15px auto 0 auto !important;
+  border: none !important;
+  padding: 0 !important;
 }
 @media only screen and (max-width: 768px) {
   .table_content {

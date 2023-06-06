@@ -19,13 +19,11 @@
 
     <body style="background-color: #efefef">
         <!-- Header -->
-        <div class="mt-3">
-            <?php
+        <?php
     include('./header.php');
     ?>
-        </div>
 
-        <div class="cart_content">
+        <div class="cart_content container">
             <!-- cart -->
             <?php
         include('./page_cart.php');
@@ -34,8 +32,8 @@
         <div class="container">
             <!-- footer -->
             <?php
-    include('./footer.php');
-    ?>
+        include('./footer.php');
+        ?>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

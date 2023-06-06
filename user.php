@@ -19,14 +19,11 @@
 
     </head>
 
-    <body style="background-color: #efefef" class="container">
-
-        <div class="user_content">
-            <div class="header">
-                <?php
+    <body style="background-color: #efefef">
+        <?php
     include('./header.php');
     ?>
-            </div>
+        <div class="user_content container">
             <div class="wrapper">
                 <!-- Sidebar  -->
 
@@ -119,7 +116,7 @@
 
         </div>
 
-        <div class="footer">
+        <div class="container">
             <?php
     include('./footer.php');
     ?>

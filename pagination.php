@@ -2,7 +2,7 @@
     <li <?php if($trang <= 1){ echo "class='is_disabled'"; } ?>>
         <a <?php if($trang > 1){ echo "href='$url&trang=$previous_page'"; } ?>>‹</a>
     </li>
-    
+
     <?php 
         if ($tong_so_trang <= 4){  	 
             for ($counter = 1; $counter <= $tong_so_trang; $counter++){
@@ -49,7 +49,7 @@
             }
         }
     ?>
-    
+
     <li <?php if($trang >= $tong_so_trang){ echo "class='is_disabled'"; } ?>>
         <a <?php if($trang < $tong_so_trang) { echo "href='$url&trang=$next_page'"; } ?>>›</a>
     </li>

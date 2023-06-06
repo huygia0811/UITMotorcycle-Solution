@@ -15,6 +15,8 @@ include './includes/connect_database.php';
     <body>
         <div class="container payment">
             <h1 class="text-center">Nạp tiền qua MOMO</h1>
+            <p class="text-center mt-4">Thời gian phản hồi trong vòng ít nhất 24h kể từ thời gian khách hàng nhập thông
+                tin nạp tiền bên dưới.</p>
             <div class="row">
                 <div class="col-lg-6 text-center">
                     <img style="height:auto; width:50%; object-fit: contain;" src="Asset/Picture/momo.jpg"
