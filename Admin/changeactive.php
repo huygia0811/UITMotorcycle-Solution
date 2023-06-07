@@ -23,4 +23,3 @@ if(!isset($_REQUEST['id'])) {
     echo "<script>window.location='view_products.php' </script>";
 }
 ?>
-

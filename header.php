@@ -46,10 +46,10 @@ include('./includes/connect_database.php');
                 {
                 ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="./signin.php"><i class="fas fa-sign-out"></i> Đăng nhập</a>
+                    <a class="nav-link" href="./Login.php"><i class="fas fa-sign-out"></i> Đăng nhập</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./signup.php"><i class="fas fa-sign-in"></i> Đăng ký</a>
+                    <a class="nav-link" href="./Register.php"><i class="fas fa-sign-in"></i> Đăng ký</a>
                 </li>
 
                 <?php

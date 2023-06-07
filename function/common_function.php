@@ -6,7 +6,7 @@ function cart()
 {
   if (isset($_GET['add_to_card'])) {
     if(!isset($_SESSION['username'])) {
-      header('location: signin.php');
+      header('location: Login.php');
       exit;
     }
     else

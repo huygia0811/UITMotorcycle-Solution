@@ -96,7 +96,8 @@ include('../function/currency_format.php');
                             ?>
                                 <td>
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal" data-bs-whatever="<?php echo $sohd ?>">Sửa trạng
+                                        data-bs-target="#exampleModal" data-bs-whatever="<?php echo $sohd ?>"
+                                        order_status="<?php echo $trangthai ?>">Sửa trạng
                                         thái</button>
                                 </td>
 
@@ -127,7 +128,7 @@ include('../function/currency_format.php');
                                                 <div class="mb-3">
                                                     <label for="message-text" class="col-form-label">Trạng thái:</label>
                                                     <!-- <textarea class="form-control" id="message-text"></textarea> -->
-                                                    <select name="trang_thai">
+                                                    <select name="trang_thai" id="trang_thai">
                                                         <option value="">Chọn trạng thái</option>
                                                         <option value="0">Đang giao</option>
                                                         <option value="1">Đã giao</option>
@@ -211,6 +212,7 @@ exampleModal.addEventListener('show.bs.modal', event => {
     const button = event.relatedTarget
     // Extract info from data-bs-* attributes
     const recipient = button.getAttribute('data-bs-whatever')
+    const status = button.getAttribute("order_status")
     // If necessary, you could initiate an AJAX request here
     // and then do the updating in a callback.
     //
@@ -219,10 +221,18 @@ exampleModal.addEventListener('show.bs.modal', event => {
     // const modalBodyInput = exampleModal.querySelector('.modal-body input')
     const modalBodyInput = document.getElementById('recipient-name');
     const modalBodyInput_ = document.getElementById('recipient-name_');
-
+    const modalStatus = document.getElementById('trang_thai');
+    if (status == 1 || status == -1) {
+        modalStatus.disabled = true;
+    } else {
+        modalStatus.disabled = false;
+    }
 
     modalTitle.textContent = `Cập nhật trạng thái hóa đơn: ${recipient}`
     modalBodyInput.value = recipient
     modalBodyInput_.value = recipient
+    if (status != -2) {
+        modalStatus.value = status;
+    }
 })
 </script>

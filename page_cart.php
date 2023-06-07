@@ -151,7 +151,7 @@ cart();
                 $get_gioitinh = $row_khachhang['GIOITINH'];
                 $get_socccd = $row_khachhang['SOCCCD'];
                 if ($get_hoten == '' or $get_dchi == '' or $get_sodt == '' or $get_gioitinh == '' or $get_socccd == '') {
-                    echo "<script> alert('Bạn phải cập nhập đầy đủ thông tin trước khi thanh toán') </script>";
+                    echo "<script> alert('Bạn phải cập nhật đầy đủ thông tin trước khi thanh toán') </script>";
                     echo "<script>window.open('user.php?profile','_self')</script>>";
                     exit(0);
                 }

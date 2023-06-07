@@ -1,7 +1,7 @@
 <?php
 include('../includes/connect_database.php');
 include "header.php";
-if(isset($_POST['update_btn']) &&$_POST['update_btn']=="Update") {
+if(isset($_POST['update_btn']) &&$_POST['update_btn']=="Cập nhật") {
 	$valid = 1;
 
     $path = $_FILES['new_image']['name'];
@@ -274,7 +274,7 @@ while($row=mysqli_fetch_assoc($result_query))
                                     <div class="form-group mb-4 w-50 m-auto">
                                         <label for="" class="control-label"></label>
                                         <input type="submit" class="btn btn-success pull-left" name="update_btn"
-                                            value="Update">
+                                            value="Cập nhật">
                                     </div>
                                 </div>
                             </div>
